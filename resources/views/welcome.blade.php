@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -116,140 +117,134 @@
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="rounded-lg border-2 border-gray-200 p-5">
-                                        <div class="grid gap-2 sm:grid-cols-3" x-show="currentTab === 1">
+                                        <div class="grid gap-4 sm:grid-cols-3" x-show="currentTab === 1">
                                             <div class="mt-0">
-                                                <x-label for="first_name" value="{{ __('First Name') }}" />
-                                                <x-input class="mt-1 block w-full" id="first_name" name="first_name"
-                                                    type="text" :value="old('first_name')" required autofocus />
-                                            </div>
-                                            <div class="mt-0">
-                                                <x-label for="last_name" value="{{ __('Last Name') }}" />
-                                                <x-input class="mt-1 block w-full" id="last_name" name="last_name"
-                                                    type="text" :value="old('last_name')" required autofocus />
+                                                <x-input-float-label class="block w-full" id="first_name"
+                                                    name="first_name" type="text" label="{{ __('First Name') }}"
+                                                    :value="old('first_name')" required autofocus />
                                             </div>
                                             <div class="mt-0">
-                                                <x-label for="gender" value="{{ __('Gender') }}" />
-                                                <x-input class="mt-1 block w-full" id="gender" name="gender"
-                                                    type="text" :value="old('gender')" required autofocus />
+                                                <x-input-float-label class="block w-full" id="last_name"
+                                                    name="last_name" type="text" label="{{ __('Last Name') }}"
+                                                    :value="old('last_name')" required autofocus />
                                             </div>
-                                            <div class="mt-4">
-                                                <x-label for="class"
-                                                    value="{{ __('Class to which admission is sought for') }}" />
-                                                <x-input class="mt-1 block w-full" id="class" name="class"
-                                                    type="text" :value="old('class')" required autofocus />
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="gender"
+                                                    name="gender" type="text" label="{{ __('Gender') }}"
+                                                    :value="old('gender')" required autofocus />
                                             </div>
-                                            <div class="mt-4">
-                                                <x-label for="academic_year" value="{{ __('Academic Year') }}" />
-                                                <x-input class="mt-1 block w-full" id="academic_year"
-                                                    name="academic_year" type="text" :value="old('academic_year')" required
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="class"
+                                                    name="class" type="text"
+                                                    label="{{ __('Class to which admission is sought for') }}"
+                                                    :value="old('class')" required autofocus />
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="academic_year"
+                                                    name="academic_year" type="text"
+                                                    label="{{ __('Academic Year') }}" :value="old('academic_year')" required
                                                     autofocus />
                                             </div>
-                                            <div class="mt-4">
-                                                <x-label for="nationality" value="{{ __('Nationality') }}" />
-                                                <x-input class="mt-1 block w-full" id="nationality"
-                                                    name="nationality" type="text" :value="old('nationality')" required
-                                                    autofocus />
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="nationality"
+                                                    name="nationality" type="text" label="{{ __('Nationality') }}"
+                                                    :value="old('nationality')" required autofocus />
                                             </div>
-                                            <div class="mt-4">
-                                                <x-label for="date_of_birth"
-                                                    value="{{ __('Date Of Birth In Figure') }}" />
-                                                <x-input class="mt-1 block w-full" id="date_of_birth"
-                                                    name="date_of_birth" type="date" :value="old('date_of_birth')" required
-                                                    autofocus />
-                                            </div>
-                                            <div class="mt-4">
-                                                <x-label for="date_of_birth_word"
-                                                    value="{{ __('Date Of Birth In Words') }}" />
-                                                <x-input class="mt-1 block w-full" id="date_of_birth_word"
-                                                    name="date_of_birth_word" type="text" :value="old('date_of_birth_word')"
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="date_of_birth"
+                                                    name="date_of_birth" type="date"
+                                                    label="{{ __('Date Of Birth In Figure') }}" :value="old('date_of_birth')"
                                                     required autofocus />
                                             </div>
-                                            <div class="mt-4">
-                                                <x-label for="place_of_birth"
-                                                    value="{{ __('Place Of Birth With State') }}" />
-                                                <x-input class="mt-1 block w-full" id="place_of_birth"
-                                                    name="place_of_birth" type="text" :value="old('place_of_birth')" required
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="date_of_birth_word"
+                                                    name="date_of_birth_word" type="text"
+                                                    label="{{ __('Date Of Birth In Words') }}" :value="old('date_of_birth_word')"
+                                                    required autofocus />
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="place_of_birth"
+                                                    name="place_of_birth" type="text"
+                                                    label="{{ __('Place Of Birth With State') }}" :value="old('place_of_birth')"
+                                                    required autofocus />
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="religion"
+                                                    name="religion" type="text" label="{{ __('Religion') }}"
+                                                    :value="old('religion')" required autofocus />
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="caste"
+                                                    name="caste" type="text" label="{{ __('Caste') }}"
+                                                    :value="old('caste')" required autofocus />
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="social_category"
+                                                    name="social_category" type="text"
+                                                    label="{{ __('Social Category') }}" :value="old('social_category')" required
                                                     autofocus />
                                             </div>
-                                            <div class="mt-4">
-                                                <x-label for="religion" value="{{ __('Religion') }}" />
-                                                <x-input class="mt-1 block w-full" id="religion" name="religion"
-                                                    type="text" :value="old('religion')" required autofocus />
-                                            </div>
-                                            <div class="mt-4">
-                                                <x-label for="caste" value="{{ __('Caste') }}" />
-                                                <x-input class="mt-1 block w-full" id="caste" name="caste"
-                                                    type="text" :value="old('caste')" required autofocus />
-                                            </div>
-                                            <div class="mt-4">
-                                                <x-label for="social_category" value="{{ __('Social Category') }}" />
-                                                <x-input class="mt-1 block w-full" id="social_category"
-                                                    name="social_category" type="text" :value="old('social_category')" required
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="mother_tongue"
+                                                    name="mother_tongue" type="text"
+                                                    label="{{ __('Mother Tongue') }}" :value="old('mother_tongue')" required
                                                     autofocus />
                                             </div>
-                                            <div class="mt-4">
-                                                <x-label for="mother_tongue" value="{{ __('Mother Tongue') }}" />
-                                                <x-input class="mt-1 block w-full" id="mother_tongue"
-                                                    name="mother_tongue" type="text" :value="old('mother_tongue')" required
-                                                    autofocus />
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full"
+                                                    id="previous_institution" name="previous_institution"
+                                                    type="text" label="{{ __('Previous Institution') }}"
+                                                    :value="old('previous_institution')" required autofocus disabled />
                                             </div>
-                                            <div class="mt-4">
-                                                <x-label for="previous_institution"
-                                                    value="{{ __('Previous Institution') }}" />
-                                                <x-input class="mt-1 block w-full" id="previous_institution"
-                                                    name="previous_institution" type="text" :value="old('previous_institution')"
-                                                    required autofocus disabled />
-                                            </div>
-                                            <div class="mt-4">
-                                                <x-label for="siblings" value="{{ __('Siblings') }}" />
-                                                <x-input class="mt-1 block w-full" id="siblings" name="siblings"
-                                                    type="text" :value="old('siblings')" required autofocus disabled />
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="siblings"
+                                                    name="siblings" type="text" label="{{ __('Siblings') }}"
+                                                    :value="old('siblings')" required autofocus disabled />
                                             </div>
                                         </div>
                                         <div class="grid gap-2 sm:grid-cols-2" x-show="currentTab === 2">
                                             <div class="rounded border border-sky-500 p-2">
                                                 <div class="grid gap-2 sm:grid-cols-2">
                                                     <div class="mt-0 sm:col-span-2">
-                                                        <x-label for="address"
-                                                            value="{{ __('Address of Parent(House / Flat No)') }}" />
-                                                        <x-input class="mt-1 block w-full" id="address"
-                                                            name="address" type="text" :value="old('address')" required
+                                                        <x-input-float-label class="block w-full" id="address"
+                                                            name="address" type="text"
+                                                            label="{{ __('Address of Parent(House / Flat No)') }}"
+                                                            :value="old('address')" required autofocus />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full" id="road"
+                                                            name="road" type="text"
+                                                            label="{{ __('Road') }}" :value="old('road')" required
                                                             autofocus />
                                                     </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="road" value="{{ __('Road') }}" />
-                                                        <x-input class="mt-1 block w-full" id="road"
-                                                            name="road" type="text" :value="old('road')" required
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full" id="street"
+                                                            name="street" type="text"
+                                                            label="{{ __('Street') }}" :value="old('street')" required
                                                             autofocus />
                                                     </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="street" value="{{ __('Street') }}" />
-                                                        <x-input class="mt-1 block w-full" id="street"
-                                                            name="street" type="text" :value="old('street')" required
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full" id="area"
+                                                            name="area" type="text"
+                                                            label="{{ __('Area') }}" :value="old('area')" required
                                                             autofocus />
                                                     </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="area" value="{{ __('Area') }}" />
-                                                        <x-input class="mt-1 block w-full" id="area"
-                                                            name="area" type="text" :value="old('area')" required
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full" id="city"
+                                                            name="city" type="text"
+                                                            label="{{ __('City') }}" :value="old('city')" required
                                                             autofocus />
                                                     </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="city" value="{{ __('City') }}" />
-                                                        <x-input class="mt-1 block w-full" id="city"
-                                                            name="city" type="text" :value="old('city')" required
-                                                            autofocus />
-                                                    </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="post_office" value="{{ __('Post Office') }}" />
-                                                        <x-input class="mt-1 block w-full" id="post_office"
-                                                            name="post_office" type="text" :value="old('post_office')"
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="post_office" name="post_office" type="text"
+                                                            label="{{ __('Post Office') }}" :value="old('post_office')"
                                                             required autofocus />
                                                     </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="pincode" value="{{ __('Pincode') }}" />
-                                                        <x-input class="mt-1 block w-full" id="pincode"
-                                                            name="pincode" type="text" :value="old('pincode')" required
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full" id="pincode"
+                                                            name="pincode" type="text"
+                                                            label="{{ __('Pincode') }}" :value="old('pincode')" required
                                                             autofocus />
                                                     </div>
                                                 </div>
@@ -258,50 +253,47 @@
                                             <div class="rounded border border-sky-500 p-2">
                                                 <div class="grid gap-2 sm:grid-cols-2">
                                                     <div class="mt-0 sm:col-span-2">
-                                                        <x-label for="permanent_address"
-                                                            value="{{ __('Address of Parent(House / Flat No)') }}" />
-                                                        <x-input class="mt-1 block w-full" id="permanent_address"
-                                                            name="permanent_address" type="text" :value="old('permanent_address')"
-                                                            required autofocus />
+                                                        <x-input-float-label class="block w-full"
+                                                            id="permanent_address" name="permanent_address"
+                                                            type="text"
+                                                            label="{{ __('Address of Parent(House / Flat No)') }}"
+                                                            :value="old('permanent_address')" required autofocus />
                                                     </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="permanent_road" value="{{ __('Road') }}" />
-                                                        <x-input class="mt-1 block w-full" id="permanent_road"
-                                                            name="permanent_road" type="text" :value="old('permanent_road')"
-                                                            required autofocus />
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="permanent_road" name="permanent_road" type="text"
+                                                            label="{{ __('Road') }}" :value="old('permanent_road')" required
+                                                            autofocus />
                                                     </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="permanent_street"
-                                                            value="{{ __('Street') }}" />
-                                                        <x-input class="mt-1 block w-full" id="permanent_street"
-                                                            name="permanent_street" type="text" :value="old('permanent_street')"
-                                                            required autofocus />
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="permanent_street" name="permanent_street"
+                                                            type="text" label="{{ __('Street') }}"
+                                                            :value="old('permanent_street')" required autofocus />
                                                     </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="permanent_area" value="{{ __('Area') }}" />
-                                                        <x-input class="mt-1 block w-full" id="permanent_area"
-                                                            name="permanent_area" type="text" :value="old('permanent_area')"
-                                                            required autofocus />
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="permanent_area" name="permanent_area" type="text"
+                                                            label="{{ __('Area') }}" :value="old('permanent_area')" required
+                                                            autofocus />
                                                     </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="permanent_city" value="{{ __('City') }}" />
-                                                        <x-input class="mt-1 block w-full" id="permanent_city"
-                                                            name="permanent_city" type="text" :value="old('permanent_city')"
-                                                            required autofocus />
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="permanent_city" name="permanent_city" type="text"
+                                                            label="{{ __('City') }}" :value="old('permanent_city')" required
+                                                            autofocus />
                                                     </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="permanent_post_office"
-                                                            value="{{ __('Post Office') }}" />
-                                                        <x-input class="mt-1 block w-full" id="permanent_post_office"
-                                                            name="permanent_post_office" type="text"
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="permanent_post_office" name="permanent_post_office"
+                                                            type="text" label="{{ __('Post Office') }}"
                                                             :value="old('permanent_post_office')" required autofocus />
                                                     </div>
-                                                    <div class="mt-4">
-                                                        <x-label for="permanent_pincode"
-                                                            value="{{ __('Pincode') }}" />
-                                                        <x-input class="mt-1 block w-full" id="permanent_pincode"
-                                                            name="permanent_pincode" type="text" :value="old('permanent_pincode')"
-                                                            required autofocus />
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="permanent_pincode" name="permanent_pincode"
+                                                            type="text" label="{{ __('Pincode') }}"
+                                                            :value="old('permanent_pincode')" required autofocus />
                                                     </div>
                                                 </div>
                                             </div>
@@ -311,50 +303,45 @@
                                                 <div class="rounded border border-sky-500 p-2">
                                                     <div class="{{ $i }} grid gap-2 sm:grid-cols-2">
                                                         <div class="mt-0 sm:col-span-2">
-                                                            <x-label for="parent_name" value="{{ __('Name') }}" />
-                                                            <x-input class="mt-1 block w-full" id="parent_name"
-                                                                name="parent_name" type="text" :value="old('parent_name')"
+                                                            <x-input-float-label class="block w-full"
+                                                                id="parent_name" name="parent_name" type="text"
+                                                                label="{{ __('Name') }}" :value="old('parent_name')"
                                                                 required autofocus />
                                                         </div>
-                                                        <div class="mt-4">
-                                                            <x-label for="occupation"
-                                                                value="{{ __('Occupation') }}" />
-                                                            <x-input class="mt-1 block w-full" id="occupation"
-                                                                name="occupation" type="text" :value="old('occupation')"
+                                                        <div class="mt-0">
+                                                            <x-input-float-label class="block w-full"
+                                                                id="occupation" name="occupation" type="text"
+                                                                label="{{ __('Occupation') }}" :value="old('occupation')"
                                                                 required autofocus />
                                                         </div>
-                                                        <div class="mt-4">
-                                                            <x-label for="annual_income"
-                                                                value="{{ __('Annual Income') }}" />
-                                                            <x-input class="mt-1 block w-full" id="annual_income"
-                                                                name="annual_income" type="text" :value="old('annual_income')"
+                                                        <div class="mt-0">
+                                                            <x-input-float-label class="block w-full"
+                                                                id="annual_income" name="annual_income"
+                                                                type="text" label="{{ __('Annual Income') }}"
+                                                                :value="old('annual_income')" required autofocus />
+                                                        </div>
+                                                        <div class="mt-0">
+                                                            <x-input-float-label class="block w-full"
+                                                                id="mobile_number" name="mobile_number"
+                                                                type="text" label="{{ __('Mobile Number') }}"
+                                                                :value="old('mobile_number')" required autofocus />
+                                                        </div>
+                                                        <div class="mt-0">
+                                                            <x-input-float-label class="block w-full"
+                                                                id="email" name="email" type="email"
+                                                                label="{{ __('Email Id') }}" :value="old('email')"
                                                                 required autofocus />
                                                         </div>
-                                                        <div class="mt-4">
-                                                            <x-label for="mobile_number"
-                                                                value="{{ __('Mobile Number') }}" />
-                                                            <x-input class="mt-1 block w-full" id="mobile_number"
-                                                                name="mobile_number" type="text" :value="old('mobile_number')"
-                                                                required autofocus />
+                                                        <div class="mt-0">
+                                                            <x-input-float-label class="block w-full"
+                                                                id="office_number" name="office_number"
+                                                                type="text" label="{{ __('Office Number') }}"
+                                                                :value="old('office_number')" required autofocus />
                                                         </div>
-                                                        <div class="mt-4">
-                                                            <x-label for="email" value="{{ __('Email Id') }}" />
-                                                            <x-input class="mt-1 block w-full" id="email"
-                                                                name="email" type="email" :value="old('email')"
-                                                                required autofocus />
-                                                        </div>
-                                                        <div class="mt-4">
-                                                            <x-label for="office_number"
-                                                                value="{{ __('Office Number') }}" />
-                                                            <x-input class="mt-1 block w-full" id="office_number"
-                                                                name="office_number" type="text" :value="old('office_number')"
-                                                                required autofocus />
-                                                        </div>
-                                                        <div class="mt-4">
-                                                            <x-label for="office_address"
-                                                                value="{{ __('Office Address') }}" />
-                                                            <x-input class="mt-1 block w-full" id="office_address"
-                                                                name="office_address" type="text"
+                                                        <div class="mt-0">
+                                                            <x-input-float-label class="block w-full"
+                                                                id="office_address" name="office_address"
+                                                                type="text" label="{{ __('Office Address') }}"
                                                                 :value="old('office_address')" required autofocus />
                                                         </div>
                                                     </div>
@@ -370,4 +357,5 @@
             </main>
         </div>
     </body>
+
 </html>
