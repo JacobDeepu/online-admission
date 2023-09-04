@@ -114,7 +114,7 @@
                                     </div>
                                 @endif
 
-                                <form method="POST" action="{{ route('login') }}">
+                                <form method="POST" action="{{ route('register.store') }}">
                                     @csrf
                                     <div class="rounded-lg border-2 border-gray-200 p-5">
                                         <div class="grid gap-4 sm:grid-cols-3" x-show="currentTab === 1">
@@ -129,26 +129,12 @@
                                                     :value="old('last_name')" required autofocus />
                                             </div>
                                             <div class="mt-0">
-                                                <x-input-float-label class="block w-full" id="gender"
-                                                    name="gender" type="text" label="{{ __('Gender') }}"
-                                                    :value="old('gender')" required autofocus />
-                                            </div>
-                                            <div class="mt-0">
-                                                <x-input-float-label class="block w-full" id="class"
-                                                    name="class" type="text"
-                                                    label="{{ __('Class to which admission is sought for') }}"
-                                                    :value="old('class')" required autofocus />
-                                            </div>
-                                            <div class="mt-0">
-                                                <x-input-float-label class="block w-full" id="academic_year"
-                                                    name="academic_year" type="text"
-                                                    label="{{ __('Academic Year') }}" :value="old('academic_year')" required
-                                                    autofocus />
-                                            </div>
-                                            <div class="mt-0">
-                                                <x-input-float-label class="block w-full" id="nationality"
-                                                    name="nationality" type="text" label="{{ __('Nationality') }}"
-                                                    :value="old('nationality')" required autofocus />
+                                                <x-select class="block w-full" id="gender" name="gender"
+                                                    label="{{ __('Gender') }}">
+                                                    <option value="Male" @selected(old('gender') == 'Male')>Male</option>
+                                                    <option value="Female" @selected(old('gender') == 'Female')>Female
+                                                    </option>
+                                                </x-select>
                                             </div>
                                             <div class="mt-0">
                                                 <x-input-float-label class="block w-full" id="date_of_birth"
@@ -163,10 +149,9 @@
                                                     required autofocus />
                                             </div>
                                             <div class="mt-0">
-                                                <x-input-float-label class="block w-full" id="place_of_birth"
-                                                    name="place_of_birth" type="text"
-                                                    label="{{ __('Place Of Birth With State') }}" :value="old('place_of_birth')"
-                                                    required autofocus />
+                                                <x-input-float-label class="block w-full" id="uid"
+                                                    name="uid" type="text" label="{{ __('Aadhaar') }}"
+                                                    :value="old('uid')" required autofocus />
                                             </div>
                                             <div class="mt-0">
                                                 <x-input-float-label class="block w-full" id="religion"
@@ -179,9 +164,27 @@
                                                     :value="old('caste')" required autofocus />
                                             </div>
                                             <div class="mt-0">
-                                                <x-input-float-label class="block w-full" id="social_category"
-                                                    name="social_category" type="text"
-                                                    label="{{ __('Social Category') }}" :value="old('social_category')" required
+                                                <x-select class="block w-full" id="social_category"
+                                                    name="social_category" label="{{ __('Social Category') }}">
+                                                    <option value="General" @selected(old('social_category') == 'General')>
+                                                        General
+                                                    </option>
+                                                    <option value="OBC" @selected(old('gender') == 'OBC')>OBC</option>
+                                                    <option value="OEC" @selected(old('gender') == 'OBC')>OEC</option>
+                                                    <option value="SC" @selected(old('gender') == 'SC')>SC</option>
+                                                    <option value="ST" @selected(old('ST') == 'OBC')>ST</option>
+                                                </x-select>
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="place_of_birth"
+                                                    name="place_of_birth" type="text"
+                                                    label="{{ __('Place Of Birth With State') }}" :value="old('place_of_birth')"
+                                                    required autofocus />
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="nationality"
+                                                    name="nationality" type="text"
+                                                    label="{{ __('Nationality') }}" :value="old('nationality')" required
                                                     autofocus />
                                             </div>
                                             <div class="mt-0">
@@ -190,16 +193,10 @@
                                                     label="{{ __('Mother Tongue') }}" :value="old('mother_tongue')" required
                                                     autofocus />
                                             </div>
-                                            <div class="mt-0">
-                                                <x-input-float-label class="block w-full"
-                                                    id="previous_institution" name="previous_institution"
-                                                    type="text" label="{{ __('Previous Institution') }}"
-                                                    :value="old('previous_institution')" required autofocus disabled />
-                                            </div>
-                                            <div class="mt-0">
-                                                <x-input-float-label class="block w-full" id="siblings"
-                                                    name="siblings" type="text" label="{{ __('Siblings') }}"
-                                                    :value="old('siblings')" required autofocus disabled />
+                                            <div class="mt-4 flex items-center justify-end sm:col-span-2">
+                                                <x-button class="ml-4">
+                                                    {{ __('Submit') }}
+                                                </x-button>
                                             </div>
                                         </div>
                                         <div class="grid gap-2 sm:grid-cols-2" x-show="currentTab === 2">
@@ -236,8 +233,8 @@
                                                             autofocus />
                                                     </div>
                                                     <div class="mt-0">
-                                                        <x-input-float-label class="block w-full"
-                                                            id="post_office" name="post_office" type="text"
+                                                        <x-input-float-label class="block w-full" id="post_office"
+                                                            name="post_office" type="text"
                                                             label="{{ __('Post Office') }}" :value="old('post_office')"
                                                             required autofocus />
                                                     </div>
@@ -249,7 +246,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="rounded border border-sky-500 p-2">
                                                 <div class="grid gap-2 sm:grid-cols-2">
                                                     <div class="mt-0 sm:col-span-2">
@@ -260,8 +256,8 @@
                                                             :value="old('permanent_address')" required autofocus />
                                                     </div>
                                                     <div class="mt-0">
-                                                        <x-input-float-label class="block w-full"
-                                                            id="permanent_road" name="permanent_road" type="text"
+                                                        <x-input-float-label class="block w-full" id="permanent_road"
+                                                            name="permanent_road" type="text"
                                                             label="{{ __('Road') }}" :value="old('permanent_road')" required
                                                             autofocus />
                                                     </div>
@@ -272,14 +268,14 @@
                                                             :value="old('permanent_street')" required autofocus />
                                                     </div>
                                                     <div class="mt-0">
-                                                        <x-input-float-label class="block w-full"
-                                                            id="permanent_area" name="permanent_area" type="text"
+                                                        <x-input-float-label class="block w-full" id="permanent_area"
+                                                            name="permanent_area" type="text"
                                                             label="{{ __('Area') }}" :value="old('permanent_area')" required
                                                             autofocus />
                                                     </div>
                                                     <div class="mt-0">
-                                                        <x-input-float-label class="block w-full"
-                                                            id="permanent_city" name="permanent_city" type="text"
+                                                        <x-input-float-label class="block w-full" id="permanent_city"
+                                                            name="permanent_city" type="text"
                                                             label="{{ __('City') }}" :value="old('permanent_city')" required
                                                             autofocus />
                                                     </div>
@@ -303,14 +299,14 @@
                                                 <div class="rounded border border-sky-500 p-2">
                                                     <div class="{{ $i }} grid gap-2 sm:grid-cols-2">
                                                         <div class="mt-0 sm:col-span-2">
-                                                            <x-input-float-label class="block w-full"
-                                                                id="parent_name" name="parent_name" type="text"
+                                                            <x-input-float-label class="block w-full" id="parent_name"
+                                                                name="parent_name" type="text"
                                                                 label="{{ __('Name') }}" :value="old('parent_name')"
                                                                 required autofocus />
                                                         </div>
                                                         <div class="mt-0">
-                                                            <x-input-float-label class="block w-full"
-                                                                id="occupation" name="occupation" type="text"
+                                                            <x-input-float-label class="block w-full" id="occupation"
+                                                                name="occupation" type="text"
                                                                 label="{{ __('Occupation') }}" :value="old('occupation')"
                                                                 required autofocus />
                                                         </div>
@@ -327,8 +323,8 @@
                                                                 :value="old('mobile_number')" required autofocus />
                                                         </div>
                                                         <div class="mt-0">
-                                                            <x-input-float-label class="block w-full"
-                                                                id="email" name="email" type="email"
+                                                            <x-input-float-label class="block w-full" id="email"
+                                                                name="email" type="email"
                                                                 label="{{ __('Email Id') }}" :value="old('email')"
                                                                 required autofocus />
                                                         </div>
