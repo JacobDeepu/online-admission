@@ -211,8 +211,7 @@
                                             <div class="mt-0">
                                                 <x-input-float-label class="block w-full" id="secondary_number"
                                                     name="secondary_number" type="text"
-                                                    label="{{ __('Secondary Mobile') }}" :value="old('secondary_number')" required
-                                                    autofocus />
+                                                    label="{{ __('Secondary Mobile') }}" :value="old('secondary_number')" />
                                             </div>
                                             <div class="mt-0 rounded bg-blue-500 p-2">
                                                 <h6 class="text-sm font-medium text-white">
@@ -227,10 +226,10 @@
                                             <div class="rounded border border-sky-500 p-2">
                                                 <div class="grid gap-2 sm:grid-cols-2">
                                                     <div class="mt-0 sm:col-span-2">
-                                                        <x-input-float-label class="block w-full" id="address"
-                                                            name="address" type="text"
+                                                        <x-input-float-label class="block w-full" id="house_name"
+                                                            name="house_name" type="text"
                                                             label="{{ __('Address of Parent(House / Flat No)') }}"
-                                                            :value="old('address')" required autofocus />
+                                                            :value="old('house_name')" required autofocus />
                                                     </div>
                                                     <div class="mt-0">
                                                         <x-input-float-label class="block w-full" id="road"
@@ -263,9 +262,9 @@
                                                             required autofocus />
                                                     </div>
                                                     <div class="mt-0">
-                                                        <x-input-float-label class="block w-full" id="pincode"
-                                                            name="pincode" type="text"
-                                                            label="{{ __('Pincode') }}" :value="old('pincode')" required
+                                                        <x-input-float-label class="block w-full" id="pin_code"
+                                                            name="pin_code" type="text"
+                                                            label="{{ __('Pin Code') }}" :value="old('pin_code')" required
                                                             autofocus />
                                                     </div>
                                                 </div>
@@ -274,10 +273,10 @@
                                                 <div class="grid gap-2 sm:grid-cols-2">
                                                     <div class="mt-0 sm:col-span-2">
                                                         <x-input-float-label class="block w-full"
-                                                            id="permanent_address" name="permanent_address"
+                                                            id="permanent_house_name" name="permanent_house_name"
                                                             type="text"
                                                             label="{{ __('Address of Parent(House / Flat No)') }}"
-                                                            :value="old('permanent_address')" required autofocus />
+                                                            :value="old('permanent_house_name')" required autofocus />
                                                     </div>
                                                     <div class="mt-0">
                                                         <x-input-float-label class="block w-full" id="permanent_road"
@@ -311,9 +310,9 @@
                                                     </div>
                                                     <div class="mt-0">
                                                         <x-input-float-label class="block w-full"
-                                                            id="permanent_pincode" name="permanent_pincode"
-                                                            type="text" label="{{ __('Pincode') }}"
-                                                            :value="old('permanent_pincode')" required autofocus />
+                                                            id="permanent_pin_code" name="permanent_pin_code"
+                                                            type="text" label="{{ __('Pin Code') }}"
+                                                            :value="old('permanent_pin_code')" required autofocus />
                                                     </div>
                                                 </div>
                                             </div>

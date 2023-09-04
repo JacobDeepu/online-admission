@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Student extends Model
 {
@@ -23,4 +24,12 @@ class Student extends Model
         'nationality',
         'mother_tongue'
     ];
+
+    /**
+     * Get the parent_details for the student.
+     */
+    public function parent_details(): HasMany
+    {
+        return $this->hasMany(ParentDetail::class);
+    }
 }
