@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('occupation');
-            $table->string('annual_income');
-            $table->string('office_address');
-            $table->string('office_number');
+            $table->string('annual_income')->nullable();
+            $table->string('office_address')->nullable();
+            $table->string('office_number')->nullable();
             $table->string('mobile_number');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('relationship');
             $table->string('student_id')
                 ->cascadeOnDelete()
