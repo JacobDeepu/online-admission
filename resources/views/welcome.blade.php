@@ -195,6 +195,35 @@
                                             </div>
                                         </div>
                                         <div class="grid gap-2 sm:grid-cols-2" x-show="currentTab === 2">
+                                            <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
+                                                <h6 class="text-sm font-medium text-white">
+                                                    PRIMARY CONTACT ( This no. will be used for SMS
+                                                    communication and will
+                                                    be printed in student's ID card )
+                                                </h6>
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="primary_number"
+                                                    name="primary_number" type="text"
+                                                    label="{{ __('Primary Mobile') }}" :value="old('primary_number')" required
+                                                    autofocus />
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="secondary_number"
+                                                    name="secondary_number" type="text"
+                                                    label="{{ __('Secondary Mobile') }}" :value="old('secondary_number')" required
+                                                    autofocus />
+                                            </div>
+                                            <div class="mt-0 rounded bg-blue-500 p-2">
+                                                <h6 class="text-sm font-medium text-white">
+                                                    PRESENT ADDRESS
+                                                </h6>
+                                            </div>
+                                            <div class="mt-0 rounded bg-blue-500 p-2">
+                                                <h6 class="text-sm font-medium text-white">
+                                                    PERMANENT ADDRESS
+                                                </h6>
+                                            </div>
                                             <div class="rounded border border-sky-500 p-2">
                                                 <div class="grid gap-2 sm:grid-cols-2">
                                                     <div class="mt-0 sm:col-span-2">
@@ -290,66 +319,116 @@
                                             </div>
                                         </div>
                                         <div class="grid gap-2 sm:grid-cols-2" x-show="currentTab === 3">
-                                            @for ($i = 0; $i < 2; $i++)
-                                                <div class="rounded border border-sky-500 p-2">
-                                                    <div class="{{ $i }} grid gap-2 sm:grid-cols-2">
-                                                        <div class="mt-0 sm:col-span-2">
-                                                            <x-input-float-label class="block w-full" id="parent_name"
-                                                                name="parent_name" type="text"
-                                                                label="{{ __('Name') }}" :value="old('parent_name')"
-                                                                required autofocus />
-                                                        </div>
-                                                        <div class="mt-0">
-                                                            <x-input-float-label class="block w-full" id="occupation"
-                                                                name="occupation" type="text"
-                                                                label="{{ __('Occupation') }}" :value="old('occupation')"
-                                                                required autofocus />
-                                                        </div>
-                                                        <div class="mt-0">
-                                                            <x-input-float-label class="block w-full"
-                                                                id="annual_income" name="annual_income"
-                                                                type="text" label="{{ __('Annual Income') }}"
-                                                                :value="old('annual_income')" required autofocus />
-                                                        </div>
-                                                        <div class="mt-0">
-                                                            <x-input-float-label class="block w-full"
-                                                                id="mobile_number" name="mobile_number"
-                                                                type="text" label="{{ __('Mobile Number') }}"
-                                                                :value="old('mobile_number')" required autofocus />
-                                                        </div>
-                                                        <div class="mt-0">
-                                                            <x-input-float-label class="block w-full" id="email"
-                                                                name="email" type="email"
-                                                                label="{{ __('Email Id') }}" :value="old('email')"
-                                                                required autofocus />
-                                                        </div>
-                                                        <div class="mt-0">
-                                                            <x-input-float-label class="block w-full"
-                                                                id="office_number" name="office_number"
-                                                                type="text" label="{{ __('Office Number') }}"
-                                                                :value="old('office_number')" required autofocus />
-                                                        </div>
-                                                        <div class="mt-0">
-                                                            <x-input-float-label class="block w-full"
-                                                                id="office_address" name="office_address"
-                                                                type="text" label="{{ __('Office Address') }}"
-                                                                :value="old('office_address')" required autofocus />
-                                                        </div>
+                                            <div class="mt-0 rounded bg-blue-500 p-2">
+                                                <h6 class="text-sm font-medium text-white">
+                                                    FATHER'S DETAILS
+                                                </h6>
+                                            </div>
+                                            <div class="mt-0 rounded bg-blue-500 p-2">
+                                                <h6 class="text-sm font-medium text-white">
+                                                    MOTHER'S DETAILS
+                                                </h6>
+                                            </div>
+                                            <div class="rounded border border-sky-500 p-2">
+                                                <div class="grid gap-2 sm:grid-cols-2">
+                                                    <div class="mt-0 sm:col-span-2">
+                                                        <x-input-float-label class="block w-full" id="father_name"
+                                                            name="father_name" type="text"
+                                                            label="{{ __('Name') }}" :value="old('father_name')" required
+                                                            autofocus />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="father_occupation" name="father_occupation"
+                                                            type="text" label="{{ __('Occupation') }}"
+                                                            :value="old('father_occupation')" required autofocus />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="father_annual_income" name="father_annual_income"
+                                                            type="text" label="{{ __('Annual Income') }}"
+                                                            :value="old('father_annual_income')" required autofocus />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="father_mobile_number" name="father_mobile_number"
+                                                            type="text" label="{{ __('Mobile Number') }}"
+                                                            :value="old('father_mobile_number')" required autofocus />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full" id="father_email"
+                                                            name="father_email" type="email"
+                                                            label="{{ __('Email Id') }}" :value="old('father_email')" required
+                                                            autofocus />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="father_office_number" name="father_office_number"
+                                                            type="text" label="{{ __('Office Number') }}"
+                                                            :value="old('father_office_number')" required autofocus />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="father_office_address" name="father_office_address"
+                                                            type="text" label="{{ __('Office Address') }}"
+                                                            :value="old('father_office_address')" required autofocus />
                                                     </div>
                                                 </div>
-                                            @endfor
+                                            </div>
+                                            <div class="rounded border border-sky-500 p-2">
+                                                <div class="grid gap-2 sm:grid-cols-2">
+                                                    <div class="mt-0 sm:col-span-2">
+                                                        <x-input-float-label class="block w-full" id="mother_name"
+                                                            name="mother_name" type="text"
+                                                            label="{{ __('Name') }}" :value="old('mother_name')" required
+                                                            autofocus />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="mother_occupation" name="mother_occupation"
+                                                            type="text" label="{{ __('Occupation') }}"
+                                                            :value="old('mother_occupation')" required autofocus />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="mother_annual_income" name="mother_annual_income"
+                                                            type="text" label="{{ __('Annual Income') }}"
+                                                            :value="old('mother_annual_income')" />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="mother_mobile_number" name="mother_mobile_number"
+                                                            type="text" label="{{ __('Mobile Number') }}"
+                                                            :value="old('mother_mobile_number')" required autofocus />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full" id="mother_email"
+                                                            name="mother_email" type="email"
+                                                            label="{{ __('Email Id') }}" :value="old('mother_email')" />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="mother_office_number" name="mother_office_number"
+                                                            type="text" label="{{ __('Office Number') }}"
+                                                            :value="old('mother_office_number')" />
+                                                    </div>
+                                                    <div class="mt-0">
+                                                        <x-input-float-label class="block w-full"
+                                                            id="mother_office_address" name="mother_office_address"
+                                                            type="text" label="{{ __('Office Address') }}"
+                                                            :value="old('mother_office_address')" />
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="mt-4 flex items-center justify-end sm:col-span-2">
-                                            <x-button class="ml-4" x-show="currentTab > 1"
-                                                @click="currentTab--">
+                                            <x-button class="ml-4" x-show="currentTab > 1" @click="currentTab--">
                                                 {{ __('Previous') }}
                                             </x-button>
-                                            <x-button class="ml-4" x-show="currentTab < 3"
-                                                @click="currentTab++">
+                                            <x-button class="ml-4" x-show="currentTab < 3" @click="currentTab++">
                                                 {{ __('Next') }}
                                             </x-button>
-                                            <x-button class="ml-4"
-                                                x-show="currentTab === 3">
+                                            <x-button class="ml-4" x-show="currentTab === 3">
                                                 {{ __('Submit') }}
                                             </x-button>
                                         </div>
