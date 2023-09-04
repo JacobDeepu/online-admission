@@ -104,6 +104,23 @@
                                                 </svg>Parent Details
                                             </button>
                                         </li>
+                                        <li class="mr-2" @click="currentTab = 4">
+                                            <button
+                                                class="group inline-flex items-center justify-center rounded-t-lg border-b-2 p-4"
+                                                aria-current="page"
+                                                :class="currentTab === 4 ? 'text-blue-600 border-blue-600' :
+                                                    'border-transparent hover:text-gray-600 hover:border-gray-300'">
+                                                <svg class="mr-2 h-6 w-6" aria-hidden="true"
+                                                    :class="currentTab === 4 ? 'text-blue-600' :
+                                                        'text-gray-400 group-hover:text-gray-500'"
+                                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                    viewBox="0 0 256 256">
+                                                    <path
+                                                        d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-42.34-77.66a8,8,0,0,1-11.32,11.32L136,139.31V184a8,8,0,0,1-16,0V139.31l-10.34,10.35a8,8,0,0,1-11.32-11.32l24-24a8,8,0,0,1,11.32,0Z">
+                                                    </path>
+                                                </svg>Futher Details
+                                            </button>
+                                        </li>
                                     </ul>
                                 </div>
                                 <x-validation-errors class="mb-4" />
@@ -420,14 +437,67 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="grid gap-4 sm:grid-cols-2" x-show="currentTab === 4">
+                                            <div class="mt-0">
+                                                <label class="mb-2 block text-sm font-medium text-gray-900"
+                                                    for="photo">Applicant Photo</label>
+                                                <input
+                                                    class="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                                    id="photo" name="photo" type="file" required />
+                                            </div>
+                                            <div class="mt-0">
+                                                <label class="mb-2 block text-sm font-medium text-gray-900"
+                                                    for="birth_certificate">Applicant Birth Certificate</label>
+                                                <input
+                                                    class="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                                    id="birth_certificate" name="birth_certificate" type="file" required />
+                                            </div>
+                                            <div class="mt-0">
+                                                <label class="mb-2 block text-sm font-medium text-gray-900"
+                                                    for="aadhar">Aadhaar Card</label>
+                                                <input
+                                                    class="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                                    id="aadhar" name="aadhar" type="file" required />
+                                            </div>
+                                            <div class="mt-0">
+                                                <label class="mb-2 block text-sm font-medium text-gray-900"
+                                                    for="address_proof">Address Proof (Aadhar Card, Driving License, Voter ID of either Father or Mother)</label>
+                                                <input
+                                                    class="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+                                                    id="address_proof" name="address_proof" type="file" required />
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="class"
+                                                    name="class" type="text"
+                                                    label="{{ __('Class to which admission is sought for') }}"
+                                                    :value="old('class')" required autofocus />
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="academic_year"
+                                                    name="academic_year" type="text"
+                                                    label="{{ __('Academic Year') }}" :value="old('academic_year')" required
+                                                    autofocus />
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="previous_institution"
+                                                    name="previous_institution" type="text"
+                                                    label="{{ __('Previous Institution') }}" :value="old('previous_institution')"
+                                                    required autofocus disabled />
+                                            </div>
+                                            <div class="mt-0">
+                                                <x-input-float-label class="block w-full" id="siblings"
+                                                    name="siblings" type="text" label="{{ __('Siblings') }}"
+                                                    :value="old('siblings')" required autofocus disabled />
+                                            </div>
+                                        </div>
                                         <div class="mt-4 flex items-center justify-end sm:col-span-2">
                                             <x-button class="ml-4" x-show="currentTab > 1" @click="currentTab--">
                                                 {{ __('Previous') }}
                                             </x-button>
-                                            <x-button class="ml-4" x-show="currentTab < 3" @click="currentTab++">
+                                            <x-button class="ml-4" x-show="currentTab < 4" @click="currentTab++">
                                                 {{ __('Next') }}
                                             </x-button>
-                                            <x-button class="ml-4" x-show="currentTab === 3">
+                                            <x-button class="ml-4" x-show="currentTab === 4">
                                                 {{ __('Submit') }}
                                             </x-button>
                                         </div>
