@@ -13,16 +13,14 @@ class Student extends Model
         'first_name',
         'last_name',
         'gender',
-        'class',
-        'academic_year',
-        'nationality',
         'date_of_birth',
         'date_of_birth_word',
-        'place_of_birth',
+        'uid',
         'religion',
         'caste',
         'social_category',
-        'mother_tongue',
-        'uid'
+        'place_of_birth',
+        'nationality',
+        'mother_tongue'
     ];
 }

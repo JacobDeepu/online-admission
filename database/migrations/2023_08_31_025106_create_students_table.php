@@ -16,17 +16,15 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('gender', 20);
-            $table->string('class', 20);
-            $table->string('academic_year', 20);
-            $table->string('nationality', 20);
             $table->date('date_of_birth');
             $table->string('date_of_birth_word');
-            $table->string('place_of_birth');
+            $table->string('uid', 12);
             $table->string('religion');
             $table->string('caste');
             $table->string('social_category');
+            $table->string('place_of_birth');
+            $table->string('nationality');
             $table->string('mother_tongue');
-            $table->string('uid');
             $table->timestamps();
         });
     }
