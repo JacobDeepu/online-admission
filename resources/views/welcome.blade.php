@@ -193,11 +193,6 @@
                                                     label="{{ __('Mother Tongue') }}" :value="old('mother_tongue')" required
                                                     autofocus />
                                             </div>
-                                            <div class="mt-4 flex items-center justify-end sm:col-span-2">
-                                                <x-button class="ml-4">
-                                                    {{ __('Submit') }}
-                                                </x-button>
-                                            </div>
                                         </div>
                                         <div class="grid gap-2 sm:grid-cols-2" x-show="currentTab === 2">
                                             <div class="rounded border border-sky-500 p-2">
@@ -343,6 +338,20 @@
                                                     </div>
                                                 </div>
                                             @endfor
+                                        </div>
+                                        <div class="mt-4 flex items-center justify-end sm:col-span-2">
+                                            <x-button class="ml-4" x-show="currentTab > 1"
+                                                @click="currentTab--">
+                                                {{ __('Previous') }}
+                                            </x-button>
+                                            <x-button class="ml-4" x-show="currentTab < 3"
+                                                @click="currentTab++">
+                                                {{ __('Next') }}
+                                            </x-button>
+                                            <x-button class="ml-4"
+                                                x-show="currentTab === 3">
+                                                {{ __('Submit') }}
+                                            </x-button>
                                         </div>
                                     </div>
                                 </form>
