@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('mobile_number');
             $table->string('email')->nullable();
             $table->string('relationship');
-            $table->string('student_id')
+            $table->foreignId('student_id')
                 ->cascadeOnDelete()
                 ->constrained();
             $table->timestamps();
