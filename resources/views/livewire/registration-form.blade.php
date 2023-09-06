@@ -364,12 +364,12 @@
                 </div>
             </div>
             <div class="mt-4 flex items-center justify-end sm:col-span-2">
-                <x-button class="ml-4" x-show="currentTab > 1" @click="currentTab--">
+                <x-secondary-button class="ml-4" x-show="currentTab > 1" @click="currentTab--">
                     {{ __('Previous') }}
-                </x-button>
-                <x-button class="ml-4" x-show="currentTab < 4" @click="currentTab++">
+                </x-secondary-button>
+                <x-secondary-button class="ml-4" x-show="currentTab < 4" @click="currentTab++">
                     {{ __('Next') }}
-                </x-button>
+                </x-secondary-button>
                 <x-button class="ml-4" x-show="currentTab === 4">
                     {{ __('Submit') }}
                 </x-button>
