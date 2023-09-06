@@ -25,9 +25,9 @@
                             'text-gray-400 group-hover:text-gray-500'"
                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256">
                         <path
-                            d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z">
+                            d="M83.19,174.4a8,8,0,0,0,11.21-1.6,52,52,0,0,1,83.2,0,8,8,0,1,0,12.8-9.6A67.88,67.88,0,0,0,163,141.51a40,40,0,1,0-53.94,0A67.88,67.88,0,0,0,81.6,163.2,8,8,0,0,0,83.19,174.4ZM112,112a24,24,0,1,1,24,24A24,24,0,0,1,112,112Zm96-88H64A16,16,0,0,0,48,40V64H32a8,8,0,0,0,0,16H48v40H32a8,8,0,0,0,0,16H48v40H32a8,8,0,0,0,0,16H48v24a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V40A16,16,0,0,0,208,24Zm0,192H64V40H208Z">
                         </path>
-                    </svg>Address
+                    </svg>Contact Details
                 </button>
             </li>
             <li class="mr-2" @click="currentTab = 3">
@@ -313,31 +313,37 @@
                 </div>
             </div>
             <div class="grid gap-4 sm:grid-cols-2" x-show="currentTab === 4">
+                <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
+                    <h6 class="text-sm font-medium text-white"> DOCUMENTS </h6>
+                </div>
                 <div class="mt-0">
                     <label class="mb-2 block text-sm font-medium text-gray-900" for="photo">Applicant Photo</label>
                     <input
                         class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        name="photo" type="file" wire:model.lazy="photo" required />
+                        type="file" wire:model.lazy="photo" required />
                 </div>
                 <div class="mt-0">
                     <label class="mb-2 block text-sm font-medium text-gray-900" for="birth_certificate">Applicant
                         Birth Certificate</label>
                     <input
                         class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        name="birth_certificate" type="file" wire:model.lazy="birth_certificate" required />
+                        type="file" wire:model.lazy="birth_certificate" required />
                 </div>
                 <div class="mt-0">
-                    <label class="mb-2 block text-sm font-medium text-gray-900" for="aadhar">Aadhaar Card</label>
+                    <label class="mb-2 block text-sm font-medium text-gray-900" for="aadhaar">Aadhaar Card</label>
                     <input
                         class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        name="aadhar" type="file" wire:model.lazy="aadhar" required />
+                        type="file" wire:model.lazy="aadhaar" required />
                 </div>
                 <div class="mt-0">
                     <label class="mb-2 block text-sm font-medium text-gray-900" for="address_proof">Address Proof
-                        (Aadhaar Card, Driving License, Voter ID of either Father or Mother)</label>
+                        (Aadhaar Card, Driving License, Voter ID)</label>
                     <input
                         class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        name="address_proof" type="file" wire:model.lazy="address_proof" required />
+                        type="file" wire:model.lazy="address_proof" required />
+                </div>
+                <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
+                    <h6 class="text-sm font-medium text-white"> ACADEMIC </h6>
                 </div>
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="class" type="text"
