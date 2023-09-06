@@ -13,6 +13,11 @@ class Registration extends Model
         'student_id',
         'contact_id',
         'class',
-        'academic_year'
+        'academic_year',
+        'previous_institution',
+        'photo',
+        'birth_certificate',
+        'aadhaar',
+        'address_proof'
     ];
 }
