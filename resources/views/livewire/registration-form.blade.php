@@ -63,7 +63,9 @@
         </ul>
     </div>
     @if (session('status'))
-        <script> alert(@js(session('status'))) </script>
+        <script>
+            alert(@js(session('status')))
+        </script>
     @endif
     <form wire:submit="register">
         <div class="rounded-lg border-2 border-gray-200 p-5">
@@ -164,20 +166,8 @@
                                 required autofocus />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="road" type="text"
-                                wire:model.blur="road" label="{{ __('Road') }}" required autofocus />
-                        </div>
-                        <div class="mt-0">
                             <x-input-float-label class="block w-full" name="street" type="text"
                                 wire:model.blur="street" label="{{ __('Street') }}" required autofocus />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="area" type="text"
-                                wire:model.blur="area" label="{{ __('Area') }}" required autofocus />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="city" type="text"
-                                wire:model.blur="city" label="{{ __('City') }}" required autofocus />
                         </div>
                         <div class="mt-0">
                             <x-input-float-label class="block w-full" name="post_office" type="text"
@@ -186,6 +176,18 @@
                         <div class="mt-0">
                             <x-input-float-label class="block w-full" name="pin_code" type="text"
                                 wire:model.blur="pin_code" label="{{ __('Pin Code') }}" required autofocus />
+                        </div>
+                        <div class="mt-0">
+                            <x-input-float-label class="block w-full" name="city" type="text"
+                                wire:model.blur="city" label="{{ __('City') }}" required autofocus />
+                        </div>
+                        <div class="mt-0">
+                            <x-input-float-label class="block w-full" name="district" type="text"
+                                wire:model.blur="district" label="{{ __('District') }}" required autofocus />
+                        </div>
+                        <div class="mt-0">
+                            <x-input-float-label class="block w-full" name="state" type="text"
+                                wire:model.blur="state" label="{{ __('State') }}" required autofocus />
                         </div>
                     </div>
                 </div>
@@ -197,20 +199,8 @@
                                 label="{{ __('Address of Parent(House / Flat No)') }}" required autofocus />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="permanent_road" type="text"
-                                wire:model.blur="permanent_road" label="{{ __('Road') }}" required autofocus />
-                        </div>
-                        <div class="mt-0">
                             <x-input-float-label class="block w-full" name="permanent_street" type="text"
                                 wire:model.blur="permanent_street" label="{{ __('Street') }}" required autofocus />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="permanent_area" type="text"
-                                wire:model.blur="permanent_area" label="{{ __('Area') }}" required autofocus />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="permanent_city" type="text"
-                                wire:model.blur="permanent_city" label="{{ __('City') }}" required autofocus />
                         </div>
                         <div class="mt-0">
                             <x-input-float-label class="block w-full" name="permanent_post_office" type="text"
@@ -221,6 +211,19 @@
                             <x-input-float-label class="block w-full" name="permanent_pin_code" type="text"
                                 wire:model.blur="permanent_pin_code" label="{{ __('Pin Code') }}" required
                                 autofocus />
+                        </div>
+                        <div class="mt-0">
+                            <x-input-float-label class="block w-full" name="permanent_city" type="text"
+                                wire:model.blur="permanent_city" label="{{ __('City') }}" required autofocus />
+                        </div>
+                        <div class="mt-0">
+                            <x-input-float-label class="block w-full" name="permanent_district" type="text"
+                                wire:model.blur="permanent_district" label="{{ __('District') }}" required
+                                autofocus />
+                        </div>
+                        <div class="mt-0">
+                            <x-input-float-label class="block w-full" name="permanent_state" type="text"
+                                wire:model.blur="permanent_state" label="{{ __('State') }}" required autofocus />
                         </div>
                     </div>
                 </div>

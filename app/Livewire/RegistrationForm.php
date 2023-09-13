@@ -30,19 +30,20 @@ class RegistrationForm extends Component
     public $primary_number;
     public $secondary_number;
     public $house_name;
-    public $road;
     public $street;
-    public $area;
-    public $city;
     public $post_office;
     public $pin_code;
+    public $city;
+    public $district;
+    public $state;
     public $permanent_house_name;
-    public $permanent_road;
     public $permanent_street;
-    public $permanent_area;
-    public $permanent_city;
     public $permanent_post_office;
     public $permanent_pin_code;
+    public $permanent_city;
+    public $permanent_district;
+    public $permanent_state;
+
     // Parent Details
     public $father_name;
     public $father_occupation;
@@ -109,19 +110,19 @@ class RegistrationForm extends Component
             'primary_number' => 'required|numeric|digits:10',
             'secondary_number' => 'nullable|numeric|digits:10',
             'house_name' => 'required|string|max:255',
-            'road' => 'required|string|max:255',
             'street' => 'required|string|max:255',
-            'area' => 'required|string|max:255',
-            'city' => 'required|string|max:255',
             'post_office' => 'required|string|max:255',
             'pin_code' => 'required|numeric|digits:6',
+            'city' => 'required|string|max:255',
+            'district' => 'required|string|max:255',
+            'state' => 'required|string|max:255',
             'permanent_house_name' => 'required|string|max:255',
-            'permanent_road' => 'required|string|max:255',
             'permanent_street' => 'required|string|max:255',
-            'permanent_area' => 'required|string|max:255',
-            'permanent_city' => 'required|string|max:255',
             'permanent_post_office' => 'required|string|max:255',
-            'permanent_pin_code' => 'required|numeric|digits:6'
+            'permanent_pin_code' => 'required|numeric|digits:6',
+            'permanent_city' => 'required|string|max:255',
+            'permanent_district' => 'required|string|max:255',
+            'permanent_state' => 'required|string|max:255'
         ]);
     }
 
@@ -199,19 +200,20 @@ class RegistrationForm extends Component
             'primary_number' => $this->primary_number,
             'secondary_number' => $this->secondary_number,
             'house_name' => $this->house_name,
-            'road' => $this->road,
             'street' => $this->street,
-            'area' => $this->area,
-            'city' => $this->city,
             'post_office' => $this->post_office,
             'pin_code' => $this->pin_code,
+            'city' => $this->city,
+            'district' => $this->district,
+            'state' => $this->state,
             'permanent_house_name' => $this->permanent_house_name,
-            'permanent_road' => $this->permanent_road,
             'permanent_street' => $this->permanent_street,
-            'permanent_area' => $this->permanent_area,
-            'permanent_city' => $this->permanent_city,
             'permanent_post_office' => $this->permanent_post_office,
-            'permanent_pin_code' => $this->permanent_pin_code
+            'permanent_pin_code' => $this->permanent_pin_code,
+            'permanent_city' => $this->permanent_city,
+            'permanent_district' => $this->permanent_district,
+            'permanent_state' => $this->permanent_state
+
         ]);
 
         $student->parent_details()->createMany([

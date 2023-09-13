@@ -13,18 +13,18 @@ class Contact extends Model
         'primary_number',
         'secondary_number',
         'house_name',
-        'road',
         'street',
-        'area',
-        'city',
         'post_office',
         'pin_code',
+        'city',
+        'district',
+        'state',
         'permanent_house_name',
-        'permanent_road',
         'permanent_street',
-        'permanent_area',
-        'permanent_city',
         'permanent_post_office',
-        'permanent_pin_code'
+        'permanent_pin_code',
+        'permanent_city',
+        'permanent_district',
+        'permanent_state'
     ];
 }
