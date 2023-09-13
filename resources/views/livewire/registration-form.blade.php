@@ -63,9 +63,7 @@
         </ul>
     </div>
     @if (session('status'))
-        <div class="mb-4 text-sm font-medium text-green-600">
-            {{ session('status') }}
-        </div>
+        <script> alert(@js(session('status'))) </script>
     @endif
     <form wire:submit="register">
         <div class="rounded-lg border-2 border-gray-200 p-5">
