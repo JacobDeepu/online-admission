@@ -72,18 +72,10 @@ class PaymentController extends Controller
         $jsonData = json_decode($decData, true);
 
         if ($jsonData['payInstrument']['responseDetails']['statusCode'] == 'OTS0000') {
-            echo 'Payment status = Transaction Successful';
-            echo "<br>";
-            echo 'Transaction id = ' . $jsonData['payInstrument']['merchDetails']['merchTxnId'];
-            echo "<br>";
-            echo 'Transaction date = ' . $jsonData['payInstrument']['merchDetails']['merchTxnDate'];
-            echo "<br>";
-            echo 'Bank transaction id = ' . $jsonData['payInstrument']['payModeSpecificData']['bankDetails']['bankTxnId'];
+            return redirect('/')->with('status', 'Registration Successful!!');
         } else {
-            echo 'Payment status = Transaction Failed';
+            return redirect('/')->with('status', 'Payment Failed!!');
         }
-        echo "<pre>";
-        print_r($jsonData);
     }
 
     /**
