@@ -33,7 +33,7 @@ class PaymentController extends Controller
         $this->api_url = "https://paynetzuat.atomtech.in/ots/aipay/auth";
         $this->user_email = $email;
         $this->user_contact_number = $contact;
-        $this->return_url = "http://127.0.0.1:8000/response";
+        $this->return_url = route('response');
     }
 
     public function index()

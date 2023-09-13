@@ -31,4 +31,4 @@ Route::middleware([
 
 Route::resource('register', RegistrationController::class);
 
-Route::post('/response', [PaymentController::class, 'response']);
+Route::post('/response', [PaymentController::class, 'response'])->name('response');;
