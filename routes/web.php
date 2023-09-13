@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,3 +30,5 @@ Route::middleware([
 });
 
 Route::resource('register', RegistrationController::class);
+
+Route::post('/response', [PaymentController::class, 'response']);

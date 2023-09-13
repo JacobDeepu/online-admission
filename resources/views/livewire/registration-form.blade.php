@@ -376,3 +376,4 @@
         </div>
     </form>
 </div>
+<script src="https://pgtest.atomtech.in/staticdata/ots/js/atomcheckout.js"></script>

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Http\Controllers\PaymentController;
 use App\Models\Contact;
 use App\Models\Registration;
 use App\Models\Student;
@@ -144,6 +145,24 @@ class RegistrationForm extends Component
         ]);
     }
 
+    public function payment()
+    {
+        $amount = 2.00;
+        $payment = new PaymentController($amount, $this->father_email, $this->primary_number);
+        $login = $payment->login;
+        $return_url = $payment->return_url;
+
+        $atom_token_id = $payment->index();
+        $json_data = '{
+            "atomTokenId": "' . $atom_token_id . '",
+            "merchId": "' . $login . '",
+            "custEmail": "' . $this->father_email . '",
+            "custMobile": "' . $this->primary_number . '",
+            "returnUrl": "' . $return_url . '"
+        }';
+        $this->js('let atom = new AtomPaynetz(' . $json_data . ', "uat");');
+    }
+
     public function register()
     {
         $this->resetErrorBag();
@@ -230,6 +249,6 @@ class RegistrationForm extends Component
             'address_proof' => $this->address_proof->store('uploads/address-proofs')
         ]);
 
-        return redirect('/')->with('status', 'Registration Successful!!');
+        $this->payment();
     }
 }
