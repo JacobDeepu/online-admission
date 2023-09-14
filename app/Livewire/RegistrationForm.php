@@ -43,7 +43,7 @@ class RegistrationForm extends Component
     public $permanent_city;
     public $permanent_district;
     public $permanent_state;
-
+    public $same_as;
     // Parent Details
     public $father_name;
     public $father_occupation;
@@ -71,6 +71,19 @@ class RegistrationForm extends Component
     public function render()
     {
         return view('livewire.registration-form');
+    }
+
+    public function updatedSameAs()
+    {
+        if ($this->same_as) {
+            $this->permanent_house_name = $this->house_name;
+            $this->permanent_street = $this->street;
+            $this->permanent_post_office = $this->post_office;
+            $this->permanent_pin_code = $this->pin_code;
+            $this->permanent_city = $this->city;
+            $this->permanent_district = $this->district;
+            $this->permanent_state = $this->state;
+        }
     }
 
     public function validate_data()

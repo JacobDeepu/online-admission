@@ -157,10 +157,14 @@
                 </div>
                 <div class="rounded border border-sky-500 p-2">
                     <div class="grid gap-2 sm:grid-cols-2">
-                        <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
+                        <div class="mt-0 flex justify-between rounded bg-blue-500 p-2 sm:col-span-2">
                             <h6 class="text-sm font-medium text-white">
                                 PERMANENT ADDRESS
                             </h6>
+                            <div class="mr-4 flex items-center">
+                                <input class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-red-400 focus:ring-2 focus:ring-red-500" type="checkbox" wire:model.live="same_as">
+                                <label class="ml-2 text-sm font-medium text-white" for="same_as">Same as Present</label>
+                            </div>
                         </div>
                         <div class="mt-0 sm:col-span-2">
                             <x-input-float-label class="block w-full" name="permanent_house_name" type="text" wire:model.blur="permanent_house_name"
