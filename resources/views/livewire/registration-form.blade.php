@@ -124,18 +124,13 @@
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="secondary_number" type="text" wire:model.blur="secondary_number" label="{{ __('Secondary Mobile') }}" />
                 </div>
-                <div class="mt-0 rounded bg-blue-500 p-2">
-                    <h6 class="text-sm font-medium text-white">
-                        PRESENT ADDRESS
-                    </h6>
-                </div>
-                <div class="mt-0 rounded bg-blue-500 p-2">
-                    <h6 class="text-sm font-medium text-white">
-                        PERMANENT ADDRESS
-                    </h6>
-                </div>
                 <div class="rounded border border-sky-500 p-2">
                     <div class="grid gap-2 sm:grid-cols-2">
+                        <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
+                            <h6 class="text-sm font-medium text-white">
+                                PRESENT ADDRESS
+                            </h6>
+                        </div>
                         <div class="mt-0 sm:col-span-2">
                             <x-input-float-label class="block w-full" name="house_name" type="text" wire:model.blur="house_name" label="{{ __('Address of Parent(House / Flat No)') }}"
                                 required autofocus />
@@ -162,6 +157,11 @@
                 </div>
                 <div class="rounded border border-sky-500 p-2">
                     <div class="grid gap-2 sm:grid-cols-2">
+                        <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
+                            <h6 class="text-sm font-medium text-white">
+                                PERMANENT ADDRESS
+                            </h6>
+                        </div>
                         <div class="mt-0 sm:col-span-2">
                             <x-input-float-label class="block w-full" name="permanent_house_name" type="text" wire:model.blur="permanent_house_name"
                                 label="{{ __('Address of Parent(House / Flat No)') }}" required autofocus />
@@ -191,18 +191,13 @@
                 </div>
             </div>
             <div class="grid gap-2 sm:grid-cols-2" x-show="currentTab === 3">
-                <div class="mt-0 rounded bg-blue-500 p-2">
-                    <h6 class="text-sm font-medium text-white">
-                        FATHER'S DETAILS
-                    </h6>
-                </div>
-                <div class="mt-0 rounded bg-blue-500 p-2">
-                    <h6 class="text-sm font-medium text-white">
-                        MOTHER'S DETAILS
-                    </h6>
-                </div>
-                <div class="rounded border border-sky-500 p-2">
+                <div class="rounded border border-sky-400 p-2">
                     <div class="grid gap-2 sm:grid-cols-2">
+                        <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
+                            <h6 class="text-sm font-medium text-white">
+                                FATHER'S DETAILS
+                            </h6>
+                        </div>
                         <div class="mt-0 sm:col-span-2">
                             <x-input-float-label class="block w-full" name="father_name" type="text" wire:model.blur="father_name" label="{{ __('Name') }}" required autofocus />
                         </div>
@@ -231,8 +226,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="rounded border border-sky-500 p-2">
+                <div class="rounded border border-sky-400 p-2">
                     <div class="grid gap-2 sm:grid-cols-2">
+                        <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
+                            <h6 class="text-sm font-medium text-white">
+                                MOTHER'S DETAILS
+                            </h6>
+                        </div>
                         <div class="mt-0 sm:col-span-2">
                             <x-input-float-label class="block w-full" name="mother_name" type="text" wire:model.blur="mother_name" label="{{ __('Name') }}" required autofocus />
                         </div>
