@@ -15,7 +15,7 @@ class Student extends Model
         'last_name',
         'gender',
         'date_of_birth',
-        'date_of_birth_word',
+        'age',
         'uid',
         'religion',
         'caste',

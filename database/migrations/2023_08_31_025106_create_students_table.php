@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('gender', 20);
             $table->date('date_of_birth');
-            $table->string('date_of_birth_word');
+            $table->integer('age');
             $table->string('uid', 12);
             $table->string('religion');
             $table->string('caste');

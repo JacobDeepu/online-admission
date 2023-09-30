@@ -18,7 +18,7 @@ class RegistrationForm extends Component
     public $last_name;
     public $gender;
     public $date_of_birth;
-    public $date_of_birth_word;
+    public $age;
     public $uid;
     public $religion;
     public $caste;
@@ -107,7 +107,7 @@ class RegistrationForm extends Component
             'last_name' => 'required|string|max:255',
             'gender' => 'required|string|max:8',
             'date_of_birth' => 'required',
-            'date_of_birth_word' => 'required|max:255',
+            'age' => 'required|max:255',
             'uid' => 'required|numeric|digits:12',
             'religion' => 'required|string|max:255',
             'caste' => 'required|string|max:255',
@@ -201,7 +201,7 @@ class RegistrationForm extends Component
             'last_name' => $this->last_name,
             'gender' => $this->gender,
             'date_of_birth' => $this->date_of_birth,
-            'date_of_birth_word' => $this->date_of_birth_word,
+            'age' => $this->age,
             'uid' => $this->uid,
             'religion' => $this->religion,
             'caste' => $this->caste,

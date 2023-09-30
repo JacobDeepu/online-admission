@@ -77,11 +77,10 @@
                     <x-input-float-label class="block w-full" name="date_of_birth" type="date" wire:model.blur="date_of_birth" label="{{ __('Date Of Birth In Figure') }}" required autofocus />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="date_of_birth_word" type="text" wire:model.blur="date_of_birth_word" label="{{ __('Date Of Birth In Words') }}" required
-                        autofocus />
+                    <x-input-float-label class="block w-full" name="age" type="text" wire:model.blur="age" label="{{ __('Age on June 1 (Academic Year)') }}" required autofocus />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="uid" type="text" wire:model.blur="uid" label="{{ __('Aadhaar') }}" required autofocus />
+                    <x-input-float-label class="block w-full" name="uid" type="text" wire:model.blur="uid" label="{{ __('Aadhaar No') }}" required autofocus />
                 </div>
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="religion" type="text" wire:model.blur="religion" label="{{ __('Religion') }}" required autofocus />
@@ -279,13 +278,14 @@
                         wire:model.blur="birth_certificate" required />
                 </div>
                 <div class="mt-0">
-                    <label class="mb-2 block text-sm font-medium text-gray-900" for="aadhaar">Aadhaar Card</label>
+                    <label class="mb-2 block text-sm font-medium text-gray-900" for="aadhaar">Applicant Aadhaar Card</label>
                     <input class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none" type="file" wire:model.blur="aadhaar"
                         required />
                 </div>
                 <div class="mt-0">
-                    <label class="mb-2 block text-sm font-medium text-gray-900" for="address_proof">Address Proof
-                        (Aadhaar Card, Driving License, Voter ID)</label>
+                    <label class="mb-2 block text-sm font-medium text-gray-900" for="address_proof">
+                        Address Proof (Aadhaar Card, Driving License, Voter ID of Parent)
+                    </label>
                     <input class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none" type="file"
                         wire:model.blur="address_proof" required />
                 </div>
@@ -293,11 +293,16 @@
                     <h6 class="text-sm font-medium text-white"> ACADEMIC </h6>
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="class" type="text" wire:model.blur="class" label="{{ __('Class to which admission is sought for') }}" required
-                        autofocus />
+                    <x-select class="block w-full" name="class" wire:model.blur="class" label="{{ __('Admission Class') }}">
+                        <option>-- choose --</option>
+                        <option value="KG"> KG </option>
+                    </x-select>
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="academic_year" type="text" wire:model.blur="academic_year" label="{{ __('Academic Year') }}" required autofocus />
+                    <x-select class="block w-full" name="academic_year" wire:model.blur="academic_year" label="{{ __('Academic Year') }}">
+                        <option>-- choose --</option>
+                        <option value="2023-24"> 2023-24 </option>
+                    </x-select>
                 </div>
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="previous_institution" type="text" wire:model.blur="previous_institution" label="{{ __('Previous Institution') }}" required
