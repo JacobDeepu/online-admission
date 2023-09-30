@@ -267,27 +267,37 @@
                     <h6 class="text-sm font-medium text-white"> DOCUMENTS </h6>
                 </div>
                 <div class="mt-0">
-                    <label class="mb-2 block text-sm font-medium text-gray-900" for="photo">Applicant Photo</label>
-                    <input class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none" type="file" wire:model.blur="photo"
-                        required />
+                    <label class="@error('photo') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="photo">Applicant Photo</label>
+                    <input
+                        class="@error('photo') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
+                        type="file" wire:model.blur="photo" required />
                 </div>
                 <div class="mt-0">
-                    <label class="mb-2 block text-sm font-medium text-gray-900" for="birth_certificate">Applicant
+                    <label class="@error('birth_certificate') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="birth_certificate">Applicant
                         Birth Certificate</label>
-                    <input class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none" type="file"
-                        wire:model.blur="birth_certificate" required />
+                    <input
+                        class="@error('birth_certificate') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
+                        type="file" wire:model.blur="birth_certificate" required />
                 </div>
                 <div class="mt-0">
-                    <label class="mb-2 block text-sm font-medium text-gray-900" for="aadhaar">Applicant Aadhaar Card</label>
-                    <input class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none" type="file" wire:model.blur="aadhaar"
-                        required />
+                    <label class="@error('aadhaar') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="aadhaar">Applicant Aadhaar Card</label>
+                    <input
+                        class="@error('aadhaar') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
+                        type="file" wire:model.blur="aadhaar" required />
                 </div>
                 <div class="mt-0">
-                    <label class="mb-2 block text-sm font-medium text-gray-900" for="address_proof">
+                    <label class="@error('address_proof') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="address_proof">
                         Address Proof (Aadhaar Card, Driving License, Voter ID of Parent)
                     </label>
-                    <input class="block w-full cursor-pointer rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none" type="file"
-                        wire:model.blur="address_proof" required />
+                    <input
+                        class="@error('address_proof') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
+                        type="file" wire:model.blur="address_proof" required />
+                </div>
+                <div class="mt-0 p-2">
+                    <p class="text-sm font-medium text-red-600">Allowed File Formats pdf, jpg, png, jpeg.</p>
+                </div>
+                <div class="mt-0 p-2">
+                    <p class="text-sm font-medium text-red-600">Allowed File Size Maximum 1MB.</p>
                 </div>
                 <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
                     <h6 class="text-sm font-medium text-white"> ACADEMIC </h6>
