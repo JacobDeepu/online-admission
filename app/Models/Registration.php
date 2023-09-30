@@ -18,6 +18,7 @@ class Registration extends Model
         'photo',
         'birth_certificate',
         'aadhaar',
-        'address_proof'
+        'address_proof',
+        'siblings'
     ];
 }

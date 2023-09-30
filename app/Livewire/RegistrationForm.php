@@ -67,6 +67,7 @@ class RegistrationForm extends Component
     public $birth_certificate;
     public $aadhaar;
     public $address_proof;
+    public $siblings;
 
     public function render()
     {
@@ -191,7 +192,8 @@ class RegistrationForm extends Component
             'photo' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
             'birth_certificate' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
             'aadhaar' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
-            'address_proof' => 'required|mimes:pdf,jpg,png,jpeg|max:1024'
+            'address_proof' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
+            'siblings' => 'required|string|max:255'
         ]);
 
         $student = Student::create([
@@ -261,7 +263,8 @@ class RegistrationForm extends Component
             'photo' => $this->photo->store('uploads/photos'),
             'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates'),
             'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards'),
-            'address_proof' => $this->address_proof->store('uploads/address-proofs')
+            'address_proof' => $this->address_proof->store('uploads/address-proofs'),
+            'siblings' => $this->siblings
         ]);
 
         $this->payment();

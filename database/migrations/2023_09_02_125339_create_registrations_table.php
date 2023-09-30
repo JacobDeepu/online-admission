@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('birth_certificate');
             $table->string('aadhaar');
             $table->string('address_proof');
+            $table->string('siblings');
             $table->timestamps();
         });
     }

@@ -304,7 +304,7 @@
                         autofocus />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="siblings" type="text" wire:model.blur="siblings" label="{{ __('Siblings') }}" required autofocus disabled />
+                    <x-input-float-label class="block w-full" name="siblings" type="text" wire:model.blur="siblings" label="{{ __('Siblings') }}" required autofocus />
                 </div>
             </div>
             <div class="mt-4 flex items-center justify-end sm:col-span-2">
