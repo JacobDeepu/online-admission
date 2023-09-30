@@ -12,6 +12,7 @@ class Registration extends Model
     protected $fillable = [
         'student_id',
         'contact_id',
+        'transaction_id',
         'class',
         'academic_year',
         'previous_institution',

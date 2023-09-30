@@ -160,10 +160,10 @@ class RegistrationForm extends Component
         ]);
     }
 
-    public function payment()
+    public function payment($registration_id)
     {
         $amount = 2.00;
-        $payment = new PaymentController($amount, $this->father_email, $this->primary_number);
+        $payment = new PaymentController($amount, $this->father_email, $this->primary_number, $registration_id);
         $login = $payment->login;
         $return_url = $payment->return_url;
 
@@ -254,7 +254,7 @@ class RegistrationForm extends Component
             ]
         ]);
 
-        Registration::create([
+        $registration = Registration::create([
             'student_id' => $student->id,
             'contact_id' => $contact->id,
             'class' => $this->class,
@@ -267,6 +267,8 @@ class RegistrationForm extends Component
             'siblings' => $this->siblings
         ]);
 
-        $this->payment();
+        $this->payment($registration->id);
+
+        return redirect('/')->with('status', 'Registration Successful!!');
     }
 }

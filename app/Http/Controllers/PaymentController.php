@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -19,8 +20,9 @@ class PaymentController extends Controller
 
     public $login;
     public $return_url;
+    public $registration_id;
 
-    public function __construct($amount = 0, $email = "", $contact = "")
+    public function __construct($amount = 0, $email = "", $contact = "", $registration_id)
     {
         $this->merchTxnId = uniqId();
         $this->amount = $amount;
@@ -34,6 +36,7 @@ class PaymentController extends Controller
         $this->user_email = $email;
         $this->user_contact_number = $contact;
         $this->return_url = route('response');
+        $this->registration_id = $registration_id;
     }
 
     public function index()
@@ -67,11 +70,18 @@ class PaymentController extends Controller
     public function response()
     {
         $data = $_POST['encData'];
-
+        
         $decData = $this->decrypt($data, '75AEF0FA1B94B3C10D4F5B268F757F11', '75AEF0FA1B94B3C10D4F5B268F757F11');
         $jsonData = json_decode($decData, true);
 
         if ($jsonData['payInstrument']['responseDetails']['statusCode'] == 'OTS0000') {
+            Transaction::create([
+                'registration_id' => $this->registration_id,
+                'merch_transaction_id' => $jsonData['payInstrument']['merchDetails']['merchTxnId'],
+                'merch_transaction_date' => $jsonData['payInstrument']['merchDetails']['merchTxnDate'],
+                'bank_transaction_id' => $jsonData['payInstrument']['payModeSpecificData']['bankDetails']['bankTxnId'],
+                'status' => 1
+            ]);
             return redirect('/')->with('status', 'Registration Successful!!');
         } else {
             return redirect('/')->with('status', 'Payment Failed!!');
@@ -119,7 +129,7 @@ class PaymentController extends Controller
             }';
 
         $encData = $this->encrypt($jsondata, $data['encKey'], $data['encKey']);
-
+        
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => $data['payUrl'],
