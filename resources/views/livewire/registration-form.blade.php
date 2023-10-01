@@ -1,4 +1,4 @@
-<div x-data="{ currentTab: @entangle('current_tab').live, isSubmitted: @entangle('isSubmitted').live }">
+<div x-data="{ currentTab: @entangle('current_tab').live, isSubmitted: @entangle('is_submitted').live }">
     <div class="px-2">
         <ul class="-mb-px flex flex-wrap text-center text-sm font-medium text-gray-500">
             <li class="mr-2" @click="currentTab = 1">
