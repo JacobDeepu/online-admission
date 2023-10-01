@@ -1,4 +1,4 @@
-<div x-data="{ currentTab: @entangle('current_tab').live }">
+<div x-data="{ currentTab: @entangle('current_tab').live, isSubmitted: @entangle('isSubmitted').live }">
     <div class="px-2">
         <ul class="-mb-px flex flex-wrap text-center text-sm font-medium text-gray-500">
             <li class="mr-2" @click="currentTab = 1">
@@ -329,7 +329,10 @@
                 <x-secondary-button class="ml-4" x-show="currentTab < 4" wire:click="validate_data()">
                     {{ __('Next') }}
                 </x-secondary-button>
-                <x-button class="ml-4" x-show="currentTab === 4">
+                <x-secondary-button class="ml-4" x-show="currentTab === 4 && isSubmitted" wire:click="payment()">
+                    {{ __('Complete Payment') }}
+                </x-secondary-button>
+                <x-button class="ml-4" x-show="currentTab === 4 && !isSubmitted">
                     {{ __('Submit') }}
                 </x-button>
             </div>

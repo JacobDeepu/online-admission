@@ -13,6 +13,7 @@ class RegistrationForm extends Component
 {
     use WithFileUploads;
     public $current_tab = 1;
+    public $is_submitted = false;
     // Student
     public $first_name;
     public $last_name;
@@ -68,6 +69,7 @@ class RegistrationForm extends Component
     public $aadhaar;
     public $address_proof;
     public $siblings;
+    public $registration_id;
 
     public function render()
     {
@@ -160,10 +162,10 @@ class RegistrationForm extends Component
         ]);
     }
 
-    public function payment($registration_id)
+    public function payment()
     {
         $amount = 2.00;
-        $payment = new PaymentController($amount, $this->father_email, $this->primary_number, $registration_id);
+        $payment = new PaymentController($amount, $this->father_email, $this->primary_number, $this->registration_id);
         $login = $payment->login;
         $return_url = $payment->return_url;
 
@@ -267,7 +269,9 @@ class RegistrationForm extends Component
             'siblings' => $this->siblings
         ]);
 
-        $this->payment($registration->id);
+        $this->$registration = $registration->id;
+        $this->is_submitted = true;
+        $this->payment();
 
         return redirect('/')->with('status', 'Registration Successful!!');
     }
