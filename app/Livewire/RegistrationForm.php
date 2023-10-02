@@ -89,6 +89,14 @@ class RegistrationForm extends Component
         }
     }
 
+    public function updatedDateOfBirth()
+    {
+        $dob = date_create($this->date_of_birth);
+        $limit = date_create("2024-06-01");
+        $age = date_diff($dob, $limit);
+        $this->age = $age->format('%y');;
+    }
+
     public function validate_data()
     {
         $this->resetErrorBag();
@@ -109,7 +117,7 @@ class RegistrationForm extends Component
             'last_name' => 'required|string|max:255',
             'gender' => 'required|string|max:8',
             'date_of_birth' => 'required',
-            'age' => 'required|max:255',
+            'age' => 'required|numeric|max:255',
             'uid' => 'required|numeric|digits:12',
             'religion' => 'required|string|max:255',
             'caste' => 'required|string|max:255',
