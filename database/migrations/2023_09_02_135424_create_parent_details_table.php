@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('parent_details', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('occupation');
+            $table->string('occupation')->nullable();
             $table->string('annual_income')->nullable();
             $table->string('office_address')->nullable();
             $table->string('office_number')->nullable();

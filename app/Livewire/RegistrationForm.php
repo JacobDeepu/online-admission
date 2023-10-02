@@ -147,13 +147,13 @@ class RegistrationForm extends Component
         $this->validate([
             'father_name' => 'required|string|max:255',
             'father_occupation' => 'required|string|max:255',
-            'father_annual_income' => 'required|string|max:255',
-            'father_office_address' => 'required|string|max:255',
-            'father_office_number' => 'required|numeric|digits:10',
+            'father_annual_income' => 'nullable|string|max:255',
+            'father_office_address' => 'nullable|string|max:255',
+            'father_office_number' => 'nullable|numeric|digits:10',
             'father_mobile_number' => 'required|numeric|digits:10',
             'father_email' => 'required|email',
             'mother_name' => 'required|string|max:255',
-            'mother_occupation' => 'required|string|max:255',
+            'mother_occupation' => 'nullable|string|max:255',
             'mother_annual_income' => 'nullable|string|max:255',
             'mother_office_address' => 'nullable|string|max:255',
             'mother_office_number' => 'nullable|numeric|digits:10',
@@ -190,12 +190,12 @@ class RegistrationForm extends Component
         $this->validate([
             'class' => 'required|string|max:255',
             'academic_year' => 'required|string|max:255',
-            'previous_institution' => 'required|string|max:255',
+            'previous_institution' => 'nullable|string|max:255',
             'photo' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
             'birth_certificate' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
             'aadhaar' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
             'address_proof' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
-            'siblings' => 'required|string|max:255'
+            'siblings' => 'nullable|string|max:255'
         ]);
 
         $student = Student::create([
