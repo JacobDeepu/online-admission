@@ -29,6 +29,6 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::resource('register', RegistrationController::class);
+Route::resource('registration', RegistrationController::class);
 
 Route::post('/response', [PaymentController::class, 'response'])->name('response');;
