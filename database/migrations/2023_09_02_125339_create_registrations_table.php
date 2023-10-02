@@ -21,12 +21,12 @@ return new class extends Migration
                 ->constrained();
             $table->string('class');
             $table->string('academic_year');
-            $table->string('previous_institution')->nullable();;
+            $table->string('previous_institution')->nullable();
             $table->string('photo');
             $table->string('birth_certificate');
             $table->string('aadhaar');
             $table->string('address_proof');
-            $table->string('siblings')->nullable();;
+            $table->string('siblings')->nullable();
             $table->timestamps();
         });
     }
