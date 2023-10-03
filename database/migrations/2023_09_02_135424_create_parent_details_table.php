@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('annual_income')->nullable();
             $table->string('office_address')->nullable();
             $table->string('office_number')->nullable();
-            $table->string('mobile_number');
+            $table->string('mobile_number')->nullable();
             $table->string('email')->nullable();
             $table->string('relationship');
             $table->foreignId('student_id')

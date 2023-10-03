@@ -64,7 +64,7 @@
                     <x-input-float-label class="block w-full" name="first_name" type="text" wire:model.blur="first_name" label="{{ __('First Name') }}" required autofocus />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="last_name" type="text" wire:model.blur="last_name" label="{{ __('Last Name') }}" required autofocus />
+                    <x-input-float-label class="block w-full" name="last_name" type="text" wire:model.blur="last_name" label="{{ __('Last Name') }}" />
                 </div>
                 <div class="mt-0">
                     <x-select class="block w-full" name="gender" wire:model.blur="gender" label="{{ __('Gender') }}">
@@ -77,16 +77,16 @@
                     <x-input-float-label class="block w-full" name="date_of_birth" type="date" wire:model.blur="date_of_birth" label="{{ __('Date Of Birth In Figure') }}" required autofocus />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="age" type="text" wire:model.blur="age" label="{{ __('Age on June 1 (Academic Year)') }}" required autofocus />
+                    <x-input-float-label class="block w-full" name="age" type="text" wire:model.blur="age" label="{{ __('Age on June 1 (Academic Year)') }}" />
                 </div>
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="uid" type="text" wire:model.blur="uid" label="{{ __('Aadhaar No') }}" required autofocus />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="religion" type="text" wire:model.blur="religion" label="{{ __('Religion') }}" required autofocus />
+                    <x-input-float-label class="block w-full" name="religion" type="text" wire:model.blur="religion" label="{{ __('Religion') }}" />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="caste" type="text" wire:model.blur="caste" label="{{ __('Caste') }}" required autofocus />
+                    <x-input-float-label class="block w-full" name="caste" type="text" wire:model.blur="caste" label="{{ __('Caste') }}" />
                 </div>
                 <div class="mt-0">
                     <x-select class="block w-full" name="social_category" wire:model.blur="social_category" label="{{ __('Social Category') }}">
@@ -99,14 +99,13 @@
                     </x-select>
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="place_of_birth" type="text" wire:model.blur="place_of_birth" label="{{ __('Place Of Birth With State') }}" required
-                        autofocus />
+                    <x-input-float-label class="block w-full" name="place_of_birth" type="text" wire:model.blur="place_of_birth" label="{{ __('Place Of Birth With State') }}" />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="nationality" type="text" wire:model.blur="nationality" label="{{ __('Nationality') }}" required autofocus />
+                    <x-input-float-label class="block w-full" name="nationality" type="text" wire:model.blur="nationality" label="{{ __('Nationality') }}" />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="mother_tongue" type="text" wire:model.blur="mother_tongue" label="{{ __('Mother Tongue') }}" required autofocus />
+                    <x-input-float-label class="block w-full" name="mother_tongue" type="text" wire:model.blur="mother_tongue" label="{{ __('Mother Tongue') }}" />
                 </div>
             </div>
             <div class="grid gap-2 sm:grid-cols-2" x-show="currentTab === 2">
@@ -131,26 +130,25 @@
                             </h6>
                         </div>
                         <div class="mt-0 sm:col-span-2">
-                            <x-input-float-label class="block w-full" name="house_name" type="text" wire:model.blur="house_name" label="{{ __('Address of Parent(House / Flat No)') }}"
-                                required autofocus />
+                            <x-input-float-label class="block w-full" name="house_name" type="text" wire:model.blur="house_name" label="{{ __('Address of Parent(House / Flat No)') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="street" type="text" wire:model.blur="street" label="{{ __('Street') }}" required autofocus />
+                            <x-input-float-label class="block w-full" name="street" type="text" wire:model.blur="street" label="{{ __('Street') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="post_office" type="text" wire:model.blur="post_office" label="{{ __('Post Office') }}" required autofocus />
+                            <x-input-float-label class="block w-full" name="post_office" type="text" wire:model.blur="post_office" label="{{ __('Post Office') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="pin_code" type="text" wire:model.blur="pin_code" label="{{ __('Pin Code') }}" required autofocus />
+                            <x-input-float-label class="block w-full" name="pin_code" type="text" wire:model.blur="pin_code" label="{{ __('Pin Code') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="city" type="text" wire:model.blur="city" label="{{ __('City') }}" required autofocus />
+                            <x-input-float-label class="block w-full" name="city" type="text" wire:model.blur="city" label="{{ __('City') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="district" type="text" wire:model.blur="district" label="{{ __('District') }}" required autofocus />
+                            <x-input-float-label class="block w-full" name="district" type="text" wire:model.blur="district" label="{{ __('District') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="state" type="text" wire:model.blur="state" label="{{ __('State') }}" required autofocus />
+                            <x-input-float-label class="block w-full" name="state" type="text" wire:model.blur="state" label="{{ __('State') }}" />
                         </div>
                     </div>
                 </div>
@@ -167,28 +165,25 @@
                         </div>
                         <div class="mt-0 sm:col-span-2">
                             <x-input-float-label class="block w-full" name="permanent_house_name" type="text" wire:model.blur="permanent_house_name"
-                                label="{{ __('Address of Parent(House / Flat No)') }}" required autofocus />
+                                label="{{ __('Address of Parent(House / Flat No)') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="permanent_street" type="text" wire:model.blur="permanent_street" label="{{ __('Street') }}" required autofocus />
+                            <x-input-float-label class="block w-full" name="permanent_street" type="text" wire:model.blur="permanent_street" label="{{ __('Street') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="permanent_post_office" type="text" wire:model.blur="permanent_post_office" label="{{ __('Post Office') }}" required
-                                autofocus />
+                            <x-input-float-label class="block w-full" name="permanent_post_office" type="text" wire:model.blur="permanent_post_office" label="{{ __('Post Office') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="permanent_pin_code" type="text" wire:model.blur="permanent_pin_code" label="{{ __('Pin Code') }}" required
-                                autofocus />
+                            <x-input-float-label class="block w-full" name="permanent_pin_code" type="text" wire:model.blur="permanent_pin_code" label="{{ __('Pin Code') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="permanent_city" type="text" wire:model.blur="permanent_city" label="{{ __('City') }}" required autofocus />
+                            <x-input-float-label class="block w-full" name="permanent_city" type="text" wire:model.blur="permanent_city" label="{{ __('City') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="permanent_district" type="text" wire:model.blur="permanent_district" label="{{ __('District') }}" required
-                                autofocus />
+                            <x-input-float-label class="block w-full" name="permanent_district" type="text" wire:model.blur="permanent_district" label="{{ __('District') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="permanent_state" type="text" wire:model.blur="permanent_state" label="{{ __('State') }}" required autofocus />
+                            <x-input-float-label class="block w-full" name="permanent_state" type="text" wire:model.blur="permanent_state" label="{{ __('State') }}" />
                         </div>
                     </div>
                 </div>
@@ -205,15 +200,13 @@
                             <x-input-float-label class="block w-full" name="father_name" type="text" wire:model.blur="father_name" label="{{ __('Name') }}" required autofocus />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="father_occupation" type="text" wire:model.blur="father_occupation" label="{{ __('Occupation') }}" required
-                                autofocus />
+                            <x-input-float-label class="block w-full" name="father_occupation" type="text" wire:model.blur="father_occupation" label="{{ __('Occupation') }}" />
                         </div>
                         <div class="mt-0">
                             <x-input-float-label class="block w-full" name="father_annual_income" type="text" wire:model.blur="father_annual_income" label="{{ __('Annual Income') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="father_mobile_number" type="text" wire:model.blur="father_mobile_number" label="{{ __('Mobile Number') }}" required
-                                autofocus />
+                            <x-input-float-label class="block w-full" name="father_mobile_number" type="text" wire:model.blur="father_mobile_number" label="{{ __('Mobile Number') }}" />
                         </div>
                         <div class="mt-0">
                             <x-input-float-label class="block w-full" name="father_email" type="email" wire:model.blur="father_email" label="{{ __('Email Id') }}" required autofocus />
@@ -243,8 +236,7 @@
                             <x-input-float-label class="block w-full" name="mother_annual_income" type="text" wire:model.blur="mother_annual_income" label="{{ __('Annual Income') }}" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="mother_mobile_number" type="text" wire:model.blur="mother_mobile_number" label="{{ __('Mobile Number') }}" required
-                                autofocus />
+                            <x-input-float-label class="block w-full" name="mother_mobile_number" type="text" wire:model.blur="mother_mobile_number" label="{{ __('Mobile Number') }}" />
                         </div>
                         <div class="mt-0">
                             <x-input-float-label class="block w-full" name="mother_email" type="email" wire:model.blur="mother_email" label="{{ __('Email Id') }}" />
@@ -307,7 +299,7 @@
                 <div class="mt-0">
                     <x-select class="block w-full" name="academic_year" wire:model.blur="academic_year" label="{{ __('Academic Year') }}">
                         <option>-- choose --</option>
-                        <option value="2023-24"> 2023-24 </option>
+                        <option value="2023-24"> 2024-25 </option>
                     </x-select>
                 </div>
                 <div class="mt-0">

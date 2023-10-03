@@ -13,22 +13,22 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('primary_number', 10);
-            $table->string('secondary_number', 10)->nullable();
-            $table->string('house_name');
-            $table->string('street');
-            $table->string('post_office');
-            $table->string('pin_code', 6);
-            $table->string('city');
-            $table->string('district');
-            $table->string('state');
-            $table->string('permanent_house_name');
-            $table->string('permanent_street');
-            $table->string('permanent_post_office');
-            $table->string('permanent_pin_code', 6);
-            $table->string('permanent_city');
-            $table->string('permanent_district');
-            $table->string('permanent_state');
+            $table->string('primary_number', 20);
+            $table->string('secondary_number', 20)->nullable();
+            $table->string('house_name')->nullable();
+            $table->string('street')->nullable();
+            $table->string('post_office')->nullable();
+            $table->string('pin_code', 6)->nullable();
+            $table->string('city')->nullable();
+            $table->string('district')->nullable();
+            $table->string('state')->nullable();
+            $table->string('permanent_house_name')->nullable();
+            $table->string('permanent_street')->nullable();
+            $table->string('permanent_post_office')->nullable();
+            $table->string('permanent_pin_code', 6)->nullable();
+            $table->string('permanent_city')->nullable();
+            $table->string('permanent_district')->nullable();
+            $table->string('permanent_state')->nullable();
             $table->timestamps();
         });
     }

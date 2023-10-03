@@ -119,34 +119,34 @@ class RegistrationForm extends Component
             'date_of_birth' => 'required',
             'age' => 'required|numeric|max:255',
             'uid' => 'required|numeric|digits:12',
-            'religion' => 'required|string|max:255',
-            'caste' => 'required|string|max:255',
-            'social_category' => 'required|string|max:255',
-            'place_of_birth' => 'required|string|max:255',
-            'nationality' => 'required|string|max:255',
-            'mother_tongue' => 'required|string|max:255'
+            'religion' => 'nullable|string|max:255',
+            'caste' => 'nullable|string|max:255',
+            'social_category' => 'nullable|string|max:255',
+            'place_of_birth' => 'nullable|string|max:255',
+            'nationality' => 'nullable|string|max:255',
+            'mother_tongue' => 'nullable|string|max:255'
         ]);
     }
 
     public function validate_contact()
     {
         $this->validate([
-            'primary_number' => 'required|numeric|digits:10',
-            'secondary_number' => 'nullable|numeric|digits:10',
-            'house_name' => 'required|string|max:255',
-            'street' => 'required|string|max:255',
-            'post_office' => 'required|string|max:255',
-            'pin_code' => 'required|numeric|digits:6',
-            'city' => 'required|string|max:255',
-            'district' => 'required|string|max:255',
-            'state' => 'required|string|max:255',
-            'permanent_house_name' => 'required|string|max:255',
-            'permanent_street' => 'required|string|max:255',
-            'permanent_post_office' => 'required|string|max:255',
-            'permanent_pin_code' => 'required|numeric|digits:6',
-            'permanent_city' => 'required|string|max:255',
-            'permanent_district' => 'required|string|max:255',
-            'permanent_state' => 'required|string|max:255'
+            'primary_number' => 'required|numeric',
+            'secondary_number' => 'nullable|numeric',
+            'house_name' => 'nullable|string|max:255',
+            'street' => 'nullable|string|max:255',
+            'post_office' => 'nullable|string|max:255',
+            'pin_code' => 'nullable|numeric|digits:6',
+            'city' => 'nullable|string|max:255',
+            'district' => 'nullable|string|max:255',
+            'state' => 'nullable|string|max:255',
+            'permanent_house_name' => 'nullable|string|max:255',
+            'permanent_street' => 'nullable|string|max:255',
+            'permanent_post_office' => 'nullable|string|max:255',
+            'permanent_pin_code' => 'nullable|numeric|digits:6',
+            'permanent_city' => 'nullable|string|max:255',
+            'permanent_district' => 'nullable|string|max:255',
+            'permanent_state' => 'nullable|string|max:255'
         ]);
     }
 
@@ -154,18 +154,18 @@ class RegistrationForm extends Component
     {
         $this->validate([
             'father_name' => 'required|string|max:255',
-            'father_occupation' => 'required|string|max:255',
+            'father_occupation' => 'nullable|string|max:255',
             'father_annual_income' => 'nullable|string|max:255',
             'father_office_address' => 'nullable|string|max:255',
-            'father_office_number' => 'nullable|numeric|digits:10',
-            'father_mobile_number' => 'required|numeric|digits:10',
+            'father_office_number' => 'nullable|numeric',
+            'father_mobile_number' => 'required|numeric',
             'father_email' => 'required|email',
             'mother_name' => 'required|string|max:255',
             'mother_occupation' => 'nullable|string|max:255',
             'mother_annual_income' => 'nullable|string|max:255',
             'mother_office_address' => 'nullable|string|max:255',
-            'mother_office_number' => 'nullable|numeric|digits:10',
-            'mother_mobile_number' => 'required|numeric|digits:10',
+            'mother_office_number' => 'nullable|numeric',
+            'mother_mobile_number' => 'nullable|numeric',
             'mother_email' => 'nullable|email'
         ]);
     }

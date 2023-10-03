@@ -19,12 +19,12 @@ return new class extends Migration
             $table->date('date_of_birth');
             $table->integer('age');
             $table->string('uid', 12);
-            $table->string('religion');
-            $table->string('caste');
-            $table->string('social_category');
-            $table->string('place_of_birth');
-            $table->string('nationality');
-            $table->string('mother_tongue');
+            $table->string('religion')->nullable();
+            $table->string('caste')->nullable();
+            $table->string('social_category')->nullable();
+            $table->string('place_of_birth')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('mother_tongue')->nullable();
             $table->timestamps();
         });
     }
