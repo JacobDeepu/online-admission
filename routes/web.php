@@ -35,4 +35,4 @@ Route::middleware([
 });
 Route::get('/export-pdf/{registration}', [RegistrationController::class, 'exportPDF'])->name('export');
 
-Route::post('/response', [PaymentController::class, 'response'])->name('response');;
+Route::post('/response', [PaymentController::class, 'response'])->name('response');

@@ -3,58 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
-use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-    protected $merchTxnId;
-    protected $amount;
-    protected $password;
-    protected $product_id;
-    protected $date;
-    protected $encRequestKey;
-    protected $decResponseKey;
-    protected $api_url;
-    protected $user_email;
-    protected $user_contact_number;
-
-    public $login;
-    public $return_url;
     public $registration_id;
 
-    public function __construct($amount = 0, $email = "", $contact = "", $registration_id)
+    public function setPayData($amount = 0, $email = "", $contact = "", $registration_id)
     {
-        $this->merchTxnId = uniqId();
-        $this->amount = $amount;
-        $this->login = "317159";
-        $this->password = "Test@123";
-        $this->product_id = "NSE";
-        $this->date = date('Y-m-d H:i:s'); // current date
-        $this->encRequestKey = "A4476C2062FFA58980DC8F79EB6A799E";
-        $this->decResponseKey = "75AEF0FA1B94B3C10D4F5B268F757F11";
-        $this->api_url = "https://paynetzuat.atomtech.in/ots/aipay/auth";
-        $this->user_email = $email;
-        $this->user_contact_number = $contact;
-        $this->return_url = route('response');
+        $merchTxnId = uniqId();
+        $login = "317159";
+        $password = "Test@123";
+        $product_id = "AIPAY";
+        $date = date('Y-m-d H:i:s');
+        $encRequestKey = "A4476C2062FFA58980DC8F79EB6A799E";
+        $decResponseKey = "75AEF0FA1B94B3C10D4F5B268F757F11";
+        $api_url = "https://paynetzuat.atomtech.in/ots/aipay/auth";
+        $return_url = route('response');
         $this->registration_id = $registration_id;
-    }
 
-    public function index()
-    {
-        $payData = array(
-            'login' => $this->login,
-            'password' => $this->password,
-            'amount' => $this->amount,
-            'prod_id' => $this->product_id,
-            'txnId' => $this->merchTxnId,
-            'date' => $this->date,
-            'encKey' => $this->encRequestKey,
-            'decKey' => $this->decResponseKey,
-            'payUrl' => $this->api_url,
-            'email' => $this->user_email,
-            'mobile' => $this->user_contact_number,
+        $pay_data = array(
+            'login' => $login,
+            'password' => $password,
+            'amount' => $amount,
+            'prod_id' => $product_id,
+            'txnId' => $merchTxnId,
+            'date' => $date,
+            'encKey' => $encRequestKey,
+            'decKey' => $decResponseKey,
+            'payUrl' => $api_url,
+            'email' => $email,
+            'mobile' => $contact,
             'txnCurrency' => 'INR',
-            'return_url' => $this->return_url,
+            'return_url' => $return_url,
             'udf1' => "",  // optional
             'udf2' => "",  // optional 
             'udf3' => "",  // optional
@@ -62,15 +42,21 @@ class PaymentController extends Controller
             'udf5' => ""   // optional
         );
 
-        $atomTokenId = $this->createTokenId($payData);
-        return $atomTokenId;
+        $atom_token_id = $this->createTokenId($pay_data);
+
+        $data = [
+            'login' => $login,
+            'url' => $return_url,
+            'token' => $atom_token_id
+        ];
+        return $data;
     }
 
     // main response function to get response data
     public function response()
     {
         $data = $_POST['encData'];
-        
+
         $decData = $this->decrypt($data, '75AEF0FA1B94B3C10D4F5B268F757F11', '75AEF0FA1B94B3C10D4F5B268F757F11');
         $jsonData = json_decode($decData, true);
 
@@ -129,7 +115,7 @@ class PaymentController extends Controller
             }';
 
         $encData = $this->encrypt($jsondata, $data['encKey'], $data['encKey']);
-        
+
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => $data['payUrl'],

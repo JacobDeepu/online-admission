@@ -170,20 +170,23 @@ class RegistrationForm extends Component
         ]);
     }
 
+    public function generatePayData()
+    {
+        $amount = 20.00;
+        $payment = new PaymentController();
+        $pay_data = $payment->setPayData($amount, $this->father_email, $this->primary_number, $this->registration_id);
+        return $pay_data;
+    }
+
     public function payment()
     {
-        $amount = 2.00;
-        $payment = new PaymentController($amount, $this->father_email, $this->primary_number, $this->registration_id);
-        $login = $payment->login;
-        $return_url = $payment->return_url;
-
-        $atom_token_id = $payment->index();
+        $data = $this->generatePayData();
         $json_data = '{
-            "atomTokenId": "' . $atom_token_id . '",
-            "merchId": "' . $login . '",
+            "atomTokenId": "' . $data['token'] . '",
+            "merchId": "' . $data['login'] . '",
             "custEmail": "' . $this->father_email . '",
             "custMobile": "' . $this->primary_number . '",
-            "returnUrl": "' . $return_url . '"
+            "returnUrl": "' . $data['url'] . '"
         }';
         $this->js('let atom = new AtomPaynetz(' . $json_data . ', "uat");');
     }
@@ -279,8 +282,10 @@ class RegistrationForm extends Component
         ]);
 
         $this->$registration = $registration->id;
-        $this->is_submitted = true;
+
         $this->payment();
+
+        $this->is_submitted = true;
 
         return redirect()->route('export', $registration);
     }
