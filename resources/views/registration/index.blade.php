@@ -40,6 +40,9 @@
                                     {{ __('Phone') }}
                                 </th>
                                 <th class="px-6 py-3" scope="col">
+                                    {{ __('Status') }}
+                                </th>
+                                <th class="px-6 py-3" scope="col">
                                     {{ __('Actions') }}
                                 </th>
                             </tr>
@@ -59,27 +62,17 @@
                                     <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
                                         {{ $registration->contact->primary_number }}
                                     </td>
+                                    <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
+                                        {{ $registration->status ? "Approved" : "Pending" }}
+                                    </td>
                                     <td class="w-56 px-0 py-4">
-                                        <a href="{{ route('registration.edit', $registration) }}">
+                                        <a href="{{ route('registration.show', $registration) }}">
                                             <svg class="feather feather-check-square mr-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                                 <polyline points="9 11 12 14 22 4"></polyline>
                                                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                                            </svg> Edit
+                                            </svg> View
                                         </a>
-                                        <form class="inline-block" method="POST" action="{{ route('registration.destroy', $registration) }}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <x-danger-button type="submit" onclick="return confirm('Are you sure?')">
-                                                <svg class="feather feather-trash-2 mr-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                                    <line x1="10" y1="11" x2="10" y2="17"></line>
-                                                    <line x1="14" y1="11" x2="14" y2="17"></line>
-                                                </svg> Delete
-                                            </x-danger-button>
-                                        </form>
                                     </td>
                                 </tr>
                             @empty

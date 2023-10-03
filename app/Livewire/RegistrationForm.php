@@ -274,7 +274,8 @@ class RegistrationForm extends Component
             'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates'),
             'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards'),
             'address_proof' => $this->address_proof->store('uploads/address-proofs'),
-            'siblings' => $this->siblings
+            'siblings' => $this->siblings,
+            'status' => 0
         ]);
 
         $this->$registration = $registration->id;

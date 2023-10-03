@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('aadhaar');
             $table->string('address_proof');
             $table->string('siblings')->nullable();
+            $table->boolean('status');
             $table->timestamps();
         });
     }
