@@ -27,8 +27,11 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-});
 
-Route::resource('registration', RegistrationController::class);
+    Route::resource('registration', RegistrationController::class)
+        ->only([
+            'index', 'show'
+        ]);
+});
 
 Route::post('/response', [PaymentController::class, 'response'])->name('response');;
