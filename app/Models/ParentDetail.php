@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ParentDetail extends Model
 {
@@ -20,4 +21,12 @@ class ParentDetail extends Model
         'relationship',
         'student_id'
     ];
+
+    /**
+     * Get the parent that owns the student.
+     */
+    public function student(): BelongsTo
+    {
+        return $this->belongsTo(Student::class);
+    }
 }

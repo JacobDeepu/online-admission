@@ -270,10 +270,10 @@ class RegistrationForm extends Component
             'class' => $this->class,
             'academic_year' => $this->academic_year,
             'previous_institution' => $this->previous_institution,
-            'photo' => $this->photo->store('uploads/photos'),
-            'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates'),
-            'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards'),
-            'address_proof' => $this->address_proof->store('uploads/address-proofs'),
+            'photo' => $this->photo->store('uploads/photos', 'public'),
+            'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),
+            'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards', 'public'),
+            'address_proof' => $this->address_proof->store('uploads/address-proofs', 'public'),
             'siblings' => $this->siblings,
             'status' => 0
         ]);
@@ -282,6 +282,6 @@ class RegistrationForm extends Component
         $this->is_submitted = true;
         $this->payment();
 
-        return redirect('/')->with('status', 'Registration Successful!!');
+        return redirect()->route('export', $registration);
     }
 }

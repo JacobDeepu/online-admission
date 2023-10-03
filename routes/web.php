@@ -33,5 +33,6 @@ Route::middleware([
             'index', 'show'
         ]);
 });
+Route::get('/export-pdf/{registration}', [RegistrationController::class, 'exportPDF'])->name('export');
 
 Route::post('/response', [PaymentController::class, 'response'])->name('response');;

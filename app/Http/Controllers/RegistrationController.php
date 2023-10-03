@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Registration;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RegistrationController extends Controller
 {
@@ -24,4 +25,18 @@ class RegistrationController extends Controller
         //
     }
 
+    /**
+     * Export as pdf.
+     */
+    public function exportPDF(Registration $registration)
+    {
+        $data = [
+            'title' => 'Admission 2024-25',
+            'date' => date('m/d/Y'),
+            'registration' => $registration,
+            'photo' => public_path('storage/' . $registration->photo)
+        ];
+        $pdf = PDF::loadView('registration.print', $data);
+        return $pdf->download('registration.pdf');
+    }
 }
