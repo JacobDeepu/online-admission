@@ -281,7 +281,7 @@ class RegistrationForm extends Component
             'status' => 0
         ]);
 
-        $this->$registration = $registration->id;
+        $this->registration_id = $registration->id;
 
         $this->payment();
 

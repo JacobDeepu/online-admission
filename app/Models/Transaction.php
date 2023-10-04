@@ -10,6 +10,7 @@ class Transaction extends Model
     use HasFactory;
 
     protected $fillable = [
+        'registration_id',
         'merch_transaction_id',
         'merch_transaction_date',
         'bank_transaction_id',

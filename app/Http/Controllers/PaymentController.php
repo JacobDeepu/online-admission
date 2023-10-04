@@ -6,8 +6,6 @@ use App\Models\Transaction;
 
 class PaymentController extends Controller
 {
-    public $registration_id;
-
     public function setPayData($amount = 0, $email = "", $contact = "", $registration_id)
     {
         $merchTxnId = uniqId();
@@ -19,7 +17,6 @@ class PaymentController extends Controller
         $decResponseKey = "75AEF0FA1B94B3C10D4F5B268F757F11";
         $api_url = "https://paynetzuat.atomtech.in/ots/aipay/auth";
         $return_url = route('response');
-        $this->registration_id = $registration_id;
 
         $pay_data = array(
             'login' => $login,
@@ -49,6 +46,16 @@ class PaymentController extends Controller
             'url' => $return_url,
             'token' => $atom_token_id
         ];
+
+        Transaction::updateOrCreate(
+            ['registration_id' => $registration_id],
+            [
+                'merch_transaction_id' => $merchTxnId,
+                'merch_transaction_date' => $date,
+                'bank_transaction_id' => 0,
+                'status' => 0
+            ]
+        );
         return $data;
     }
 
@@ -61,13 +68,13 @@ class PaymentController extends Controller
         $jsonData = json_decode($decData, true);
 
         if ($jsonData['payInstrument']['responseDetails']['statusCode'] == 'OTS0000') {
-            Transaction::create([
-                'registration_id' => $this->registration_id,
-                'merch_transaction_id' => $jsonData['payInstrument']['merchDetails']['merchTxnId'],
-                'merch_transaction_date' => $jsonData['payInstrument']['merchDetails']['merchTxnDate'],
-                'bank_transaction_id' => $jsonData['payInstrument']['payModeSpecificData']['bankDetails']['bankTxnId'],
-                'status' => 1
-            ]);
+            Transaction::updateOrCreate(
+                ['merch_transaction_id' => $jsonData['payInstrument']['merchDetails']['merchTxnId']],
+                [
+                    'bank_transaction_id' => $jsonData['payInstrument']['payModeSpecificData']['bankDetails']['bankTxnId'],
+                    'status' => 1
+                ]
+            );
             return redirect('/')->with('status', 'Registration Successful!!');
         } else {
             return redirect('/')->with('status', 'Payment Failed!!');
@@ -136,9 +143,6 @@ class PaymentController extends Controller
         ));
         $atomTokenId = null;
         $response = curl_exec($curl);
-        $getresp = explode("&", $response);
-        $encresp = substr($getresp[1], strpos($getresp[1], "=") + 1);
-        $decData = $this->decrypt($encresp, $data['decKey'], $data['decKey']);
         if (curl_errno($curl)) {
             $error_msg = curl_error($curl);
             echo "error = " . $error_msg;
@@ -146,6 +150,10 @@ class PaymentController extends Controller
         if (isset($error_msg)) {
             echo "error = " . $error_msg;
         }
+        $getresp = explode("&", $response);
+        $encresp = substr($getresp[1], strpos($getresp[1], "=") + 1);
+        $decData = $this->decrypt($encresp, $data['decKey'], $data['decKey']);
+        
         curl_close($curl);
         $res = json_decode($decData, true);
         if ($res) {
