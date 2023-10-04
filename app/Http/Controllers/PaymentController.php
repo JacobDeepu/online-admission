@@ -68,14 +68,14 @@ class PaymentController extends Controller
         $jsonData = json_decode($decData, true);
 
         if ($jsonData['payInstrument']['responseDetails']['statusCode'] == 'OTS0000') {
-            Transaction::updateOrCreate(
+            $transaction = Transaction::updateOrCreate(
                 ['merch_transaction_id' => $jsonData['payInstrument']['merchDetails']['merchTxnId']],
                 [
                     'bank_transaction_id' => $jsonData['payInstrument']['payModeSpecificData']['bankDetails']['bankTxnId'],
                     'status' => 1
                 ]
             );
-            return redirect('/')->with('status', 'Registration Successful!!');
+            return redirect()->route('export', $transaction->registration_id);
         } else {
             return redirect('/')->with('status', 'Payment Failed!!');
         }

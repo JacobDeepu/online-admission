@@ -286,7 +286,5 @@ class RegistrationForm extends Component
         $this->payment();
 
         $this->is_submitted = true;
-
-        return redirect()->route('export', $registration);
     }
 }

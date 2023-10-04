@@ -36,7 +36,11 @@ class RegistrationController extends Controller
             'registration' => $registration,
             'photo' => public_path('storage/' . $registration->photo)
         ];
-        $pdf = PDF::loadView('registration.print', $data);
-        return $pdf->download('registration.pdf');
+
+        $uid = $registration->student->uid;
+
+        PDF::loadView('registration.print', $data)->save('storage/print/' . $uid . '.pdf');
+
+        return redirect(asset('storage/print/' . $uid . '.pdf'));
     }
 }
