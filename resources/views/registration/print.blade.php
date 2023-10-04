@@ -47,11 +47,11 @@
                     <td>{{ $registration->student->gender }}</td>
                 </tr>
                 <tr>
-                    <td>date of birth</td>
+                    <td>Date of Birth</td>
                     <td>{{ $registration->student->date_of_birth }}</td>
                 </tr>
                 <tr>
-                    <td>age</td>
+                    <td>Age</td>
                     <td>{{ $registration->student->age }}</td>
                 </tr>
                 <tr>
@@ -59,63 +59,63 @@
                     <td colspan="2">{{ $registration->student->uid }}</td>
                 </tr>
                 <tr>
-                    <td>religion</td>
+                    <td>Religion</td>
                     <td colspan="2">{{ $registration->student->religion }}</td>
                 </tr>
                 <tr>
-                    <td>caste</td>
+                    <td>Caste</td>
                     <td colspan="2">{{ $registration->student->caste }}</td>
                 </tr>
                 <tr>
-                    <td>social_category</td>
+                    <td>Social Category</td>
                     <td colspan="2">{{ $registration->student->social_category }}</td>
                 </tr>
                 <tr>
-                    <td>place_of_birth</td>
+                    <td>Place of Birth</td>
                     <td colspan="2">{{ $registration->student->place_of_birth }}</td>
                 </tr>
                 <tr>
-                    <td>nationality</td>
+                    <td>Nationality</td>
                     <td colspan="2">{{ $registration->student->nationality }}</td>
                 </tr>
                 <tr>
-                    <td>mother tongue</td>
+                    <td>Mother Tongue</td>
                     <td colspan="2">{{ $registration->student->mother_tongue }}</td>
                 </tr>
                 <tr>
-                    <td>primary number</td>
+                    <td>Primary Number</td>
                     <td colspan="2">{{ $registration->contact->primary_number }}</td>
                 </tr>
                 <tr>
-                    <td>secondary number</td>
+                    <td>Secondary Number</td>
                     <td colspan="2">{{ $registration->contact->secondary_number }}</td>
                 </tr>
                 <tr>
-                    <td>house name</td>
+                    <td>House Name</td>
                     <td colspan="2">{{ $registration->contact->house_name }}</td>
                 </tr>
                 <tr>
-                    <td>street</td>
+                    <td>Street</td>
                     <td colspan="2">{{ $registration->contact->street }}</td>
                 </tr>
                 <tr>
-                    <td>post office</td>
+                    <td>Post Office</td>
                     <td colspan="2">{{ $registration->contact->post_office }}</td>
                 </tr>
                 <tr>
-                    <td>pin code</td>
+                    <td>Pin Code</td>
                     <td colspan="2">{{ $registration->contact->pin_code }}</td>
                 </tr>
                 <tr>
-                    <td>city</td>
+                    <td>City</td>
                     <td colspan="2">{{ $registration->contact->city }}</td>
                 </tr>
                 <tr>
-                    <td>district</td>
+                    <td>District</td>
                     <td colspan="2">{{ $registration->contact->district }}</td>
                 </tr>
                 <tr>
-                    <td>state</td>
+                    <td>State</td>
                     <td colspan="2">{{ $registration->contact->state }}</td>
                 </tr>
                 <tr>
@@ -175,19 +175,19 @@
                     <td colspan="2">{{ $registration->student->parent_details[1]['email'] }}</td>
                 </tr>
                 <tr>
-                    <td>class</td>
+                    <td>Class Applying to</td>
                     <td colspan="2">{{ $registration->class }}</td>
                 </tr>
                 <tr>
-                    <td>academic year</td>
+                    <td>Academic Year</td>
                     <td colspan="2">{{ $registration->academic_year }}</td>
                 </tr>
                 <tr>
-                    <td>previous institution</td>
+                    <td>Previous Institution</td>
                     <td colspan="2">{{ $registration->previous_institution }}</td>
                 </tr>
                 <tr>
-                    <td>siblings</td>
+                    <td>Siblings</td>
                     <td colspan="2">{{ $registration->siblings }}</td>
                 </tr>
             </tbody>
