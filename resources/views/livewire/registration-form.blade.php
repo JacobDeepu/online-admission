@@ -74,7 +74,7 @@
                     </x-select>
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="date_of_birth" type="date" wire:model.blur="date_of_birth" label="{{ __('Date Of Birth In Figure') }}" @mouseenter="addFocus" required autofocus />
+                    <x-input-float-label class="block w-full" name="date_of_birth" type="date" wire:model.blur="date_of_birth" label="{{ __('Date Of Birth In Figure') }}" required autofocus />
                 </div>
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="age" type="text" wire:model.blur="age" label="{{ __('Age on June 1 (Academic Year)') }}" @mouseenter="addFocus" />
