@@ -115,10 +115,10 @@ class RegistrationForm extends Component
         $this->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'gender' => 'required|string|max:8',
+            'gender' => 'nullable|string|max:8',
             'date_of_birth' => 'required',
             'age' => 'required|numeric|max:255',
-            'uid' => 'required|numeric|digits:12',
+            'uid' => 'nullable|numeric',
             'religion' => 'nullable|string|max:255',
             'caste' => 'nullable|string|max:255',
             'social_category' => 'nullable|string|max:255',
@@ -199,8 +199,8 @@ class RegistrationForm extends Component
         $this->validate_parent_details();
 
         $this->validate([
-            'class' => 'required|string|max:255',
-            'academic_year' => 'required|string|max:255',
+            'class' => 'nullable|string|max:255',
+            'academic_year' => 'nullable|string|max:255',
             'previous_institution' => 'nullable|string|max:255',
             'photo' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
             'birth_certificate' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',

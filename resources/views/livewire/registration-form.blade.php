@@ -81,7 +81,7 @@
                     <x-input-float-label class="block w-full" name="age" type="text" wire:model="age" label="{{ __('Age on June 1 (Academic Year)') }}" @mouseenter="addFocus" />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="uid" type="text" wire:model="uid" label="{{ __('Aadhaar No') }}" @mouseenter="addFocus" required autofocus />
+                    <x-input-float-label class="block w-full" name="uid" type="text" wire:model="uid" label="{{ __('Aadhaar No') }}" @mouseenter="addFocus" autofocus />
                 </div>
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="religion" type="text" wire:model="religion" label="{{ __('Religion') }}" @mouseenter="addFocus" />

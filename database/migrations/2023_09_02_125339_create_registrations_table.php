@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreignId('contact_id')
                 ->cascadeOnDelete()
                 ->constrained();
-            $table->string('class');
-            $table->string('academic_year');
+            $table->string('class')->nullable();
+            $table->string('academic_year')->nullable();
             $table->string('previous_institution')->nullable();
             $table->string('photo');
             $table->string('birth_certificate');

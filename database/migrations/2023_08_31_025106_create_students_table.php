@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('gender', 20);
             $table->date('date_of_birth');
             $table->integer('age');
-            $table->string('uid', 12);
+            $table->string('uid', 20)->nullable();
             $table->string('religion')->nullable();
             $table->string('caste')->nullable();
             $table->string('social_category')->nullable();
