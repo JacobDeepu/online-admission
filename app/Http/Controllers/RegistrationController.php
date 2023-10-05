@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Admission;
 use App\Models\Registration;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
 
 class RegistrationController extends Controller
 {
@@ -41,6 +43,8 @@ class RegistrationController extends Controller
 
         PDF::loadView('registration.print', $data)->save('storage/print/' . $file );
 
+        Mail::to($registration->student->parent_details[0]['email'])
+        ->send(new Admission($registration, $file));
         return redirect(asset('storage/print/' . $file));
     }
 }
