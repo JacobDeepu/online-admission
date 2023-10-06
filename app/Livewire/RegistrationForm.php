@@ -68,6 +68,7 @@ class RegistrationForm extends Component
     public $birth_certificate;
     public $aadhaar;
     public $address_proof;
+    public $immunization;
     public $siblings;
     public $registration_id;
 
@@ -206,6 +207,7 @@ class RegistrationForm extends Component
             'birth_certificate' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
             'aadhaar' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
             'address_proof' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
+            'immunization' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
             'siblings' => 'nullable|string|max:255'
         ]);
 
@@ -277,6 +279,7 @@ class RegistrationForm extends Component
             'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),
             'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards', 'public'),
             'address_proof' => $this->address_proof->store('uploads/address-proofs', 'public'),
+            'immunization' => $this->immunization->store('uploads/immunization-certs', 'public'),
             'siblings' => $this->siblings,
             'status' => 0
         ]);

@@ -21,6 +21,7 @@ class Registration extends Model
         'birth_certificate',
         'aadhaar',
         'address_proof',
+        'immunization',
         'siblings',
         'status'
     ];

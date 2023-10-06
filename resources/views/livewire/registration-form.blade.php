@@ -277,8 +277,8 @@
                     </div>
                 </div>
             </div>
-            <div class="grid gap-4 sm:grid-cols-2" x-show="currentTab === 4">
-                <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
+            <div class="grid gap-4 sm:grid-cols-3" x-show="currentTab === 4">
+                <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-3">
                     <h6 class="text-sm font-medium text-white"> DOCUMENTS </h6>
                 </div>
                 <div class="mt-0">
@@ -301,6 +301,14 @@
                         type="file" wire:model.blur="aadhaar" required />
                 </div>
                 <div class="mt-0">
+                    <label class="@error('immunization') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="immunization">
+                        Immunization Certificate
+                    </label>
+                    <input
+                        class="@error('immunization') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
+                        type="file" wire:model.blur="immunization" required />
+                </div>
+                <div class="mt-0 sm:col-span-2">
                     <label class="@error('address_proof') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="address_proof">
                         Address Proof (Aadhaar Card, Driving License, Voter ID of Parent)
                     </label>
@@ -310,11 +318,9 @@
                 </div>
                 <div class="mt-0 p-2">
                     <p class="text-sm font-medium text-red-600">Allowed File Formats pdf, jpg, png, jpeg.</p>
-                </div>
-                <div class="mt-0 p-2">
                     <p class="text-sm font-medium text-red-600">Allowed File Size Maximum 1MB.</p>
                 </div>
-                <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
+                <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-3">
                     <h6 class="text-sm font-medium text-white"> ACADEMIC </h6>
                 </div>
                 <div class="mt-0">
