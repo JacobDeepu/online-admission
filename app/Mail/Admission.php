@@ -42,7 +42,13 @@ class Admission extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'registration.email'
+            view: 'registration.print',
+            with: [
+                'title' => 'Admission 2024-25',
+                'date' => date('m/d/Y'),
+                'registration' => $this->registration,
+                'photo' => public_path('storage/' . $this->registration->photo)
+            ],
         );
     }
 
@@ -57,7 +63,7 @@ class Admission extends Mailable
             Attachment::fromPath(public_path('storage/' . $this->registration->birth_certificate)),
             Attachment::fromPath(public_path('storage/' . $this->registration->aadhaar)),
             Attachment::fromPath(public_path('storage/' . $this->registration->address_proof)),
-            Attachment::fromPath(asset('storage/print/' . $this->file)),
+            // Attachment::fromPath(asset('public/storage/print/' . $this->file)),
         ];
     }
 }

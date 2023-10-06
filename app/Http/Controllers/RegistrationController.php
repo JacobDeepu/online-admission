@@ -41,10 +41,11 @@ class RegistrationController extends Controller
 
         $file = $registration->student->first_name . $registration->id . '.pdf';
 
-        PDF::loadView('registration.print', $data)->save('storage/print/' . $file );
+        PDF::loadView('registration.print', $data)->save('storage/print/' . $file);
 
         Mail::to($registration->student->parent_details[0]['email'])
-        ->send(new Admission($registration, $file));
+            ->send(new Admission($registration, $file));
+
         return redirect(asset('storage/print/' . $file));
     }
 }
