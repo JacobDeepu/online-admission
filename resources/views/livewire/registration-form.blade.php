@@ -84,7 +84,14 @@
                     <x-input-float-label class="block w-full" name="uid" type="text" wire:model="uid" label="{{ __('Aadhaar No') }}" @mouseenter="addFocus" autofocus />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="religion" type="text" wire:model="religion" label="{{ __('Religion') }}" @mouseenter="addFocus" />
+                    <x-select class="block w-full" name="religion" wire:model="religion" label="{{ __('Religion') }}" @mouseenter="addFocus">
+                        <option>-- choose --</option>
+                        <option value="CHRISTIAN"> CHRISTIAN </option>
+                        <option value="HINDU"> HINDU </option>
+                        <option value="JEWISH"> JEWISH </option>
+                        <option value="MUSLIM"> MUSLIM </option>
+                        <option value="OTHER"> OTHER </option>
+                    </x-select>
                 </div>
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="caste" type="text" wire:model="caste" label="{{ __('Caste') }}" @mouseenter="addFocus" />
