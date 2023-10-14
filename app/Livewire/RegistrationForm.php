@@ -70,6 +70,7 @@ class RegistrationForm extends Component
     public $address_proof;
     public $immunization;
     public $siblings;
+    public $distance;
     public $registration_id;
 
     public function render()
@@ -208,7 +209,8 @@ class RegistrationForm extends Component
             'aadhaar' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
             'address_proof' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
             'immunization' => 'required|mimes:pdf,jpg,png,jpeg|max:1024',
-            'siblings' => 'nullable|string|max:255'
+            'siblings' => 'nullable|string|max:255',
+            'distance' => 'nullable|string|max:255'
         ]);
 
         $student = Student::create([
@@ -281,6 +283,7 @@ class RegistrationForm extends Component
             'address_proof' => $this->address_proof->store('uploads/address-proofs', 'public'),
             'immunization' => $this->immunization->store('uploads/immunization-certs', 'public'),
             'siblings' => $this->siblings,
+            'distance' => $this->distance,
             'status' => 0
         ]);
 

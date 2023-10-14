@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('address_proof');
             $table->string('immunization');
             $table->string('siblings')->nullable();
+            $table->string('distance')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });

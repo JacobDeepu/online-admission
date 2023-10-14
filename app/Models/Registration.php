@@ -23,6 +23,7 @@ class Registration extends Model
         'address_proof',
         'immunization',
         'siblings',
+        'distance',
         'status'
     ];
 

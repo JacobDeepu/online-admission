@@ -342,6 +342,9 @@
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="siblings" type="text" wire:model="siblings" label="{{ __('Siblings') }}" @mouseenter="addFocus" />
                 </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="distance" type="text" wire:model="distance" label="{{ __('Distance From Home to School') }}" @mouseenter="addFocus" />
+                </div>
             </div>
             <div class="mt-4 flex items-center justify-end sm:col-span-2">
                 <x-secondary-button class="ml-4" x-show="currentTab > 1" @click="currentTab--">
