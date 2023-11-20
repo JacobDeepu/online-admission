@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/kg', function () {
+    return view('registration.kg');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
