@@ -28,9 +28,9 @@
                 <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                     <div class="border-b border-gray-200 bg-white p-6 lg:p-8">
                         <h1 class="text-center text-4xl font-bold uppercase text-blue-600">
-                            Registration Form
+                            KG Registration Form
                         </h1>
-                        @livewire('registration-form')
+                        @livewire('kg-registration')
                     </div>
                 </div>
             </div>
