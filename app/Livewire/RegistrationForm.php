@@ -47,17 +47,17 @@ class RegistrationForm extends Component
     public $same_as;
     // Parent Details
     public $father_name;
+    public $father_nationality;
+    public $father_qualification;
     public $father_occupation;
     public $father_annual_income;
-    public $father_office_address;
-    public $father_office_number;
     public $father_mobile_number;
     public $father_email;
     public $mother_name;
+    public $mother_nationality;
+    public $mother_qualification;
     public $mother_occupation;
     public $mother_annual_income;
-    public $mother_office_address;
-    public $mother_office_number;
     public $mother_mobile_number;
     public $mother_email;
     // Registration
@@ -158,15 +158,15 @@ class RegistrationForm extends Component
             'father_name' => 'required|string|max:255',
             'father_occupation' => 'nullable|string|max:255',
             'father_annual_income' => 'nullable|string|max:255',
-            'father_office_address' => 'nullable|string|max:255',
-            'father_office_number' => 'nullable|numeric',
+            'father_nationality' => 'nullable|string|max:255',
+            'father_qualification' => 'nullable|string|max:255',
             'father_mobile_number' => 'required|numeric',
             'father_email' => 'required|email',
             'mother_name' => 'required|string|max:255',
             'mother_occupation' => 'nullable|string|max:255',
             'mother_annual_income' => 'nullable|string|max:255',
-            'mother_office_address' => 'nullable|string|max:255',
-            'mother_office_number' => 'nullable|numeric',
+            'mother_nationality' => 'nullable|string|max:255',
+            'mother_qualification' => 'nullable|string|max:255',
             'mother_mobile_number' => 'nullable|numeric',
             'mother_email' => 'nullable|email'
         ]);
@@ -253,8 +253,8 @@ class RegistrationForm extends Component
                 'name' => $this->father_name,
                 'occupation' => $this->father_occupation,
                 'annual_income' => $this->father_annual_income,
-                'office_address' => $this->father_office_address,
-                'office_number' => $this->father_office_number,
+                'nationality' => $this->father_nationality,
+                'qualification' => $this->father_qualification,
                 'mobile_number' => $this->father_mobile_number,
                 'email' => $this->father_email,
                 'relationship' => 'father'
@@ -263,8 +263,8 @@ class RegistrationForm extends Component
                 'name' => $this->mother_name,
                 'occupation' => $this->mother_occupation,
                 'annual_income' => $this->mother_annual_income,
-                'office_address' => $this->mother_office_address,
-                'office_number' => $this->mother_office_number,
+                'nationality' => $this->mother_nationality,
+                'qualification' => $this->mother_qualification,
                 'mobile_number' => $this->mother_mobile_number,
                 'email' => $this->mother_email,
                 'relationship' => 'mother'

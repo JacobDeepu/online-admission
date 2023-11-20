@@ -12,10 +12,10 @@ class ParentDetail extends Model
 
     protected $fillable = [
         'name',
+        'nationality',
+        'qualification',
         'occupation',
         'annual_income',
-        'office_address',
-        'office_number',
         'mobile_number',
         'email',
         'relationship',

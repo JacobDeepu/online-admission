@@ -215,6 +215,21 @@
                                 autofocus />
                         </div>
                         <div class="mt-0">
+                            <x-input-float-label class="block w-full" name="father_nationality" type="text" wire:model="father_nationality" label="{{ __('Nationality') }}"
+                                @mouseenter="addFocus" />
+                        </div>
+                        <div class="mt-0">
+                            <x-select class="block w-full" name="father_qualification" wire:model="father_qualification" label="{{ __('Qualification') }}" @mouseenter="addFocus">
+                                <option>-- choose --</option>
+                                <option value="High School Diploma">High School Diploma</option>
+                                <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                <option value="Master's Degree">Master's Degree</option>
+                                <option value="Doctorate (Ph.D.)">Doctorate (Ph.D.)</option>
+                                <option value="Technical Certification">Technical Certification</option>
+                                <option value="Vocational Training">Vocational Training</option>
+                            </x-select>
+                        </div>
+                        <div class="mt-0">
                             <x-input-float-label class="block w-full" name="father_occupation" type="text" wire:model="father_occupation" label="{{ __('Occupation') }}"
                                 @mouseenter="addFocus" />
                         </div>
@@ -230,14 +245,6 @@
                             <x-input-float-label class="block w-full" name="father_email" type="email" wire:model="father_email" label="{{ __('Email Id') }}" @mouseenter="addFocus" required
                                 autofocus />
                         </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="father_office_number" type="text" wire:model="father_office_number" label="{{ __('Office Number') }}"
-                                @mouseenter="addFocus" />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="father_office_address" type="text" wire:model="father_office_address" label="{{ __('Office Address') }}"
-                                @mouseenter="addFocus" />
-                        </div>
                     </div>
                 </div>
                 <div class="rounded border border-sky-400 p-2">
@@ -250,6 +257,21 @@
                         <div class="mt-0 sm:col-span-2">
                             <x-input-float-label class="block w-full" name="mother_name" type="text" wire:model="mother_name" label="{{ __('Name') }}" @mouseenter="addFocus" required
                                 autofocus />
+                        </div>
+                        <div class="mt-0">
+                            <x-input-float-label class="block w-full" name="mother_nationality" type="text" wire:model="mother_nationality" label="{{ __('Nationality') }}"
+                                @mouseenter="addFocus" />
+                        </div>
+                        <div class="mt-0">
+                            <x-select class="block w-full" name="mother_qualification" wire:model="mother_qualification" label="{{ __('Qualification') }}" @mouseenter="addFocus">
+                                <option>-- choose --</option>
+                                <option value="High School Diploma">High School Diploma</option>
+                                <option value="Bachelor's Degree">Bachelor's Degree</option>
+                                <option value="Master's Degree">Master's Degree</option>
+                                <option value="Doctorate (Ph.D.)">Doctorate (Ph.D.)</option>
+                                <option value="Technical Certification">Technical Certification</option>
+                                <option value="Vocational Training">Vocational Training</option>
+                            </x-select>
                         </div>
                         <div class="mt-0">
                             <x-input-float-label class="block w-full" name="mother_occupation" type="text" wire:model="mother_occupation" label="{{ __('Occupation') }}"
@@ -265,14 +287,6 @@
                         </div>
                         <div class="mt-0">
                             <x-input-float-label class="block w-full" name="mother_email" type="email" wire:model="mother_email" label="{{ __('Email Id') }}" @mouseenter="addFocus" />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="mother_office_number" type="text" wire:model="mother_office_number" label="{{ __('Office Number') }}"
-                                @mouseenter="addFocus" />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="mother_office_address" type="text" wire:model="mother_office_address" label="{{ __('Office Address') }}"
-                                @mouseenter="addFocus" />
                         </div>
                     </div>
                 </div>
