@@ -36,7 +36,7 @@ class RegistrationController extends Controller
             'title' => 'Admission 2024-25',
             'date' => date('m/d/Y'),
             'registration' => $registration,
-            'photo' => public_path('storage/' . $registration->photo)
+            'photo' => public_path('storage/' . $registration->documents->photo)
         ];
 
         $file = $registration->student->first_name . $registration->id . '.pdf';

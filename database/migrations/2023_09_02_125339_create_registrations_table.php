@@ -22,11 +22,6 @@ return new class extends Migration
             $table->string('class')->nullable();
             $table->string('academic_year')->nullable();
             $table->string('previous_institution')->nullable();
-            $table->string('photo');
-            $table->string('birth_certificate');
-            $table->string('aadhaar');
-            $table->string('address_proof');
-            $table->string('immunization');
             $table->string('siblings')->nullable();
             $table->string('distance')->nullable();
             $table->boolean('status');

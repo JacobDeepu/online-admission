@@ -7,6 +7,8 @@ use App\Livewire\Forms\ContactForm;
 use App\Livewire\Forms\ParentDetailsForm;
 use App\Livewire\Forms\RegistrationForm;
 use App\Livewire\Forms\StudentForm;
+use App\Models\Documents;
+use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -24,6 +26,22 @@ class KgRegistration extends Component
 
     // Registration
     public $registration_id;
+
+    //Documents
+    #[Validate('required|mimes:pdf,jpg,png,jpeg|max:1024')]
+    public $photo;
+
+    #[Validate('required|mimes:pdf,jpg,png,jpeg|max:1024')]
+    public $birth_certificate;
+
+    #[Validate('required|mimes:pdf,jpg,png,jpeg|max:1024')]
+    public $aadhaar;
+
+    #[Validate('required|mimes:pdf,jpg,png,jpeg|max:1024')]
+    public $address_proof;
+
+    #[Validate('required|mimes:pdf,jpg,png,jpeg|max:1024')]
+    public $immunization;
 
     public function render()
     {
@@ -89,6 +107,8 @@ class KgRegistration extends Component
     {
         $this->resetErrorBag();
 
+        $this->validate();
+
         $student = $this->studentForm->store();
 
         $contact = $this->contactForm->store();
@@ -98,6 +118,15 @@ class KgRegistration extends Component
         $registration = $this->registrationForm->store($student->id, $contact->id);
 
         $this->registration_id = $registration->id;
+
+        Documents::create([
+            'registration_id' => $this->registration_id,
+            'photo' => $this->photo->store('uploads/photos', 'public'),
+            'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),
+            'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards', 'public'),
+            'address_proof' => $this->address_proof->store('uploads/address-proofs', 'public'),
+            'immunization' => $this->immunization->store('uploads/immunization-certs', 'public')
+        ]);
 
         $this->payment();
 

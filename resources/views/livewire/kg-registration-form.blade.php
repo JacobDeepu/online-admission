@@ -312,39 +312,39 @@
                     <h6 class="text-sm font-medium text-white"> DOCUMENTS </h6>
                 </div>
                 <div class="mt-0">
-                    <label class="@error('registrationForm.photo') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="photo">Applicant Photo</label>
+                    <label class="@error('photo') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="photo">Applicant Photo</label>
                     <input
-                        class="@error('registrationForm.photo') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="registrationForm.photo" required />
+                        class="@error('photo') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
+                        type="file" wire:model.blur="photo" required />
                 </div>
                 <div class="mt-0">
-                    <label class="@error('registrationForm.birth_certificate') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="birth_certificate">Applicant
+                    <label class="@error('birth_certificate') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="birth_certificate">Applicant
                         Birth Certificate</label>
                     <input
-                        class="@error('registrationForm.birth_certificate') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="registrationForm.birth_certificate" required />
+                        class="@error('birth_certificate') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
+                        type="file" wire:model.blur="birth_certificate" required />
                 </div>
                 <div class="mt-0">
-                    <label class="@error('registrationForm.aadhaar') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="aadhaar">Applicant Aadhaar Card</label>
+                    <label class="@error('aadhaar') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="aadhaar">Applicant Aadhaar Card</label>
                     <input
-                        class="@error('registrationForm.aadhaar') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="registrationForm.aadhaar" required />
+                        class="@error('aadhaar') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
+                        type="file" wire:model.blur="aadhaar" required />
                 </div>
                 <div class="mt-0">
-                    <label class="@error('registrationForm.immunization') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="immunization">
+                    <label class="@error('immunization') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="immunization">
                         Immunization Certificate
                     </label>
                     <input
-                        class="@error('registrationForm.immunization') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="registrationForm.immunization" required />
+                        class="@error('immunization') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
+                        type="file" wire:model.blur="immunization" required />
                 </div>
                 <div class="mt-0 sm:col-span-2">
-                    <label class="@error('registrationForm.address_proof') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="address_proof">
+                    <label class="@error('address_proof') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="address_proof">
                         Address Proof (Aadhaar Card, Driving License, Voter ID of Parent)
                     </label>
                     <input
-                        class="@error('registrationForm.address_proof') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="registrationForm.address_proof" required />
+                        class="@error('address_proof') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
+                        type="file" wire:model.blur="address_proof" required />
                 </div>
                 <div class="mt-0 p-2">
                     <p class="text-sm font-medium text-red-600">Allowed File Formats pdf, jpg, png, jpeg.</p>
