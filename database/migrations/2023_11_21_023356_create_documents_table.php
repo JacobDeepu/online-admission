@@ -19,8 +19,10 @@ return new class extends Migration
             $table->string('photo');
             $table->string('birth_certificate');
             $table->string('aadhaar');
-            $table->string('address_proof');
+            $table->string('address_proof')->nullable();
             $table->string('immunization');
+            $table->string('tc')->nullable();
+            $table->string('mark_list')->nullable();
             $table->timestamps();
         });
     }

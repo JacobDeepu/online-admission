@@ -16,5 +16,7 @@ class Documents extends Model
         'aadhaar',
         'address_proof',
         'immunization',
+        'tc',
+        'mark_list'
     ];
 }
