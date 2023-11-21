@@ -49,6 +49,27 @@ class ParentDetailsForm extends Form
     #[Validate('nullable|email')]
     public $mother_email = '';
 
+    #[Validate('required|string|max:255')]
+    public $guardian_name = '';
+
+    #[Validate('nullable|string|max:255')]
+    public $guardian_nationality = '';
+
+    #[Validate('nullable|string|max:255')]
+    public $guardian_qualification = '';
+
+    #[Validate('nullable|string|max:255')]
+    public $guardian_occupation = '';
+
+    #[Validate('nullable|string|max:255')]
+    public $guardian_annual_income = '';
+
+    #[Validate('nullable|numeric')]
+    public $guardian_mobile_number = '';
+
+    #[Validate('nullable|email')]
+    public $guardian_email = '';
+
     public function store($student)
     {
         $this->validate();
@@ -73,6 +94,16 @@ class ParentDetailsForm extends Form
                 'mobile_number' => $this->mother_mobile_number,
                 'email' => $this->mother_email,
                 'relationship' => 'mother'
+            ],
+            [
+                'name' => $this->guardian_name,
+                'occupation' => $this->guardian_occupation,
+                'annual_income' => $this->guardian_annual_income,
+                'nationality' => $this->guardian_nationality,
+                'qualification' => $this->guardian_qualification,
+                'mobile_number' => $this->guardian_mobile_number,
+                'email' => $this->guardian_email,
+                'relationship' => 'guardian'
             ]
         ]);
     }

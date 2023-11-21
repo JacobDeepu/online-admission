@@ -135,7 +135,8 @@
                                 @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contact_form.city" type="text" wire:model="contact_form.city" label="{{ __('City') }}" @mouseenter="addFocus" />
+                            <x-input-float-label class="block w-full" name="contact_form.city" type="text" wire:model="contact_form.city" label="{{ __('City') }}"
+                                @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
                             <x-input-float-label class="block w-full" name="contact_form.district" type="text" wire:model="contact_form.district" label="{{ __('District') }}"
@@ -189,96 +190,130 @@
                     </div>
                 </div>
             </div>
-            <div class="grid gap-2 sm:grid-cols-2" x-show="currentTab === 3">
-                <div class="rounded border border-sky-400 p-2">
-                    <div class="grid gap-2 sm:grid-cols-2">
-                        <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
-                            <h6 class="text-sm font-medium text-white">
-                                FATHER'S DETAILS
-                            </h6>
-                        </div>
-                        <div class="mt-0 sm:col-span-2">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.father_name" type="text" wire:model="parentDetailsForm.father_name" label="{{ __('Name') }}"
-                                @mouseenter="addFocus" required autofocus />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.father_nationality" type="text" wire:model="parentDetailsForm.father_nationality"
-                                label="{{ __('Nationality') }}" @mouseenter="addFocus" />
-                        </div>
-                        <div class="mt-0">
-                            <x-select class="block w-full" name="parentDetailsForm.father_qualification" wire:model="parentDetailsForm.father_qualification" label="{{ __('Qualification') }}"
-                                @mouseenter="addFocus">
-                                <option>-- choose --</option>
-                                <option value="High School Diploma">High School Diploma</option>
-                                <option value="Bachelor's Degree">Bachelor's Degree</option>
-                                <option value="Master's Degree">Master's Degree</option>
-                                <option value="Doctorate (Ph.D.)">Doctorate (Ph.D.)</option>
-                                <option value="Technical Certification">Technical Certification</option>
-                                <option value="Vocational Training">Vocational Training</option>
-                            </x-select>
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.father_occupation" type="text" wire:model="parentDetailsForm.father_occupation"
-                                label="{{ __('Occupation') }}" @mouseenter="addFocus" />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.father_annual_income" type="text" wire:model="parentDetailsForm.father_annual_income"
-                                label="{{ __('Annual Income') }}" @mouseenter="addFocus" />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.father_mobile_number" type="text" wire:model="parentDetailsForm.father_mobile_number"
-                                label="{{ __('Mobile Number') }}" @mouseenter="addFocus" />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.father_email" type="email" wire:model="parentDetailsForm.father_email"
-                                label="{{ __('Email Id') }}" @mouseenter="addFocus" required autofocus />
-                        </div>
-                    </div>
+            <div class="grid gap-2 sm:grid-cols-1" x-show="currentTab === 3">
+                <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-4">
+                    <h6 class="text-sm font-medium text-white">
+                        FATHER'S DETAILS
+                    </h6>
                 </div>
-                <div class="rounded border border-sky-400 p-2">
-                    <div class="grid gap-2 sm:grid-cols-2">
-                        <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
-                            <h6 class="text-sm font-medium text-white">
-                                MOTHER'S DETAILS
-                            </h6>
-                        </div>
-                        <div class="mt-0 sm:col-span-2">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.mother_name" type="text" wire:model="parentDetailsForm.mother_name" label="{{ __('Name') }}"
-                                @mouseenter="addFocus" required autofocus />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.mother_nationality" type="text" wire:model="parentDetailsForm.mother_nationality"
-                                label="{{ __('Nationality') }}" @mouseenter="addFocus" />
-                        </div>
-                        <div class="mt-0">
-                            <x-select class="block w-full" name="parentDetailsForm.mother_qualification" wire:model="parentDetailsForm.mother_qualification" label="{{ __('Qualification') }}"
-                                @mouseenter="addFocus">
-                                <option>-- choose --</option>
-                                <option value="High School Diploma">High School Diploma</option>
-                                <option value="Bachelor's Degree">Bachelor's Degree</option>
-                                <option value="Master's Degree">Master's Degree</option>
-                                <option value="Doctorate (Ph.D.)">Doctorate (Ph.D.)</option>
-                                <option value="Technical Certification">Technical Certification</option>
-                                <option value="Vocational Training">Vocational Training</option>
-                            </x-select>
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.mother_occupation" type="text" wire:model="parentDetailsForm.mother_occupation"
-                                label="{{ __('Occupation') }}" @mouseenter="addFocus" />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.mother_annual_income" type="text" wire:model="parentDetailsForm.mother_annual_income"
-                                label="{{ __('Annual Income') }}" @mouseenter="addFocus" />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.mother_mobile_number" type="text" wire:model="parentDetailsForm.mother_mobile_number"
-                                label="{{ __('Mobile Number') }}" @mouseenter="addFocus" />
-                        </div>
-                        <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="parentDetailsForm.mother_email" type="email" wire:model="parentDetailsForm.mother_email"
-                                label="{{ __('Email Id') }}" @mouseenter="addFocus" />
-                        </div>
-                    </div>
+                <div class="mt-0 sm:col-span-2">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.father_name" type="text" wire:model="parentDetailsForm.father_name" label="{{ __('Name') }}"
+                        @mouseenter="addFocus" required autofocus />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.father_nationality" type="text" wire:model="parentDetailsForm.father_nationality"
+                        label="{{ __('Nationality') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-select class="block w-full" name="parentDetailsForm.father_qualification" wire:model="parentDetailsForm.father_qualification" label="{{ __('Qualification') }}"
+                        @mouseenter="addFocus">
+                        <option>-- choose --</option>
+                        <option value="High School Diploma">High School Diploma</option>
+                        <option value="Bachelor's Degree">Bachelor's Degree</option>
+                        <option value="Master's Degree">Master's Degree</option>
+                        <option value="Doctorate (Ph.D.)">Doctorate (Ph.D.)</option>
+                        <option value="Technical Certification">Technical Certification</option>
+                        <option value="Vocational Training">Vocational Training</option>
+                    </x-select>
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.father_occupation" type="text" wire:model="parentDetailsForm.father_occupation"
+                        label="{{ __('Occupation') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.father_annual_income" type="text" wire:model="parentDetailsForm.father_annual_income"
+                        label="{{ __('Annual Income') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.father_mobile_number" type="text" wire:model="parentDetailsForm.father_mobile_number"
+                        label="{{ __('Mobile Number') }}" @mouseenter="addFocus" required autofocus />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.father_email" type="email" wire:model="parentDetailsForm.father_email" label="{{ __('Email Id') }}"
+                        @mouseenter="addFocus" required autofocus />
+                </div>
+                <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-4">
+                    <h6 class="text-sm font-medium text-white">
+                        MOTHER'S DETAILS
+                    </h6>
+                </div>
+                <div class="mt-0 sm:col-span-2">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.mother_name" type="text" wire:model="parentDetailsForm.mother_name" label="{{ __('Name') }}"
+                        @mouseenter="addFocus" required autofocus />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.mother_nationality" type="text" wire:model="parentDetailsForm.mother_nationality"
+                        label="{{ __('Nationality') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-select class="block w-full" name="parentDetailsForm.mother_qualification" wire:model="parentDetailsForm.mother_qualification" label="{{ __('Qualification') }}"
+                        @mouseenter="addFocus">
+                        <option>-- choose --</option>
+                        <option value="High School Diploma">High School Diploma</option>
+                        <option value="Bachelor's Degree">Bachelor's Degree</option>
+                        <option value="Master's Degree">Master's Degree</option>
+                        <option value="Doctorate (Ph.D.)">Doctorate (Ph.D.)</option>
+                        <option value="Technical Certification">Technical Certification</option>
+                        <option value="Vocational Training">Vocational Training</option>
+                    </x-select>
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.mother_occupation" type="text" wire:model="parentDetailsForm.mother_occupation"
+                        label="{{ __('Occupation') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.mother_annual_income" type="text" wire:model="parentDetailsForm.mother_annual_income"
+                        label="{{ __('Annual Income') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.mother_mobile_number" type="text" wire:model="parentDetailsForm.mother_mobile_number"
+                        label="{{ __('Mobile Number') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.mother_email" type="email" wire:model="parentDetailsForm.mother_email" label="{{ __('Email Id') }}"
+                        @mouseenter="addFocus" />
+                </div>
+
+                <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-4">
+                    <h6 class="text-sm font-medium text-white">
+                        GUARDIAN'S DETAILS
+                    </h6>
+                </div>
+                <div class="mt-0 sm:col-span-2">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.guardian_name" type="text" wire:model="parentDetailsForm.guardian_name" label="{{ __('Name') }}"
+                        @mouseenter="addFocus" required autofocus />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.guardian_nationality" type="text" wire:model="parentDetailsForm.guardian_nationality"
+                        label="{{ __('Nationality') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-select class="block w-full" name="parentDetailsForm.guardian_qualification" wire:model="parentDetailsForm.guardian_qualification" label="{{ __('Qualification') }}"
+                        @mouseenter="addFocus">
+                        <option>-- choose --</option>
+                        <option value="High School Diploma">High School Diploma</option>
+                        <option value="Bachelor's Degree">Bachelor's Degree</option>
+                        <option value="Master's Degree">Master's Degree</option>
+                        <option value="Doctorate (Ph.D.)">Doctorate (Ph.D.)</option>
+                        <option value="Technical Certification">Technical Certification</option>
+                        <option value="Vocational Training">Vocational Training</option>
+                    </x-select>
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.guardian_occupation" type="text" wire:model="parentDetailsForm.guardian_occupation"
+                        label="{{ __('Occupation') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.guardian_annual_income" type="text" wire:model="parentDetailsForm.guardian_annual_income"
+                        label="{{ __('Annual Income') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.guardian_mobile_number" type="text" wire:model="parentDetailsForm.guardian_mobile_number"
+                        label="{{ __('Mobile Number') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="parentDetailsForm.guardian_email" type="email" wire:model="parentDetailsForm.guardian_email" label="{{ __('Email Id') }}"
+                        @mouseenter="addFocus" />
                 </div>
             </div>
             <div class="grid gap-4 sm:grid-cols-3" x-show="currentTab === 4">
