@@ -17,7 +17,7 @@ class HsRegistration extends Component
     use WithFileUploads;
 
     public StudentForm $student_form;
-    public ContactForm $contactForm;
+    public ContactForm $contact_form;
     public ParentDetailsForm $parentDetailsForm;
     public RegistrationForm $registrationForm;
 
@@ -53,14 +53,14 @@ class HsRegistration extends Component
 
     public function updatedContactFormSameAs()
     {
-        if ($this->contactForm->same_as) {
-            $this->contactForm->permanent_house_name = $this->contactForm->house_name;
-            $this->contactForm->permanent_street = $this->contactForm->street;
-            $this->contactForm->permanent_post_office = $this->contactForm->post_office;
-            $this->contactForm->permanent_pin_code = $this->contactForm->pin_code;
-            $this->contactForm->permanent_city = $this->contactForm->city;
-            $this->contactForm->permanent_district = $this->contactForm->district;
-            $this->contactForm->permanent_state = $this->contactForm->state;
+        if ($this->contact_form->same_as) {
+            $this->contact_form->permanent_house_name = $this->contact_form->house_name;
+            $this->contact_form->permanent_street = $this->contact_form->street;
+            $this->contact_form->permanent_post_office = $this->contact_form->post_office;
+            $this->contact_form->permanent_pin_code = $this->contact_form->pin_code;
+            $this->contact_form->permanent_city = $this->contact_form->city;
+            $this->contact_form->permanent_district = $this->contact_form->district;
+            $this->contact_form->permanent_state = $this->contact_form->state;
         }
     }
 
@@ -70,7 +70,7 @@ class HsRegistration extends Component
         if ($this->current_tab == 1) {
             $this->student_form->validate();
         } elseif ($this->current_tab == 2) {
-            $this->contactForm->validate();
+            $this->contact_form->validate();
         } elseif ($this->current_tab == 3) {
             $this->parentDetailsForm->validate();
         }
@@ -104,7 +104,7 @@ class HsRegistration extends Component
 
         $student = $this->student_form->store();
 
-        $contact = $this->contactForm->store();
+        $contact = $this->contact_form->store();
 
         $parentDetails = $this->parentDetailsForm->store($student);
 

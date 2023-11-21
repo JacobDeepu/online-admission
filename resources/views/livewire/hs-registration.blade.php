@@ -111,21 +111,6 @@
                 </div>
             </div>
             <div class="grid gap-2 sm:grid-cols-2" x-show="currentTab === 2">
-                <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
-                    <h6 class="text-sm font-medium text-white">
-                        PRIMARY CONTACT ( This no. will be used for SMS
-                        communication and will
-                        be printed in student's ID card )
-                    </h6>
-                </div>
-                <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="contactForm.primary_number" type="text" wire:model="contactForm.primary_number" label="{{ __('Primary Mobile') }}"
-                        @mouseenter="addFocus" required autofocus />
-                </div>
-                <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="contactForm.secondary_number" type="text" wire:model="contactForm.secondary_number" label="{{ __('Secondary Mobile') }}"
-                        @mouseenter="addFocus" />
-                </div>
                 <div class="rounded border border-sky-500 p-2">
                     <div class="grid gap-2 sm:grid-cols-2">
                         <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-2">
@@ -134,30 +119,30 @@
                             </h6>
                         </div>
                         <div class="mt-0 sm:col-span-2">
-                            <x-input-float-label class="block w-full" name="contactForm.house_name" type="text" wire:model="contactForm.house_name"
+                            <x-input-float-label class="block w-full" name="contact_form.house_name" type="text" wire:model="contact_form.house_name"
                                 label="{{ __('Address of Parent(House / Flat No)') }}" @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.street" type="text" wire:model="contactForm.street" label="{{ __('Street') }}"
+                            <x-input-float-label class="block w-full" name="contact_form.street" type="text" wire:model="contact_form.street" label="{{ __('Street') }}"
                                 @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.post_office" type="text" wire:model="contactForm.post_office" label="{{ __('Post Office') }}"
+                            <x-input-float-label class="block w-full" name="contact_form.post_office" type="text" wire:model="contact_form.post_office" label="{{ __('Post Office') }}"
                                 @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.pin_code" type="text" wire:model="contactForm.pin_code" label="{{ __('Pin Code') }}"
+                            <x-input-float-label class="block w-full" name="contact_form.pin_code" type="text" wire:model="contact_form.pin_code" label="{{ __('Pin Code') }}"
                                 @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.city" type="text" wire:model="contactForm.city" label="{{ __('City') }}" @mouseenter="addFocus" />
+                            <x-input-float-label class="block w-full" name="contact_form.city" type="text" wire:model="contact_form.city" label="{{ __('City') }}" @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.district" type="text" wire:model="contactForm.district" label="{{ __('District') }}"
+                            <x-input-float-label class="block w-full" name="contact_form.district" type="text" wire:model="contact_form.district" label="{{ __('District') }}"
                                 @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.state" type="text" wire:model="contactForm.state" label="{{ __('State') }}"
+                            <x-input-float-label class="block w-full" name="contact_form.state" type="text" wire:model="contact_form.state" label="{{ __('State') }}"
                                 @mouseenter="addFocus" />
                         </div>
                     </div>
@@ -169,36 +154,36 @@
                                 PERMANENT ADDRESS
                             </h6>
                             <div class="mr-4 flex items-center">
-                                <input class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-red-400 focus:ring-2 focus:ring-red-500" type="checkbox" wire:model.live="contactForm.same_as">
+                                <input class="h-4 w-4 rounded border-gray-300 bg-gray-100 text-red-400 focus:ring-2 focus:ring-red-500" type="checkbox" wire:model.live="contact_form.same_as">
                                 <label class="ml-2 text-sm font-medium text-white" for="same_as">Same as Present</label>
                             </div>
                         </div>
                         <div class="mt-0 sm:col-span-2">
-                            <x-input-float-label class="block w-full" name="contactForm.permanent_house_name" type="text" wire:model="contactForm.permanent_house_name"
+                            <x-input-float-label class="block w-full" name="contact_form.permanent_house_name" type="text" wire:model="contact_form.permanent_house_name"
                                 label="{{ __('Address of Parent(House / Flat No)') }}" @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.permanent_street" type="text" wire:model="contactForm.permanent_street" label="{{ __('Street') }}"
+                            <x-input-float-label class="block w-full" name="contact_form.permanent_street" type="text" wire:model="contact_form.permanent_street" label="{{ __('Street') }}"
                                 @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.permanent_post_office" type="text" wire:model="contactForm.permanent_post_office"
+                            <x-input-float-label class="block w-full" name="contact_form.permanent_post_office" type="text" wire:model="contact_form.permanent_post_office"
                                 label="{{ __('Post Office') }}" @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.permanent_pin_code" type="text" wire:model="contactForm.permanent_pin_code"
+                            <x-input-float-label class="block w-full" name="contact_form.permanent_pin_code" type="text" wire:model="contact_form.permanent_pin_code"
                                 label="{{ __('Pin Code') }}" @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.permanent_city" type="text" wire:model="contactForm.permanent_city" label="{{ __('City') }}"
+                            <x-input-float-label class="block w-full" name="contact_form.permanent_city" type="text" wire:model="contact_form.permanent_city" label="{{ __('City') }}"
                                 @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.permanent_district" type="text" wire:model="contactForm.permanent_district"
+                            <x-input-float-label class="block w-full" name="contact_form.permanent_district" type="text" wire:model="contact_form.permanent_district"
                                 label="{{ __('District') }}" @mouseenter="addFocus" />
                         </div>
                         <div class="mt-0">
-                            <x-input-float-label class="block w-full" name="contactForm.permanent_state" type="text" wire:model="contactForm.permanent_state" label="{{ __('State') }}"
+                            <x-input-float-label class="block w-full" name="contact_form.permanent_state" type="text" wire:model="contact_form.permanent_state" label="{{ __('State') }}"
                                 @mouseenter="addFocus" />
                         </div>
                     </div>

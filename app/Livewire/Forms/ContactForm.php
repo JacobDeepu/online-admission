@@ -8,12 +8,6 @@ use Livewire\Form;
 
 class ContactForm extends Form
 {
-    #[Validate('required|numeric')]
-    public $primary_number = '';
-
-    #[Validate('nullable|numeric')]
-    public $secondary_number = '';
-
     #[Validate('nullable|string|max:255')]
     public $house_name = '';
 
@@ -63,8 +57,6 @@ class ContactForm extends Form
         $this->validate();
 
         return Contact::create([
-            'primary_number' => $this->primary_number,
-            'secondary_number' => $this->secondary_number,
             'house_name' => $this->house_name,
             'street' => $this->street,
             'post_office' => $this->post_office,
