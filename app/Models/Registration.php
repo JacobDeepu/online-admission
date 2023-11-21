@@ -51,4 +51,12 @@ class Registration extends Model
     {
         return $this->hasOne(Documents::class);
     }
+
+    /**
+     * Get the transaction for the student.
+     */
+    public function transaction(): HasOne
+    {
+        return $this->hasOne(Transaction::class);
+    }
 }

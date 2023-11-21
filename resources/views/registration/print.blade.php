@@ -12,21 +12,22 @@
                 width: 100%;
             }
 
-            td,
-            th {
-                border: 0px solid #dddddd;
-                text-align: left;
-                padding: 2px;
+            .border-bottom {
+                border-bottom: 1px solid #000000;
             }
 
-            .page {
-                width: 98%;
-                min-height: 29.7cm;
-                padding: 5px;
-                margin: 5px auto;
-                border: 1px #D3D3D3 solid;
-                border-radius: 5px;
-                background: white;
+            .border-top {
+                border-top: 1px solid #000000;
+            }
+
+            .receipt td {
+                padding: 14px;
+            }
+
+            .box-table table td {
+                border: 2px solid #000000;
+                text-align: left;
+                padding: 6px;
             }
 
             @media print {
@@ -52,217 +53,184 @@
                 /* this affects the margin in the printer settings */
                 margin: 5mm 5mm 5mm 5mm;
             }
-
-            .photo {
-                float: right;
-            }
         </style>
     </head>
 
-    <body>
-        <div>
-            <img src="{{ public_path('images/header.png') }}" alt="Chavara Darsan" width="100%" height="auto" />
+    <body class="print">
+        <table>
+            <tr>
+                <td colspan="2"><img src="{{ public_path('images/header.png') }}" style="width:100%;" /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <h2 style="text-align:center; text-transform:uppercase; font-size:18px;">Application for admission to KG</h2>
+                </td>
+            </tr>
+            <tr>
+                <td width="84%">Application No : <span style="color:#F30;">KG{{ $registration->id + 1000 }} </span>
+                </td>
+                <td width="16%" rowspan="2" align="right"><img src="{{ $photo }}" width="100" height="150" /></td>
+            </tr>
+        </table>
+        <div class="box-table">
             <table>
-                <tbody>
-                    <tr>
-                        <td>First Name</td>
-                        <td><strong>:</strong></td>
-                        <td>{{ $registration->student->first_name }}</td>
-                        <td rowspan="6"><img class="photo" src="{{ $photo }}" width="120" height="120" /></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name</td>
-                        <td><strong>:</strong></td>
-                        <td>{{ $registration->student->last_name }}</td>
-                    </tr>
-                    <tr>
-                        <td>Gender</td>
-                        <td><strong>:</strong></td>
-                        <td>{{ $registration->student->gender }}</td>
-                    </tr>
-                    <tr>
-                        <td>Date of Birth</td>
-                        <td><strong>:</strong></td>
-                        <td>{{ $registration->student->date_of_birth }}</td>
-                    </tr>
-                    <tr>
-                        <td>Age</td>
-                        <td><strong>:</strong></td>
-                        <td>{{ $registration->student->age }}</td>
-                    </tr>
-                    <tr>
-                        <td>Aadhar No.</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->uid }}</td>
-                    </tr>
-                    <tr>
-                        <td>Religion</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->religion }}</td>
-                    </tr>
-                    <tr>
-                        <td>Caste</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->caste }}</td>
-                    </tr>
-                    <tr>
-                        <td>Social Category</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->social_category }}</td>
-                    </tr>
-                    <tr>
-                        <td>Place of Birth</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->place_of_birth }}</td>
-                    </tr>
-                    <tr>
-                        <td>Nationality</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->nationality }}</td>
-                    </tr>
-                    <tr>
-                        <td>Mother Tongue</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->mother_tongue }}</td>
-                    </tr>
-                    <tr>
-                        <td>Primary Number</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->contact->primary_number }}</td>
-                    </tr>
-                    <tr>
-                        <td>Secondary Number</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->contact->secondary_number }}</td>
-                    </tr>
-                    <tr>
-                        <td>House Name</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->contact->house_name }}</td>
-                    </tr>
-                    <tr>
-                        <td>Street</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->contact->street }}</td>
-                    </tr>
-                    <tr>
-                        <td>Post Office</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->contact->post_office }}</td>
-                    </tr>
-                    <tr>
-                        <td>Pin Code</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->contact->pin_code }}</td>
-                    </tr>
-                    <tr>
-                        <td>City</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->contact->city }}</td>
-                    </tr>
-                    <tr>
-                        <td>District</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->contact->district }}</td>
-                    </tr>
-                    <tr>
-                        <td>State</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->contact->state }}</td>
-                    </tr>
-                    <tr>
-                        <td>Father's Name</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[0]['name'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Father's Occupation</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[0]['occupation'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Father's Annual Income</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[0]['annual_income'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Father's Office address</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[0]['office_address'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Father's Office Number</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[0]['office_number'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Father's Mobile</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[0]['mobile_number'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Father's Email</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[0]['email'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Mother's Name</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[1]['name'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Mother's Occupation</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[1]['occupation'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Mother's Annual Income</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[1]['annual_income'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Mother's Office address</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[1]['office_address'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Mother's Office Number</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[1]['office_number'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Mother's Mobile</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[1]['mobile_number'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Mother's Email</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->student->parent_details[1]['email'] }}</td>
-                    </tr>
-                    <tr>
-                        <td>Class Applying to</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->class }}</td>
-                    </tr>
-                    <tr>
-                        <td>Academic Year</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->academic_year }}</td>
-                    </tr>
-                    <tr>
-                        <td>Previous Institution</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->previous_institution }}</td>
-                    </tr>
-                    <tr>
-                        <td>Siblings</td>
-                        <td><strong>:</strong></td>
-                        <td colspan="2">{{ $registration->siblings }}</td>
-                    </tr>
-                </tbody>
+                <tr>
+                    <td>1. Name of Pupil</td>
+                    <td width="55%">{{ $registration->student->first_name }} {{ $registration->student->last_name }}</td>
+                </tr>
+                <tr>
+                    <td>2. Date of Birth </td>
+                    <td>{{ $registration->student->date_of_birth }}</td>
+                </tr>
+                <tr>
+                    <td>3. Age (as on June 1st of academic year) </td>
+                    <td>{{ $registration->student->age }}</td>
+                </tr>
+                <tr>
+                    <td>4. Sex (Male / Female)</td>
+                    <td>{{ $registration->student->gender }}</td>
+                </tr>
+                <tr>
+                    <td>5. Nationality</td>
+                    <td>{{ $registration->student->nationality }}</td>
+                </tr>
+                <tr>
+                    <td>6. Religion / Caste</td>
+                    <td>{{ $registration->student->religion }} / {{ $registration->student->caste }}</td>
+                </tr>
+                <tr>
+                    <td>7. Mother Tongue</td>
+                    <td>{{ $registration->student->mother_tongue }}</td>
+                </tr>
+                <tr>
+                    <td>8. Name of Father</td>
+                    <td>{{ $registration->student->parent_details[0]['name'] }}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right; border-bottom: 2px solid #fff;">
+                        Occupation</td>
+                    <td>{{ $registration->student->parent_details[0]['occupation'] }}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right; border-bottom: 2px solid #fff;">
+                        Office Address</td>
+                    <td>{{ $registration->student->parent_details[0]['office_address'] }}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right; border-bottom: 2px solid #fff;">
+                        E-mail Id</td>
+                    <td>{{ $registration->student->parent_details[0]['email'] }}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;">
+                        Mobile</td>
+                    <td>{{ $registration->student->parent_details[0]['mobile_number'] }}</td>
+                </tr>
+                <tr>
+                    <td>9. Name of Mother</td>
+                    <td>{{ $registration->student->parent_details[1]['name'] }}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right; border-bottom: 2px solid #fff;">
+                        Occupation</td>
+                    <td>{{ $registration->student->parent_details[1]['occupation'] }}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right; border-bottom: 2px solid #fff;">
+                        Office Address</td>
+                    <td>{{ $registration->student->parent_details[1]['office_address'] }}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right; border-bottom: 2px solid #fff;">
+                        E-mail Id</td>
+                    <td>{{ $registration->student->parent_details[1]['email'] }}</td>
+                </tr>
+                <tr>
+                    <td style="text-align:right;">Mobile</td>
+                    <td>{{ $registration->student->parent_details[1]['mobile_number'] }}</td>
+                </tr>
+                <tr>
+                    <td>10. Home Address</td>
+                    <td>{{ $registration->contact->house_name }}
+                        </br>{{ $registration->contact->street }}
+                        </br> {{ $registration->contact->post_office }} {{ $registration->contact->pin_code }}
+                        </br> {{ $registration->contact->city }} {{ $registration->contact->district }} {{ $registration->contact->state }}
+                    </td>
+                </tr>
+                <tr>
+                    <td> 11. Siblings</td>
+                    <td>{{ $registration->siblings }}</td>
+                </tr>
+                <tr>
+                    <td>12. Schools Previously Attended</td>
+                    <td>{{ $registration->previous_institution }}</td>
+                </tr>
+                <tr>
+                    <td>13. Distance From Home to School</td>
+                    <td>{{ $registration->distance }}</td>
+                </tr>
             </table>
         </div>
+        <div class="page-break"></div>
+        <table class="receipt">
+            <tr>
+                <td colspan="6"><img src="{{ public_path('images/header.png') }}" style="width:100%;" /></td>
+            </tr>
+            <tr>
+                <td height="65" colspan="6">
+                    <h2 style="text-align:center">Fee Receipt</h2>
+                </td>
+            </tr>
+            <tr>
+                <td width="20%">Admission No</td>
+                <td width="2%">:</td>
+                <td width="25%">KG{{ $registration->id + 1000 }}</td>
+                <td width="20%">Name</td>
+                <td width="2%">:</td>
+                <td width="25%">{{ $registration->student->first_name }} {{ $registration->student->last_name }}</td>
+            </tr>
+            <tr>
+                <td width="20%">Receipt No</td>
+                <td width="2%">:</td>
+                <td width="25%">{{ $registration->transaction->id + 1000 }}</td>
+                <td width="20%">Date</td>
+                <td width="2%">:</td>
+                <td width="25%">{{ $registration->transaction->merch_transaction_date }}</td>
+            </tr>
+            <tr>
+                <td width="20%">Online Trans Id</td>
+                <td width="2%">:</td>
+                <td width="25%">{{ $registration->transaction->merch_transaction_id }}</td>
+                <td width="20%">Bank Ref No</td>
+                <td width="2%">:</td>
+                <td width="25%">{{ $registration->transaction->bank_transaction_id }}</td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <table>
+                        <tr class="border-top border-bottom">
+                            <td>Particulars</td>
+                            <td>Fee Amount</td>
+                            <td>Concession</td>
+                            <td>Amount</td>
+                        </tr>
+                        <tr>
+                            <td>Admission Fee</td>
+                            <td>02</td>
+                            <td> 0 </td>
+                            <td>02</td>
+
+                        </tr>
+                        <tr class="border-top border-bottom">
+                            <td><strong>Total Amount:</strong></td>
+                            <td></td>
+                            <td></td>
+                            <td><strong>02</strong></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </body>
 
 </html>
