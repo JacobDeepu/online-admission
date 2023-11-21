@@ -16,7 +16,7 @@ class HsRegistration extends Component
 {
     use WithFileUploads;
 
-    public StudentForm $studentForm;
+    public StudentForm $student_form;
     public ContactForm $contactForm;
     public ParentDetailsForm $parentDetailsForm;
     public RegistrationForm $registrationForm;
@@ -51,14 +51,6 @@ class HsRegistration extends Component
         return view('livewire.hs-registration');
     }
 
-    public function updatedStudentFormDateOfBirth()
-    {
-        $dob = date_create($this->studentForm->date_of_birth);
-        $limit = date_create("2024-06-01");
-        $age = date_diff($dob, $limit);
-        $this->studentForm->age = $age->format('%y');
-    }
-
     public function updatedContactFormSameAs()
     {
         if ($this->contactForm->same_as) {
@@ -76,7 +68,7 @@ class HsRegistration extends Component
     {
         $this->resetErrorBag();
         if ($this->current_tab == 1) {
-            $this->studentForm->validate();
+            $this->student_form->validate();
         } elseif ($this->current_tab == 2) {
             $this->contactForm->validate();
         } elseif ($this->current_tab == 3) {
@@ -110,7 +102,7 @@ class HsRegistration extends Component
     {
         $this->resetErrorBag();
 
-        $student = $this->studentForm->store();
+        $student = $this->student_form->store();
 
         $contact = $this->contactForm->store();
 

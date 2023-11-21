@@ -14,35 +14,26 @@ class StudentForm extends Form
     #[Validate('required|string|max:255')]
     public $last_name = '';
 
-    #[Validate('required|string|max:8')]
+    #[Validate('required|string|max:20')]
     public $gender = '';
 
     #[Validate('required')]
     public $date_of_birth = '';
 
-    #[Validate('required|numeric|max:255')]
-    public $age = '';
-
-    #[Validate('nullable|numeric|max:255')]
-    public $uid = '';
-
-    #[Validate('nullable|string|max:255')]
+    #[Validate('nullable|string|max:20')]
     public $religion = '';
 
     #[Validate('nullable|string|max:255')]
     public $caste = '';
 
-    #[Validate('nullable|string|max:255')]
+    #[Validate('nullable|string|max:20')]
     public $social_category = '';
 
-    #[Validate('nullable|string|max:255')]
-    public $place_of_birth = '';
+    #[Validate('nullable|numeric')]
+    public $uid = '';
 
-    #[Validate('nullable|string|max:255')]
-    public $nationality = '';
-
-    #[Validate('nullable|string|max:255')]
-    public $mother_tongue = '';
+    #[Validate('nullable|string|max:10')]
+    public $blood_group = '';
 
     public function store()
     {
@@ -53,14 +44,11 @@ class StudentForm extends Form
             'last_name' => $this->last_name,
             'gender' => $this->gender,
             'date_of_birth' => $this->date_of_birth,
-            'age' => $this->age,
-            'uid' => $this->uid,
             'religion' => $this->religion,
             'caste' => $this->caste,
             'social_category' => $this->social_category,
-            'place_of_birth' => $this->place_of_birth,
-            'nationality' => $this->nationality,
-            'mother_tongue' => $this->mother_tongue
+            'uid' => $this->uid,
+            'blood_group' => $this->blood_group
         ]);
     }
 }

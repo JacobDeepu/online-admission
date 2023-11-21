@@ -61,32 +61,25 @@
         <div class="rounded-lg border-2 border-gray-200 p-5">
             <div class="grid gap-4 sm:grid-cols-3" x-show="currentTab === 1">
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="studentForm.first_name" type="text" wire:model="studentForm.first_name" label="{{ __('First Name') }}" @mouseenter="addFocus"
+                    <x-input-float-label class="block w-full" name="student_form.first_name" type="text" wire:model="student_form.first_name" label="{{ __('First Name') }}" @mouseenter="addFocus"
                         required autofocus />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="studentForm.last_name" type="text" wire:model="studentForm.last_name" label="{{ __('Last Name') }}" @mouseenter="addFocus" />
+                    <x-input-float-label class="block w-full" name="student_form.last_name" type="text" wire:model="student_form.last_name" label="{{ __('Last Name') }}" @mouseenter="addFocus" />
                 </div>
                 <div class="mt-0">
-                    <x-select class="block w-full" name="studentForm.gender" wire:model="studentForm.gender" label="{{ __('Gender') }}" @mouseenter="addFocus">
+                    <x-select class="block w-full" name="student_form.gender" wire:model="student_form.gender" label="{{ __('Gender') }}" @mouseenter="addFocus">
                         <option>-- choose --</option>
                         <option value="Male"> Male </option>
                         <option value="Female"> Female </option>
                     </x-select>
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="studentForm.date_of_birth" type="date" wire:model.blur="studentForm.date_of_birth" label="{{ __('Date Of Birth In Figure') }}"
+                    <x-input-float-label class="block w-full" name="student_form.date_of_birth" type="date" wire:model="student_form.date_of_birth" label="{{ __('Date Of Birth In Figure') }}"
                         required autofocus />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="studentForm.age" type="text" wire:model="studentForm.age" label="{{ __('Age on June 1 (Academic Year)') }}"
-                        @mouseenter="addFocus" />
-                </div>
-                <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="studentForm.uid" type="text" wire:model="studentForm.uid" label="{{ __('Aadhaar No') }}" @mouseenter="addFocus" />
-                </div>
-                <div class="mt-0">
-                    <x-select class="block w-full" name="studentForm.religion" wire:model="studentForm.religion" label="{{ __('Religion') }}" @mouseenter="addFocus">
+                    <x-select class="block w-full" name="student_form.religion" wire:model="student_form.religion" label="{{ __('Religion') }}" @mouseenter="addFocus">
                         <option>-- choose --</option>
                         <option value="CHRISTIAN"> CHRISTIAN </option>
                         <option value="HINDU"> HINDU </option>
@@ -96,28 +89,24 @@
                     </x-select>
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="studentForm.caste" type="text" wire:model="studentForm.caste" label="{{ __('Caste') }}" @mouseenter="addFocus" />
+                    <x-input-float-label class="block w-full" name="student_form.caste" type="text" wire:model="student_form.caste" label="{{ __('Caste') }}" @mouseenter="addFocus" />
                 </div>
                 <div class="mt-0">
-                    <x-select class="block w-full" name="studentForm.social_category" wire:model="studentForm.social_category" label="{{ __('Social Category') }}" @mouseenter="addFocus">
+                    <x-select class="block w-full" name="student_form.social_category" wire:model="student_form.social_category" label="{{ __('Social Category') }}" @mouseenter="addFocus">
                         <option>-- choose --</option>
                         <option value="General"> General </option>
                         <option value="OBC"> OBC </option>
                         <option value="OEC"> OEC </option>
                         <option value="SC"> SC </option>
                         <option value="ST"> ST </option>
+                        <option value="Other"> Other </option>
                     </x-select>
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="studentForm.place_of_birth" type="text" wire:model="studentForm.place_of_birth"
-                        label="{{ __('Place Of Birth With State') }}" @mouseenter="addFocus" />
+                    <x-input-float-label class="block w-full" name="student_form.uid" type="text" wire:model="student_form.uid" label="{{ __('Aadhaar No') }}" @mouseenter="addFocus" />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="studentForm.nationality" type="text" wire:model="studentForm.nationality" label="{{ __('Nationality') }}"
-                        @mouseenter="addFocus" />
-                </div>
-                <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="studentForm.mother_tongue" type="text" wire:model="studentForm.mother_tongue" label="{{ __('Mother Tongue') }}"
+                    <x-input-float-label class="block w-full" name="student_form.blood_group" type="text" wire:model="student_form.blood_group" label="{{ __('Blood Group') }}"
                         @mouseenter="addFocus" />
                 </div>
             </div>

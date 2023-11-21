@@ -15,14 +15,11 @@ class Student extends Model
         'last_name',
         'gender',
         'date_of_birth',
-        'age',
-        'uid',
         'religion',
         'caste',
         'social_category',
-        'place_of_birth',
-        'nationality',
-        'mother_tongue'
+        'uid',
+        'blood_group'
     ];
 
     /**

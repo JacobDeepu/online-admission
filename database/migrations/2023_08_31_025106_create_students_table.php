@@ -17,14 +17,11 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('gender', 20);
             $table->date('date_of_birth');
-            $table->integer('age');
-            $table->string('uid', 20)->nullable();
-            $table->string('religion')->nullable();
+            $table->string('religion', 20)->nullable();
             $table->string('caste')->nullable();
-            $table->string('social_category')->nullable();
-            $table->string('place_of_birth')->nullable();
-            $table->string('nationality')->nullable();
-            $table->string('mother_tongue')->nullable();
+            $table->string('social_category', 20)->nullable();
+            $table->string('uid', 20)->nullable();
+            $table->string('blood_group', 10)->nullable();
             $table->timestamps();
         });
     }
