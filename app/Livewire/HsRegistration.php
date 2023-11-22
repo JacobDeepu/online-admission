@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Http\Controllers\PaymentController;
 use App\Livewire\Forms\ContactForm;
 use App\Livewire\Forms\ParentDetailsForm;
+use App\Livewire\Forms\PreviousSchoolForm;
 use App\Livewire\Forms\RegistrationForm;
 use App\Livewire\Forms\StudentForm;
 use App\Models\Documents;
@@ -20,6 +21,7 @@ class HsRegistration extends Component
     public ContactForm $contact_form;
     public ParentDetailsForm $parentDetailsForm;
     public RegistrationForm $registrationForm;
+    public PreviousSchoolForm $previous_school;
 
     public $current_tab = 1;
     public $is_submitted = false;
@@ -111,6 +113,8 @@ class HsRegistration extends Component
         $registration = $this->registrationForm->store($student->id, $contact->id);
 
         $this->registration_id = $registration->id;
+
+        $this->previous_school->store($this->registration_id);
 
         Documents::create([
             'registration_id' => $this->registration_id,

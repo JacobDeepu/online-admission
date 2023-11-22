@@ -367,6 +367,33 @@
                     <p class="text-sm font-medium text-red-600">Allowed File Size Maximum 1MB.</p>
                 </div>
                 <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-3">
+                    <h6 class="text-sm font-medium text-white"> Previous Institution </h6>
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="previous_school.institution" type="text" wire:model="previous_school.institution" label="{{ __('Institution') }}"
+                        @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="previous_school.city" type="text" wire:model="previous_school.city" label="{{ __('City/Country') }}"
+                        @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="previous_school.year" type="text" wire:model="previous_school.year" label="{{ __('Year(From-To)') }}"
+                        @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="previous_school.previous_class" type="text" wire:model="previous_school.previous_class" label="{{ __('Class') }}"
+                        @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="previous_school.syllabus" type="text" wire:model="previous_school.syllabus" label="{{ __('Syllabus') }}"
+                        @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-input-float-label class="block w-full" name="previous_school.reason" type="text" wire:model="previous_school.reason"
+                        label="{{ __('Reason for leaving the present school') }}" @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-3">
                     <h6 class="text-sm font-medium text-white"> ACADEMIC </h6>
                 </div>
                 <div class="mt-0">
@@ -388,10 +415,7 @@
                         <option value="2023-24"> 2024-25 </option>
                     </x-select>
                 </div>
-                <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="registrationForm.previous_institution" type="text" wire:model="registrationForm.previous_institution"
-                        label="{{ __('Previous Institution') }}" @mouseenter="addFocus" />
-                </div>
+
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="registrationForm.siblings" type="text" wire:model="registrationForm.siblings" label="{{ __('Siblings') }}"
                         @mouseenter="addFocus" />
