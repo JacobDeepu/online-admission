@@ -16,6 +16,7 @@ class Registration extends Model
         'contact_id',
         'transaction_id',
         'class',
+        'section',
         'academic_year',
         'previous_institution',
         'photo',

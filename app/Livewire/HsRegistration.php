@@ -116,7 +116,7 @@ class HsRegistration extends Component
 
         $parentDetails = $this->parentDetailsForm->store($student);
 
-        $registration = $this->registrationForm->store($student->id, $contact->id);
+        $registration = $this->registrationForm->store($student->id, $contact->id, 2);
 
         $this->registration_id = $registration->id;
 

@@ -26,13 +26,14 @@ class RegistrationForm extends Form
     #[Validate('nullable|string|max:255')]
     public $break;
 
-    public function store($student, $contact)
+    public function store($student, $contact, $section)
     {
         $this->validate();
         return Registration::create([
             'student_id' => $student,
             'contact_id' => $contact,
             'class' => $this->class,
+            'section' => $section,
             'academic_year' => $this->academic_year,
             'previous_institution' => $this->previous_institution,
             'siblings' => $this->siblings,

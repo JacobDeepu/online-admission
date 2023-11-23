@@ -20,6 +20,7 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->constrained();
             $table->string('class')->nullable();
+            $table->integer('section');
             $table->string('academic_year')->nullable();
             $table->string('previous_institution')->nullable();
             $table->string('siblings')->nullable();
