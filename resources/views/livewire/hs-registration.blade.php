@@ -1,4 +1,4 @@
-<div x-data="{ currentTab: @entangle('current_tab').live, isSubmitted: @entangle('is_submitted').live }">
+<div x-data="{ currentTab: @entangle('current_tab').live, isSubmitted: @entangle('is_submitted').live, isDisabled: @entangle('is_disabled').live }">
     <div class="px-2">
         <ul class="-mb-px flex flex-wrap text-center text-sm font-medium text-gray-500">
             <li class="mr-2" @click="currentTab = 1">
@@ -107,6 +107,18 @@
                 </div>
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="student_form.blood_group" type="text" wire:model="student_form.blood_group" label="{{ __('Blood Group') }}"
+                        @mouseenter="addFocus" />
+                </div>
+                <div class="mt-0">
+                    <x-select class="block w-full" name="student_form.disability" wire:model.live="student_form.disability"
+                        label="{{ __('Learning Disability/Orthopedically Handicapped
+                                                                    ') }}" @mouseenter="addFocus">
+                        <option value="No"> No </option>
+                        <option value="Yes"> Yes </option>
+                    </x-select>
+                </div>
+                <div class="mt-0" x-show="isDisabled">
+                    <x-input-float-label class="block w-full" name="student_form.disability_details" type="text" wire:model="student_form.disability_details" label="{{ __('Give Details') }}"
                         @mouseenter="addFocus" />
                 </div>
             </div>

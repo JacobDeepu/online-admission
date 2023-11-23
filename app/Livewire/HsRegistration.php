@@ -25,6 +25,7 @@ class HsRegistration extends Component
 
     public $current_tab = 1;
     public $is_submitted = false;
+    public $is_disabled = false;
 
     // Registration
     public $registration_id;
@@ -64,6 +65,11 @@ class HsRegistration extends Component
             $this->contact_form->permanent_district = $this->contact_form->district;
             $this->contact_form->permanent_state = $this->contact_form->state;
         }
+    }
+
+    public function updatedStudentFormDisability()
+    {
+        $this->is_disabled = $this->student_form->disability === 'Yes' ? true : false;
     }
 
     public function validateData()

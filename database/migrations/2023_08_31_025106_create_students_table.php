@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('social_category', 20)->nullable();
             $table->string('uid', 20)->nullable();
             $table->string('blood_group', 10)->nullable();
+            $table->string('disability', 5)->nullable();
+            $table->string('disability_details')->nullable();
             $table->timestamps();
         });
     }

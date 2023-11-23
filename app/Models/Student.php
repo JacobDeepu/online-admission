@@ -19,7 +19,9 @@ class Student extends Model
         'caste',
         'social_category',
         'uid',
-        'blood_group'
+        'blood_group',
+        'disability',
+        'disability_details'
     ];
 
     /**

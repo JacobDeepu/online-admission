@@ -35,6 +35,12 @@ class StudentForm extends Form
     #[Validate('nullable|string|max:10')]
     public $blood_group = '';
 
+    #[Validate('required|string|max:5')]
+    public $disability = '';
+
+    #[Validate('nullable|string|max:255')]
+    public $disability_details = '';
+
     public function store()
     {
         $this->validate();
@@ -48,7 +54,9 @@ class StudentForm extends Form
             'caste' => $this->caste,
             'social_category' => $this->social_category,
             'uid' => $this->uid,
-            'blood_group' => $this->blood_group
+            'blood_group' => $this->blood_group,
+            'disability' => $this->disability,
+            'disability_details' => $this->disability_details
         ]);
     }
 }
