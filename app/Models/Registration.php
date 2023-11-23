@@ -61,4 +61,12 @@ class Registration extends Model
     {
         return $this->hasOne(Transaction::class);
     }
+
+    /**
+     * Get the previous school for the registration.
+     */
+    public function previousSchool(): HasOne
+    {
+        return $this->hasOne(PreviousSchool::class);
+    }
 }

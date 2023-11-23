@@ -32,16 +32,22 @@ class RegistrationController extends Controller
      */
     public function exportPDF(Registration $registration)
     {
+        $date_of_birth = date_create($registration->student->date_of_birth);
+        $date_of_birth = date_format($date_of_birth, "d/m/Y");
         $data = [
             'title' => 'Admission 2024-25',
-            'date' => date('m/d/Y'),
             'registration' => $registration,
+            'date_of_birth' => $date_of_birth,
             'photo' => public_path('storage/' . $registration->documents->photo)
         ];
 
         $file = $registration->student->first_name . $registration->id . '.pdf';
 
-        PDF::loadView('registration.print', $data)->save('storage/print/' . $file);
+        if ($registration->section == 1) {
+            PDF::loadView('registration.print', $data)->save('storage/print/' . $file);
+        } else {
+            PDF::loadView('registration.print-hs', $data)->save('storage/print/' . $file);
+        }
 
         Mail::to($registration->student->parent_details[0]['email'])
             ->send(new Admission($registration, $file));
