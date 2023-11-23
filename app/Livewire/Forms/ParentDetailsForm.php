@@ -49,7 +49,7 @@ class ParentDetailsForm extends Form
     #[Validate('nullable|email')]
     public $mother_email = '';
 
-    #[Validate('required|string|max:255')]
+    #[Validate('nullable|string|max:255')]
     public $guardian_name = '';
 
     #[Validate('nullable|string|max:255')]

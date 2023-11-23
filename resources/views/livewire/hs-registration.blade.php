@@ -281,7 +281,7 @@
                 </div>
                 <div class="mt-0 sm:col-span-2">
                     <x-input-float-label class="block w-full" name="parentDetailsForm.guardian_name" type="text" wire:model="parentDetailsForm.guardian_name" label="{{ __('Name') }}"
-                        @mouseenter="addFocus" required autofocus />
+                        @mouseenter="addFocus" />
                 </div>
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="parentDetailsForm.guardian_nationality" type="text" wire:model="parentDetailsForm.guardian_nationality"
@@ -353,14 +353,14 @@
                     </label>
                     <input
                         class="@error('mark_list') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="mark_list" required />
+                        type="file" wire:model.blur="mark_list" />
                 </div>
                 <div class="mt-0">
                     <label class="@error('tc') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="tc">
                         Original TC
                     </label>
                     <input class="@error('tc') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="tc" required />
+                        type="file" wire:model.blur="tc" />
                 </div>
                 <div class="mt-0 p-2">
                     <p class="text-sm font-medium text-red-600">Allowed File Formats pdf, jpg, png, jpeg.</p>

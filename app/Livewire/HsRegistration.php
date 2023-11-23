@@ -42,10 +42,10 @@ class HsRegistration extends Component
     #[Validate('required|mimes:pdf,jpg,png,jpeg|max:1024')]
     public $immunization;
 
-    #[Validate('required|mimes:pdf,jpg,png,jpeg|max:1024')]
+    #[Validate('nullable|mimes:pdf,jpg,png,jpeg|max:1024')]
     public $tc;
 
-    #[Validate('required|mimes:pdf,jpg,png,jpeg|max:1024')]
+    #[Validate('nullable|mimes:pdf,jpg,png,jpeg|max:1024')]
     public $mark_list;
 
     public function render()
@@ -122,8 +122,8 @@ class HsRegistration extends Component
             'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),
             'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards', 'public'),
             'immunization' => $this->immunization->store('uploads/immunization-certs', 'public'),
-            'tc' => $this->tc->store('uploads/tc', 'public'),
-            'mark_list' => $this->mark_list->store('uploads/marklist', 'public')
+            'tc' => $this->tc ? $this->tc->store('uploads/tc', 'public') : '',
+            'mark_list' => $this->mark_list ? $this->mark_list->store('uploads/marklist', 'public') : ''
         ]);
 
         $this->payment();
