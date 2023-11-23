@@ -20,16 +20,16 @@ Route::get('/', function () {
 });
 
 Route::get('/kg', function () {
-    return view('registration.kg');
-});
+    return view('welcome');
+})->name('kg');
 
 Route::get('/hs', function () {
-    return view('registration.hs');
-});
+    return view('welcome');
+})->name('hs');
 
 Route::get('/hss', function () {
-    return view('registration.hss');
-});
+    return view('welcome');
+})->name('hss');
 
 Route::middleware([
     'auth:sanctum',
