@@ -357,6 +357,10 @@
                 </div>
                 <div class="mt-0 p-2">
                     <p class="text-sm font-medium text-red-600">Allowed File Formats pdf, jpg, png, jpeg.</p>
+                </div>
+                <div class="mt-0 p-2">
+                </div>
+                <div class="mt-0 p-2">
                     <p class="text-sm font-medium text-red-600">Allowed File Size Maximum 1MB.</p>
                 </div>
                 <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-3">
@@ -379,8 +383,8 @@
                         label="{{ __('Previous Institution') }}" @mouseenter="addFocus" />
                 </div>
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="registrationForm.siblings" type="text" wire:model="registrationForm.siblings" label="{{ __('Siblings') }}"
-                        @mouseenter="addFocus" />
+                    <x-input-float-label class="block w-full" name="registrationForm.siblings" type="text" wire:model="registrationForm.siblings"
+                        label="{{ __('Name of Siblings and Class') }}" @mouseenter="addFocus" />
                 </div>
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="registrationForm.distance" type="text" wire:model="registrationForm.distance"

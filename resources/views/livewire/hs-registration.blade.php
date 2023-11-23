@@ -112,7 +112,7 @@
                 <div class="mt-0">
                     <x-select class="block w-full" name="student_form.disability" wire:model.live="student_form.disability"
                         label="{{ __('Learning Disability/Orthopedically Handicapped
-                                                                    ') }}" @mouseenter="addFocus">
+                                                                                            ') }}" @mouseenter="addFocus">
                         <option value="No"> No </option>
                         <option value="Yes"> Yes </option>
                     </x-select>
@@ -361,7 +361,7 @@
                 </div>
                 <div class="mt-0">
                     <label class="@error('mark_list') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="mark_list">
-                        Previous Exam Mark_list
+                        Previous Exam Mark list
                     </label>
                     <input
                         class="@error('mark_list') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
@@ -376,6 +376,10 @@
                 </div>
                 <div class="mt-0 p-2">
                     <p class="text-sm font-medium text-red-600">Allowed File Formats pdf, jpg, png, jpeg.</p>
+                </div>
+                <div class="mt-0 p-2">
+                </div>
+                <div class="mt-0 p-2">
                     <p class="text-sm font-medium text-red-600">Allowed File Size Maximum 1MB.</p>
                 </div>
                 <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-3">
@@ -429,8 +433,8 @@
                 </div>
 
                 <div class="mt-0">
-                    <x-input-float-label class="block w-full" name="registrationForm.siblings" type="text" wire:model="registrationForm.siblings" label="{{ __('Siblings') }}"
-                        @mouseenter="addFocus" />
+                    <x-input-float-label class="block w-full" name="registrationForm.siblings" type="text" wire:model="registrationForm.siblings"
+                        label="{{ __('Name of Siblings and Class') }}" @mouseenter="addFocus" />
                 </div>
                 <div class="mt-0">
                     <x-input-float-label class="block w-full" name="registrationForm.distance" type="text" wire:model="registrationForm.distance"
