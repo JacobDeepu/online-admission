@@ -36,7 +36,7 @@ class StudentForm extends Form
     public $blood_group = '';
 
     #[Validate('required|string|max:5')]
-    public $disability = '';
+    public $disability = 'No';
 
     #[Validate('nullable|string|max:255')]
     public $disability_details = '';
