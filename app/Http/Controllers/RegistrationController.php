@@ -45,8 +45,10 @@ class RegistrationController extends Controller
 
         if ($registration->section == 1) {
             PDF::loadView('registration.print', $data)->save('storage/print/' . $file);
-        } else {
+        } else if ($registration->section == 2) {
             PDF::loadView('registration.print-hs', $data)->save('storage/print/' . $file);
+        } else {
+            PDF::loadView('registration.print-hss', $data)->save('storage/print/' . $file);
         }
 
         Mail::to($registration->student->parent_details[0]['email'])

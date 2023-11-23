@@ -27,6 +27,10 @@ Route::get('/hs', function () {
     return view('registration.hs');
 });
 
+Route::get('/hss', function () {
+    return view('registration.hss');
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
