@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('previous_institution')->nullable();
             $table->string('siblings')->nullable();
             $table->string('distance')->nullable();
+            $table->string('break')->nullable();
             $table->boolean('status');
             $table->timestamps();
         });

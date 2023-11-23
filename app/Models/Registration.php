@@ -25,6 +25,7 @@ class Registration extends Model
         'immunization',
         'siblings',
         'distance',
+        'break',
         'status'
     ];
 

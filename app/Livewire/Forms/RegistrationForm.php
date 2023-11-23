@@ -23,6 +23,9 @@ class RegistrationForm extends Form
     #[Validate('nullable|string|max:255')]
     public $distance;
 
+    #[Validate('nullable|string|max:255')]
+    public $break;
+
     public function store($student, $contact)
     {
         $this->validate();
@@ -34,6 +37,7 @@ class RegistrationForm extends Form
             'previous_institution' => $this->previous_institution,
             'siblings' => $this->siblings,
             'distance' => $this->distance,
+            'break' => $this->break,
             'status' => 0
         ]);
     }
