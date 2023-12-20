@@ -55,6 +55,14 @@ class Registration extends Model
     }
 
     /**
+     * Get the group choice for the registration.
+     */
+    public function groupChoice(): HasOne
+    {
+        return $this->hasOne(GroupChoice::class);
+    }
+
+    /**
      * Get the transaction for the student.
      */
     public function transaction(): HasOne

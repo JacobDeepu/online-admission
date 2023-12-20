@@ -77,6 +77,11 @@
                     <td width="48%">{{ $registration->class }}</td>
                 </tr>
                 <tr>
+                    <td width="33%">{{ $registration->groupChoice->choice_one }}</td>
+                    <td width="33%">{{ $registration->groupChoice->choice_two }}</td>
+                    <td width="33%">{{ $registration->groupChoice->choice_three }}</td>
+                </tr>
+                <tr>
                     <td>Student Name<br>
                         (It should be as per the Birth Certificate)</td>
                     <td><strong>:</strong></td>

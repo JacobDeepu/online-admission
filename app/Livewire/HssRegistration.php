@@ -9,6 +9,7 @@ use App\Livewire\Forms\PreviousSchoolForm;
 use App\Livewire\Forms\RegistrationForm;
 use App\Livewire\Forms\StudentForm;
 use App\Models\Documents;
+use App\Models\GroupChoice;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -48,6 +49,15 @@ class HssRegistration extends Component
 
     #[Validate('nullable|mimes:pdf,jpg,png,jpeg|max:1024')]
     public $mark_list;
+
+    #[Validate('nullable|string|max:255')]
+    public $choice_one;
+
+    #[Validate('nullable|string|max:255')]
+    public $choice_two;
+
+    #[Validate('nullable|string|max:255')]
+    public $choice_three;
 
     public function render()
     {
@@ -130,6 +140,13 @@ class HssRegistration extends Component
             'immunization' => $this->immunization->store('uploads/immunization-certs', 'public'),
             'tc' => $this->tc ? $this->tc->store('uploads/tc', 'public') : '',
             'mark_list' => $this->mark_list ? $this->mark_list->store('uploads/marklist', 'public') : ''
+        ]);
+
+        GroupChoice::create([
+            'registration_id' => $this->registration_id,
+            'choice_one' => $this->choice_one,
+            'choice_two' => $this->choice_two,
+            'choice_three' => $this->choice_three
         ]);
 
         $this->payment();
