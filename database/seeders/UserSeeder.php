@@ -15,13 +15,21 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         Role::create(['name' => 'Super Admin']);
+        Role::create(['name' => 'Admin']);
 
-        $adminUser = User::factory()->create([
+        $super_admin = User::factory()->create([
             'name' => 'Super Admin',
             'email' => 'superadmin@admin.com',
             'password' => Hash::make('password')
         ]);
 
-        $adminUser->assignRole('Super Admin');
+        $admin = User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('password')
+        ]);
+
+        $super_admin->assignRole('Super Admin');
+        $admin->assignRole('Admin');
     }
 }
