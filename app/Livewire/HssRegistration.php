@@ -50,13 +50,13 @@ class HssRegistration extends Component
     #[Validate('nullable|mimes:pdf,jpg,png,jpeg|max:1024')]
     public $mark_list;
 
-    #[Validate('nullable|string|max:255')]
+    #[Validate('required|string|max:255')]
     public $choice_one;
 
-    #[Validate('nullable|string|max:255')]
+    #[Validate('required|string|max:255')]
     public $choice_two;
 
-    #[Validate('nullable|string|max:255')]
+    #[Validate('required|string|max:255')]
     public $choice_three;
 
     public function render()

@@ -414,66 +414,66 @@
                     <h6 class="text-sm font-medium text-white"> ACADEMIC </h6>
                 </div>
                 <input type="text" name="registrationForm.class" wire:model="registrationForm.class" value="hss" hidden>
-                <div class="mt-0">
-                    <x-select class="block w-full" name="choice_one" wire:model="choice_one" label="{{ __('Choice 1') }}" @mouseenter="addFocus">
-                        <option>-- choose --</option>
-                        <option value="group-1">group-1</option>
-                        <option value="group-2">group-2</option>
-                        <option value="group-3">group-3</option>
-                        <option value="group-4">group-4</option>
-                        <option value="group-5">group-5</option>
-                        <option value="group-6">group-6</option>
-                        <option value="group-7">group-7</option>
-                        <option value="group-8">group-8</option>
-                        <option value="group-9">group-9</option>
-                        <option value="group-10">group-10</option>
-                        <option value="group-11">group-11</option>
-                        <option value="group-12">group-12</option>
-                        <option value="group-13">group-13</option>
-                        <option value="group-14">group-14</option>
-                    </x-select>
-                </div>
-                <div class="mt-0">
-                    <x-select class="block w-full" name="choice_one" wire:model="choice_two" label="{{ __('Choice 2') }}" @mouseenter="addFocus">
-                        <option>-- choose --</option>
-                        <option value="group-1">group-1</option>
-                        <option value="group-2">group-2</option>
-                        <option value="group-3">group-3</option>
-                        <option value="group-4">group-4</option>
-                        <option value="group-5">group-5</option>
-                        <option value="group-6">group-6</option>
-                        <option value="group-7">group-7</option>
-                        <option value="group-8">group-8</option>
-                        <option value="group-9">group-9</option>
-                        <option value="group-10">group-10</option>
-                        <option value="group-11">group-11</option>
-                        <option value="group-12">group-12</option>
-                        <option value="group-13">group-13</option>
-                        <option value="group-14">group-14</option>
-                    </x-select>
-                </div>
-                <div class="mt-0">
-                    <x-select class="block w-full" name="choice_one" wire:model="choice_three" label="{{ __('Choice 3') }}" @mouseenter="addFocus">
-                        <option>-- choose --</option>
-                        <option value="group-1">group-1</option>
-                        <option value="group-2">group-2</option>
-                        <option value="group-3">group-3</option>
-                        <option value="group-4">group-4</option>
-                        <option value="group-5">group-5</option>
-                        <option value="group-6">group-6</option>
-                        <option value="group-7">group-7</option>
-                        <option value="group-8">group-8</option>
-                        <option value="group-9">group-9</option>
-                        <option value="group-10">group-10</option>
-                        <option value="group-11">group-11</option>
-                        <option value="group-12">group-12</option>
-                        <option value="group-13">group-13</option>
-                        <option value="group-14">group-14</option>
-                    </x-select>
-                </div>
                 <div class="mt-0 p-2 sm:col-span-3">
                     <p class="text-sm font-medium text-red-600">* Enter the group number corresponding to your chosen
                         combination of subjects</p>
+                </div>
+                <div class="mt-0">
+                    <x-select class="block w-full" name="choice_one" wire:model="choice_one" label="{{ __('Choice 1') }}" @mouseenter="addFocus">
+                        <option>-- choose --</option>
+                        <option value="Group-1">Group-1</option>
+                        <option value="Group-2">Group-2</option>
+                        <option value="Group-3">Group-3</option>
+                        <option value="Group-4">Group-4</option>
+                        <option value="Group-5">Group-5</option>
+                        <option value="Group-6">Group-6</option>
+                        <option value="Group-7">Group-7</option>
+                        <option value="Group-8">Group-8</option>
+                        <option value="Group-9">Group-9</option>
+                        <option value="Group-10">Group-10</option>
+                        <option value="Group-11">Group-11</option>
+                        <option value="Group-12">Group-12</option>
+                        <option value="Group-13">Group-13</option>
+                        <option value="Group-14">Group-14</option>
+                    </x-select>
+                </div>
+                <div class="mt-0">
+                    <x-select class="block w-full" name="choice_two" wire:model="choice_two" label="{{ __('Choice 2') }}" @mouseenter="addFocus">
+                        <option>-- choose --</option>
+                        <option value="Group-1">Group-1</option>
+                        <option value="Group-2">Group-2</option>
+                        <option value="Group-3">Group-3</option>
+                        <option value="Group-4">Group-4</option>
+                        <option value="Group-5">Group-5</option>
+                        <option value="Group-6">Group-6</option>
+                        <option value="Group-7">Group-7</option>
+                        <option value="Group-8">Group-8</option>
+                        <option value="Group-9">Group-9</option>
+                        <option value="Group-10">Group-10</option>
+                        <option value="Group-11">Group-11</option>
+                        <option value="Group-12">Group-12</option>
+                        <option value="Group-13">Group-13</option>
+                        <option value="Group-14">Group-14</option>
+                    </x-select>
+                </div>
+                <div class="mt-0">
+                    <x-select class="block w-full" name="choice_three" wire:model="choice_three" label="{{ __('Choice 3') }}" @mouseenter="addFocus">
+                        <option>-- choose --</option>
+                        <option value="Group-1">Group-1</option>
+                        <option value="Group-2">Group-2</option>
+                        <option value="Group-3">Group-3</option>
+                        <option value="Group-4">Group-4</option>
+                        <option value="Group-5">Group-5</option>
+                        <option value="Group-6">Group-6</option>
+                        <option value="Group-7">Group-7</option>
+                        <option value="Group-8">Group-8</option>
+                        <option value="Group-9">Group-9</option>
+                        <option value="Group-10">Group-10</option>
+                        <option value="Group-11">Group-11</option>
+                        <option value="Group-12">Group-12</option>
+                        <option value="Group-13">Group-13</option>
+                        <option value="Group-14">Group-14</option>
+                    </x-select>
                 </div>
                 <div class="mt-0">
                     <x-select class="block w-full" name="registrationForm.academic_year" wire:model="registrationForm.academic_year" label="{{ __('Academic Year') }}" @mouseenter="addFocus">
@@ -518,7 +518,7 @@
         </div>
     </form>
 </div>
-<script src="https://pgtest.atomtech.in/staticdata/ots/js/atomcheckout.js"></script>
+<script src="https://psa.atomtech.in/staticdata/ots/js/atomcheckout.js"></script>
 <script>
     function addFocus(e) {
         e.target.focus();

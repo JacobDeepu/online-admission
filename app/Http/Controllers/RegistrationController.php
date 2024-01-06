@@ -15,7 +15,7 @@ class RegistrationController extends Controller
     public function index()
     {
         $registrations = Registration::latest();
-        $registrations = $registrations->paginate(6);
+        $registrations = $registrations->paginate(10);
         return view('registration.index', compact('registrations'));
     }
 
