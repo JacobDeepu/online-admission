@@ -34,13 +34,13 @@
                                     {{ __('Name') }}
                                 </th>
                                 <th class="px-6 py-3" scope="col">
-                                    {{ __('DOB') }}
+                                    {{ __('Class') }}
                                 </th>
                                 <th class="px-6 py-3" scope="col">
                                     {{ __('Phone') }}
                                 </th>
                                 <th class="px-6 py-3" scope="col">
-                                    {{ __('Status') }}
+                                    {{ __('Payment Status') }}
                                 </th>
                                 <th class="px-6 py-3" scope="col">
                                     {{ __('Actions') }}
@@ -57,16 +57,22 @@
                                         {{ $registration->student->first_name }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
-                                        {{ $registration->student->date_of_birth }}
+                                        @if ($registration->section == 1)
+                                            {{ 'KG' }}
+                                        @elseif($registration->section == 2)
+                                            {{ 'HS' }}
+                                        @else
+                                            {{ 'HSS' }}
+                                        @endif
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
-                                        {{ $registration->contact->primary_number }}
+                                        {{ $registration->student->parent_details[0]['mobile_number'] }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
-                                        {{ $registration->status ? 'Approved' : 'Pending' }}
+                                        {{ $registration->transaction ? ($registration->transaction->status ? 'Paid' : 'Pending') : 'Nil' }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4">
-                                        <x-link href="{{ route('registration.show', $registration) }}">
+                                        <x-link href="{{ route('export', $registration) }}" target="_blank">
                                             <svg class="feather feather-check-square mr-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                                 <polyline points="9 11 12 14 22 4"></polyline>
