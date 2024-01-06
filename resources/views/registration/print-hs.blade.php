@@ -70,11 +70,12 @@
                     <td width="50%">Application No</td>
                     <td width="2%"><strong>:</strong></td>
                     <td><span style="color:#F30;">HS{{ $registration->id + 1000 }}</span></td>
+                    <td width="16%" rowspan="6" align="right"><img src="{{ $photo }}" width="100" height="150" /></td>
                 </tr>
                 <tr>
                     <td width="50%">Class to which admission is sought</td>
                     <td width="2%"><strong>:</strong></td>
-                    <td width="48%">{{ $registration->class }}</td>
+                    <td width="32%">{{ $registration->class }}</td>
                 </tr>
                 <tr>
                     <td>Student Name<br>
@@ -131,7 +132,7 @@
                     <td>School previously attended</td>
                 </tr>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="4" width="100%">
                         <table border="1">
                             <tr>
                                 <td>Institution</td>
@@ -173,7 +174,7 @@
                     <td>{{ $registration->student->disability_details }}</td>
                 </tr>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="4">
                         <table border="1">
                             <tr>
                                 <td></td>
@@ -227,7 +228,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="4">
                         <table>
                             <tr>
                                 <td width="50%"><strong>Present Address</strong></td>
@@ -263,7 +264,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td width="50%"">Date:</td>
+                <td width="50%">Date:</td>
                 <td style="text-align: right;">Name and Signature<br>(Parent/Guardian)</td>
             </tr>
             <tr>
@@ -285,7 +286,7 @@
         <table class="office">
             <tbody>
                 <tr>
-                    <td height="65" colspan="2">
+                    <td height="46" colspan="2">
                         <h2 style="text-align: center;">FOR OFFICE USE ONLY</h2>
                     </td>
                 </tr>
@@ -343,15 +344,15 @@
                         </tr>
                         <tr>
                             <td>Admission Fee</td>
-                            <td>02</td>
+                            <td>300</td>
                             <td> 0 </td>
-                            <td>02</td>
+                            <td>300</td>
                         </tr>
                         <tr class="border-top border-bottom">
                             <td><strong>Total Amount:</strong></td>
                             <td></td>
                             <td></td>
-                            <td><strong>02</strong></td>
+                            <td><strong>300</strong></td>
                         </tr>
                     </table>
                 </td>
