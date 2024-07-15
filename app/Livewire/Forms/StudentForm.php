@@ -56,7 +56,7 @@ class StudentForm extends Form
             'uid' => $this->uid,
             'blood_group' => $this->blood_group,
             'disability' => $this->disability,
-            'disability_details' => $this->disability_details
+            'disability_details' => $this->disability_details,
         ]);
     }
 }

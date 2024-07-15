@@ -21,7 +21,7 @@ class Student extends Model
         'uid',
         'blood_group',
         'disability',
-        'disability_details'
+        'disability_details',
     ];
 
     /**

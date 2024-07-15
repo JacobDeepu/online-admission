@@ -1,6 +1,6 @@
 ## About Online Admission
 
-A simple onlilne admission application built with Laravel 10 and livewire.
+A simple onlilne admission application built with Laravel 11 and livewire.
 
 ## Installation
 

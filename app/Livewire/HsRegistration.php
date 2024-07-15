@@ -18,13 +18,19 @@ class HsRegistration extends Component
     use WithFileUploads;
 
     public StudentForm $student_form;
+
     public ContactForm $contact_form;
+
     public ParentDetailsForm $parentDetailsForm;
+
     public RegistrationForm $registrationForm;
+
     public PreviousSchoolForm $previous_school;
 
     public $current_tab = 1;
+
     public $is_submitted = false;
+
     public $is_disabled = false;
 
     // Registration
@@ -90,6 +96,7 @@ class HsRegistration extends Component
         $amount = 20.00;
         $payment = new PaymentController();
         $pay_data = $payment->setPayData($amount, $this->parentDetailsForm->father_email, $this->parentDetailsForm->father_mobile_number, $this->registration_id);
+
         return $pay_data;
     }
 
@@ -97,13 +104,13 @@ class HsRegistration extends Component
     {
         $data = $this->generatePayData();
         $json_data = '{
-            "atomTokenId": "' . $data['token'] . '",
-            "merchId": "' . $data['login'] . '",
-            "custEmail": "' . $this->parentDetailsForm->father_email . '",
-            "custMobile": "' . $this->parentDetailsForm->father_mobile_number . '",
-            "returnUrl": "' . $data['url'] . '"
+            "atomTokenId": "'.$data['token'].'",
+            "merchId": "'.$data['login'].'",
+            "custEmail": "'.$this->parentDetailsForm->father_email.'",
+            "custMobile": "'.$this->parentDetailsForm->father_mobile_number.'",
+            "returnUrl": "'.$data['url'].'"
         }';
-        $this->js('let atom = new AtomPaynetz(' . $json_data . ', "uat");');
+        $this->js('let atom = new AtomPaynetz('.$json_data.', "uat");');
     }
 
     public function register()
@@ -129,7 +136,7 @@ class HsRegistration extends Component
             'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards', 'public'),
             'immunization' => $this->immunization->store('uploads/immunization-certs', 'public'),
             'tc' => $this->tc ? $this->tc->store('uploads/tc', 'public') : '',
-            'mark_list' => $this->mark_list ? $this->mark_list->store('uploads/marklist', 'public') : ''
+            'mark_list' => $this->mark_list ? $this->mark_list->store('uploads/marklist', 'public') : '',
         ]);
 
         $this->payment();

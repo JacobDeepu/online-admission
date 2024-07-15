@@ -29,6 +29,7 @@ class RegistrationForm extends Form
     public function store($student, $contact, $section)
     {
         $this->validate();
+
         return Registration::create([
             'student_id' => $student,
             'contact_id' => $contact,
@@ -39,7 +40,7 @@ class RegistrationForm extends Form
             'siblings' => $this->siblings,
             'distance' => $this->distance,
             'break' => $this->break,
-            'status' => 0
+            'status' => 0,
         ]);
     }
 }

@@ -23,6 +23,6 @@ class Contact extends Model
         'permanent_pin_code',
         'permanent_city',
         'permanent_district',
-        'permanent_state'
+        'permanent_state',
     ];
 }

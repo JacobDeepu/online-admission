@@ -13,6 +13,6 @@ class GroupChoice extends Model
         'registration_id',
         'choice_one',
         'choice_two',
-        'choice_three'
+        'choice_three',
     ];
 }

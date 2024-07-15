@@ -16,6 +16,6 @@ class PreviousSchool extends Model
         'year',
         'class',
         'syllabus',
-        'reason'
+        'reason',
     ];
 }

@@ -19,7 +19,7 @@ class ParentDetail extends Model
         'mobile_number',
         'email',
         'relationship',
-        'student_id'
+        'student_id',
     ];
 
     /**

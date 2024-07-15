@@ -70,7 +70,7 @@ class ContactForm extends Form
             'permanent_pin_code' => $this->permanent_pin_code,
             'permanent_city' => $this->permanent_city,
             'permanent_district' => $this->permanent_district,
-            'permanent_state' => $this->permanent_state
+            'permanent_state' => $this->permanent_state,
 
         ]);
     }

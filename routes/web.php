@@ -34,7 +34,7 @@ Route::get('/hss', function () {
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -42,7 +42,7 @@ Route::middleware([
 
     Route::resource('registration', RegistrationController::class)
         ->only([
-            'index', 'show'
+            'index', 'show',
         ]);
 });
 Route::get('/export-pdf/{registration}', [RegistrationController::class, 'exportPDF'])->name('export');

@@ -14,6 +14,6 @@ class Transaction extends Model
         'merch_transaction_id',
         'merch_transaction_date',
         'bank_transaction_id',
-        'status'
+        'status',
     ];
 }

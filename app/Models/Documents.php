@@ -17,6 +17,6 @@ class Documents extends Model
         'address_proof',
         'immunization',
         'tc',
-        'mark_list'
+        'mark_list',
     ];
 }

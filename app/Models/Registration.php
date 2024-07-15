@@ -27,7 +27,7 @@ class Registration extends Model
         'siblings',
         'distance',
         'break',
-        'status'
+        'status',
     ];
 
     /**

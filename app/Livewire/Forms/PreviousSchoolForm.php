@@ -37,7 +37,7 @@ class PreviousSchoolForm extends Form
             'year' => $this->year,
             'class' => $this->previous_class,
             'syllabus' => $this->syllabus,
-            'reason' => $this->reason
+            'reason' => $this->reason,
         ]);
     }
 }

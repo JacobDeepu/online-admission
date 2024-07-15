@@ -83,7 +83,7 @@ class ParentDetailsForm extends Form
                 'qualification' => $this->father_qualification,
                 'mobile_number' => $this->father_mobile_number,
                 'email' => $this->father_email,
-                'relationship' => 'father'
+                'relationship' => 'father',
             ],
             [
                 'name' => $this->mother_name,
@@ -93,7 +93,7 @@ class ParentDetailsForm extends Form
                 'qualification' => $this->mother_qualification,
                 'mobile_number' => $this->mother_mobile_number,
                 'email' => $this->mother_email,
-                'relationship' => 'mother'
+                'relationship' => 'mother',
             ],
             [
                 'name' => $this->guardian_name,
@@ -103,8 +103,8 @@ class ParentDetailsForm extends Form
                 'qualification' => $this->guardian_qualification,
                 'mobile_number' => $this->guardian_mobile_number,
                 'email' => $this->guardian_email,
-                'relationship' => 'guardian'
-            ]
+                'relationship' => 'guardian',
+            ],
         ]);
     }
 }

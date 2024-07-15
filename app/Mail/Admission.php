@@ -3,9 +3,7 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -16,6 +14,7 @@ class Admission extends Mailable
     use Queueable, SerializesModels;
 
     public $registration;
+
     public $file;
 
     /**
@@ -47,7 +46,7 @@ class Admission extends Mailable
                 'title' => 'Admission 2024-25',
                 'date' => date('m/d/Y'),
                 'registration' => $this->registration,
-                'photo' => public_path('storage/' . $this->registration->photo)
+                'photo' => public_path('storage/'.$this->registration->photo),
             ],
         );
     }
@@ -60,9 +59,9 @@ class Admission extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromPath(public_path('storage/' . $this->registration->birth_certificate)),
-            Attachment::fromPath(public_path('storage/' . $this->registration->aadhaar)),
-            Attachment::fromPath(public_path('storage/' . $this->registration->address_proof)),
+            Attachment::fromPath(public_path('storage/'.$this->registration->birth_certificate)),
+            Attachment::fromPath(public_path('storage/'.$this->registration->aadhaar)),
+            Attachment::fromPath(public_path('storage/'.$this->registration->address_proof)),
             // Attachment::fromPath(asset('public/storage/print/' . $this->file)),
         ];
     }
