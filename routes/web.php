@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,8 @@ Route::middleware([
         ->only([
             'index', 'show',
         ]);
+
+    Route::resource('forms', FormController::class);
 });
 Route::get('/export-pdf/{registration}', [RegistrationController::class, 'exportPDF'])->name('export');
 

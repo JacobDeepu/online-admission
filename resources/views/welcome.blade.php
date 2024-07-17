@@ -30,13 +30,14 @@
                         <h1 class="text-center text-4xl font-bold uppercase text-blue-600">
                             Registration Form
                         </h1>
-                        @if (request()->routeIs('hs'))
+                        @livewire('dynamic-form')
+                        {{-- @if (request()->routeIs('hs'))
                             @livewire('hs-registration')
                         @elseif (request()->routeIs('hss'))
                             @livewire('hss-registration')
                         @else
                             @livewire('kg-registration')
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             </div>
