@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,5 +45,3 @@ Route::middleware([
         ]);
 });
 Route::get('/export-pdf/{registration}', [RegistrationController::class, 'exportPDF'])->name('export');
-
-Route::post('/response', [PaymentController::class, 'response'])->name('response');
