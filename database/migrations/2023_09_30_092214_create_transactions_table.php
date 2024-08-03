@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('registration_id')
                 ->cascadeOnDelete()
                 ->constrained();
+            $table->string('atom_token_id');
             $table->string('merch_transaction_id');
             $table->string('merch_transaction_date');
             $table->string('bank_transaction_id');

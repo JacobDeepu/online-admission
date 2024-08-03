@@ -11,6 +11,7 @@ class Transaction extends Model
 
     protected $fillable = [
         'registration_id',
+        'atom_token_id',
         'merch_transaction_id',
         'merch_transaction_date',
         'bank_transaction_id',
