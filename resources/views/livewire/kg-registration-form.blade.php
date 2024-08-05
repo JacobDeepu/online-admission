@@ -1,4 +1,4 @@
-<div x-data="{ currentTab: @entangle('current_tab').live, isSubmitted: @entangle('is_submitted').live }">
+<div x-data="{ currentTab: @entangle('current_tab').live, isSubmitted: @entangle('is_submitted').live }" @payment-processed="handlePaymentToken($event.detail.jsonData)">
     <div class="px-2">
         <ul class="-mb-px flex flex-wrap text-center text-sm font-medium text-gray-500">
             <li class="mr-2" @click="currentTab = 1">
@@ -415,9 +415,13 @@
         </div>
     </form>
 </div>
-<script src="https://pgtest.atomtech.in/staticdata/ots/js/atomcheckout.js"></script>
+<script src={{ config('payment.js_url') }}></script>
 <script>
     function addFocus(e) {
         e.target.focus();
+    }
+
+    function handlePaymentToken(json_data) {
+        let atom = new AtomPaynetz(json_data, "uat");
     }
 </script>

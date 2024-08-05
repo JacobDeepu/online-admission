@@ -1,4 +1,4 @@
-<div x-data="{ currentTab: @entangle('current_tab').live, isSubmitted: @entangle('is_submitted').live, isDisabled: @entangle('is_disabled').live }">
+<div x-data="{ currentTab: @entangle('current_tab').live, isSubmitted: @entangle('is_submitted').live, isDisabled: @entangle('is_disabled').live }" @payment-processed="handlePaymentToken($event.detail.jsonData)">
     <div class="px-2">
         <ul class="-mb-px flex flex-wrap text-center text-sm font-medium text-gray-500">
             <li class="mr-2" @click="currentTab = 1">
@@ -112,7 +112,7 @@
                 <div class="mt-0">
                     <x-select class="block w-full" name="student_form.disability" wire:model.live="student_form.disability"
                         label="{{ __('Learning Disability/Orthopedically Handicapped
-                                                                                                                                                                    ') }}"
+                                                                                                                                                                                                                    ') }}"
                         @mouseenter="addFocus">
                         <option value="No"> No </option>
                         <option value="Yes"> Yes </option>
@@ -413,7 +413,7 @@
                 <div class="mt-0 rounded bg-blue-500 p-2 sm:col-span-3">
                     <h6 class="text-sm font-medium text-white"> ACADEMIC </h6>
                 </div>
-                <input type="text" name="registrationForm.class" wire:model="registrationForm.class" value="hss" hidden>
+                <input name="registrationForm.class" type="text" value="hss" wire:model="registrationForm.class" hidden>
                 <div class="mt-0 p-2 sm:col-span-3">
                     <p class="text-sm font-medium text-red-600">* Enter the group number corresponding to your chosen
                         combination of subjects</p>
@@ -518,9 +518,13 @@
         </div>
     </form>
 </div>
-<script src="https://psa.atomtech.in/staticdata/ots/js/atomcheckout.js"></script>
+<script src={{ config('payment.js_url') }}></script>
 <script>
     function addFocus(e) {
         e.target.focus();
+    }
+
+    function handlePaymentToken(json_data) {
+        let atom = new AtomPaynetz(json_data, "uat");
     }
 </script>

@@ -36,5 +36,5 @@ return [
      * JAvascript Loader Url
      */
     'js_url' => env('PAYMENT_JS_URL'),
-    
+
 ];

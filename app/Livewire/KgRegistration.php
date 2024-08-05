@@ -2,12 +2,13 @@
 
 namespace App\Livewire;
 
-use App\Http\Controllers\PaymentController;
 use App\Livewire\Forms\ContactForm;
 use App\Livewire\Forms\ParentDetailsForm;
 use App\Livewire\Forms\RegistrationForm;
 use App\Livewire\Forms\StudentForm;
 use App\Models\Documents;
+use App\Services\PaymentService;
+use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -78,26 +79,26 @@ class KgRegistration extends Component
         $this->current_tab++;
     }
 
-    public function generatePayData()
-    {
-        $amount = 20.00;
-        $payment = new PaymentController();
-        $pay_data = $payment->setPayData($amount, $this->parentDetailsForm->father_email, $this->parentDetailsForm->father_mobile_number, $this->registration_id);
-
-        return $pay_data;
-    }
-
     public function payment()
     {
-        $data = $this->generatePayData();
-        $json_data = '{
-            "atomTokenId": "'.$data['token'].'",
-            "merchId": "'.$data['login'].'",
-            "custEmail": "'.$this->parentDetailsForm->father_email.'",
-            "custMobile": "'.$this->parentDetailsForm->father_mobile_number.'",
-            "returnUrl": "'.$data['url'].'"
-        }';
-        $this->js('let atom = new AtomPaynetz('.$json_data.', "uat");');
+        $payData = [
+            'registration_id' => $this->registration_id,
+            'amount' => 10,
+            'prod_id' => config('payment.product_id'),
+            'email' => $this->parentDetailsForm->father_email,
+            'mobile' => $this->parentDetailsForm->father_mobile_number,
+        ];
+
+        $paymentService = new PaymentService;
+
+        $jsonData = $paymentService->processPayment($payData);
+        $jsonData = json_decode($jsonData->getContent(), true);
+        if (is_null($jsonData['atomTokenId'])) {
+            session()->flash('status', 'Payment processing failed, please try again later.');
+            $this->redirectRoute('kg');
+        } else {
+            $this->dispatch('payment-processed', jsonData: $jsonData);
+        }
     }
 
     public function register()
@@ -106,27 +107,26 @@ class KgRegistration extends Component
 
         $this->validate();
 
-        $student = $this->student_form->store();
+        DB::transaction(function () {
+            $student = $this->student_form->store();
+            $contact = $this->contact_form->store();
+            $parentDetails = $this->parentDetailsForm->store($student);
+            $registration = $this->registrationForm->store($student->id, $contact->id, 1);
 
-        $contact = $this->contact_form->store();
+            $this->registration_id = $registration->id;
 
-        $parentDetails = $this->parentDetailsForm->store($student);
+            Documents::create([
+                'registration_id' => $this->registration_id,
+                'photo' => $this->photo->store('uploads/photos', 'public'),
+                'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),
+                'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards', 'public'),
+                'address_proof' => $this->address_proof->store('uploads/address-proofs', 'public'),
+                'immunization' => $this->immunization->store('uploads/immunization-certs', 'public'),
+            ]);
 
-        $registration = $this->registrationForm->store($student->id, $contact->id, 1);
-
-        $this->registration_id = $registration->id;
-
-        Documents::create([
-            'registration_id' => $this->registration_id,
-            'photo' => $this->photo->store('uploads/photos', 'public'),
-            'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),
-            'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards', 'public'),
-            'address_proof' => $this->address_proof->store('uploads/address-proofs', 'public'),
-            'immunization' => $this->immunization->store('uploads/immunization-certs', 'public'),
-        ]);
-
-        $this->payment();
-
+            $registration->transaction()->create(['status' => 0]);
+        });
         $this->is_submitted = true;
+        $this->payment();
     }
 }
