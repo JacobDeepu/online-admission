@@ -66,7 +66,7 @@
                                         @endif
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
-                                        {{ $registration->student->parent_details[0]['mobile_number'] }}
+                                        {{ $registration->student->parentDetails[0]['mobile_number'] }}
                                     </td>
                                     <td class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
                                         {{ $registration->transaction ? ($registration->transaction->status ? 'Paid' : 'Pending') : 'Nil' }}

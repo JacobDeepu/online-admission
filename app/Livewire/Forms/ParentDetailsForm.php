@@ -43,10 +43,10 @@ class ParentDetailsForm extends Form
     #[Validate('nullable|string|max:255')]
     public $mother_annual_income = '';
 
-    #[Validate('nullable|numeric')]
+    #[Validate('nullable|numeric|digits_between:10,12|unique:parent_details,mobile_number')]
     public $mother_mobile_number = '';
 
-    #[Validate('nullable|email')]
+    #[Validate('nullable|email|unique:parent_details,email')]
     public $mother_email = '';
 
     #[Validate('nullable|string|max:255')]
@@ -64,17 +64,17 @@ class ParentDetailsForm extends Form
     #[Validate('nullable|string|max:255')]
     public $guardian_annual_income = '';
 
-    #[Validate('nullable|numeric')]
+    #[Validate('nullable|numeric|digits_between:10,12|unique:parent_details,mobile_number')]
     public $guardian_mobile_number = '';
 
-    #[Validate('nullable|email')]
+    #[Validate('nullable|email|unique:parent_details,email')]
     public $guardian_email = '';
 
     public function store($student)
     {
         $this->validate();
 
-        $student->parent_details()->createMany([
+        $student->parentDetails()->createMany([
             [
                 'name' => $this->father_name,
                 'occupation' => $this->father_occupation,

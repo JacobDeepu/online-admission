@@ -7,7 +7,6 @@ use App\Livewire\Forms\ParentDetailsForm;
 use App\Livewire\Forms\PreviousSchoolForm;
 use App\Livewire\Forms\RegistrationForm;
 use App\Livewire\Forms\StudentForm;
-use App\Models\Documents;
 use App\Services\PaymentService;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Validate;
@@ -130,7 +129,7 @@ class HsRegistration extends Component
 
             $this->previous_school->store($this->registration);
 
-            $registration->documents()->create([
+            $registration->document()->create([
                 'registration_id' => $this->registration_id,
                 'photo' => $this->photo->store('uploads/photos', 'public'),
                 'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),

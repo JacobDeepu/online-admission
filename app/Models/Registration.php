@@ -30,49 +30,31 @@ class Registration extends Model
         'status',
     ];
 
-    /**
-     * Get the registration that owns the student.
-     */
     public function student(): BelongsTo
     {
         return $this->belongsTo(Student::class);
     }
 
-    /**
-     * Get the registration that owns the student.
-     */
     public function contact(): BelongsTo
     {
         return $this->belongsTo(Contact::class);
     }
 
-    /**
-     * Get the documents for the registration.
-     */
-    public function documents(): HasOne
+    public function document(): HasOne
     {
         return $this->hasOne(Documents::class);
     }
 
-    /**
-     * Get the group choice for the registration.
-     */
     public function groupChoice(): HasOne
     {
         return $this->hasOne(GroupChoice::class);
     }
 
-    /**
-     * Get the transaction for the student.
-     */
     public function transaction(): HasOne
     {
         return $this->hasOne(Transaction::class);
     }
 
-    /**
-     * Get the previous school for the registration.
-     */
     public function previousSchool(): HasOne
     {
         return $this->hasOne(PreviousSchool::class);

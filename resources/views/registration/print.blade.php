@@ -104,50 +104,50 @@
                 </tr>
                 <tr>
                     <td>8. Name of Father</td>
-                    <td>{{ $registration->student->parent_details[0]['name'] }}</td>
+                    <td>{{ $registration->student->parentDetails[0]['name'] }}</td>
                 </tr>
                 <tr>
                     <td style="text-align:right; border-bottom: 2px solid #fff;">
                         Occupation</td>
-                    <td>{{ $registration->student->parent_details[0]['occupation'] }}</td>
+                    <td>{{ $registration->student->parentDetails[0]['occupation'] }}</td>
                 </tr>
                 <tr>
                     <td style="text-align:right; border-bottom: 2px solid #fff;">
                         Office Address</td>
-                    <td>{{ $registration->student->parent_details[0]['office_address'] }}</td>
+                    <td>{{ $registration->student->parentDetails[0]['office_address'] }}</td>
                 </tr>
                 <tr>
                     <td style="text-align:right; border-bottom: 2px solid #fff;">
                         E-mail Id</td>
-                    <td>{{ $registration->student->parent_details[0]['email'] }}</td>
+                    <td>{{ $registration->student->parentDetails[0]['email'] }}</td>
                 </tr>
                 <tr>
                     <td style="text-align:right;">
                         Mobile</td>
-                    <td>{{ $registration->student->parent_details[0]['mobile_number'] }}</td>
+                    <td>{{ $registration->student->parentDetails[0]['mobile_number'] }}</td>
                 </tr>
                 <tr>
                     <td>9. Name of Mother</td>
-                    <td>{{ $registration->student->parent_details[1]['name'] }}</td>
+                    <td>{{ $registration->student->parentDetails[1]['name'] }}</td>
                 </tr>
                 <tr>
                     <td style="text-align:right; border-bottom: 2px solid #fff;">
                         Occupation</td>
-                    <td>{{ $registration->student->parent_details[1]['occupation'] }}</td>
+                    <td>{{ $registration->student->parentDetails[1]['occupation'] }}</td>
                 </tr>
                 <tr>
                     <td style="text-align:right; border-bottom: 2px solid #fff;">
                         Office Address</td>
-                    <td>{{ $registration->student->parent_details[1]['office_address'] }}</td>
+                    <td>{{ $registration->student->parentDetails[1]['office_address'] }}</td>
                 </tr>
                 <tr>
                     <td style="text-align:right; border-bottom: 2px solid #fff;">
                         E-mail Id</td>
-                    <td>{{ $registration->student->parent_details[1]['email'] }}</td>
+                    <td>{{ $registration->student->parentDetails[1]['email'] }}</td>
                 </tr>
                 <tr>
                     <td style="text-align:right;">Mobile</td>
-                    <td>{{ $registration->student->parent_details[1]['mobile_number'] }}</td>
+                    <td>{{ $registration->student->parentDetails[1]['mobile_number'] }}</td>
                 </tr>
                 <tr>
                     <td>10. Home Address</td>

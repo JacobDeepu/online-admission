@@ -6,7 +6,6 @@ use App\Livewire\Forms\ContactForm;
 use App\Livewire\Forms\ParentDetailsForm;
 use App\Livewire\Forms\RegistrationForm;
 use App\Livewire\Forms\StudentForm;
-use App\Models\Documents;
 use App\Services\PaymentService;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Validate;
@@ -113,7 +112,7 @@ class KgRegistration extends Component
             $parentDetails = $this->parentDetailsForm->store($student);
             $registration = $this->registrationForm->store($student->id, $contact->id, 1);
 
-            $registration->documents()->create([
+            $registration->document()->create([
                 'photo' => $this->photo->store('uploads/photos', 'public'),
                 'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),
                 'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards', 'public'),

@@ -7,7 +7,6 @@ use App\Livewire\Forms\ParentDetailsForm;
 use App\Livewire\Forms\PreviousSchoolForm;
 use App\Livewire\Forms\RegistrationForm;
 use App\Livewire\Forms\StudentForm;
-use App\Models\Documents;
 use App\Services\PaymentService;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Validate;
@@ -137,7 +136,7 @@ class HssRegistration extends Component
 
             $this->registration = $registration;
 
-            $registration->documents()->create([
+            $registration->document()->create([
                 'photo' => $this->photo->store('uploads/photos', 'public'),
                 'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),
                 'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards', 'public'),

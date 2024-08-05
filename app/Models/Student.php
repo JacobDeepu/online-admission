@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Student extends Model
 {
@@ -24,11 +25,13 @@ class Student extends Model
         'disability_details',
     ];
 
-    /**
-     * Get the parent_details for the student.
-     */
-    public function parent_details(): HasMany
+    public function parentDetails(): HasMany
     {
         return $this->hasMany(ParentDetail::class);
+    }
+
+    public function registration(): HasOne
+    {
+        return $this->hasOne(Registration::class);
     }
 }

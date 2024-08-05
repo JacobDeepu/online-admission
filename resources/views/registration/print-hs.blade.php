@@ -184,45 +184,45 @@
                             </tr>
                             <tr>
                                 <td>Name</td>
-                                <td>{{ $registration->student->parent_details[0]['name'] }}</td>
-                                <td>{{ $registration->student->parent_details[1]['name'] }}</td>
-                                <td>{{ $registration->student->parent_details[2]['name'] }}</td>
+                                <td>{{ $registration->student->parentDetails[0]['name'] }}</td>
+                                <td>{{ $registration->student->parentDetails[1]['name'] }}</td>
+                                <td>{{ $registration->student->parentDetails[2]['name'] }}</td>
                             </tr>
                             <tr>
                                 <td>Nationality</td>
-                                <td>{{ $registration->student->parent_details[0]['nationality'] }}</td>
-                                <td>{{ $registration->student->parent_details[1]['nationality'] }}</td>
-                                <td>{{ $registration->student->parent_details[2]['nationality'] }}</td>
+                                <td>{{ $registration->student->parentDetails[0]['nationality'] }}</td>
+                                <td>{{ $registration->student->parentDetails[1]['nationality'] }}</td>
+                                <td>{{ $registration->student->parentDetails[2]['nationality'] }}</td>
                             </tr>
                             <tr>
                                 <td>Edu.Qualification</td>
-                                <td>{{ $registration->student->parent_details[0]['qualification'] }}</td>
-                                <td>{{ $registration->student->parent_details[1]['qualification'] }}</td>
-                                <td>{{ $registration->student->parent_details[2]['qualification'] }}</td>
+                                <td>{{ $registration->student->parentDetails[0]['qualification'] }}</td>
+                                <td>{{ $registration->student->parentDetails[1]['qualification'] }}</td>
+                                <td>{{ $registration->student->parentDetails[2]['qualification'] }}</td>
                             </tr>
                             <tr>
                                 <td>Occupation</td>
-                                <td>{{ $registration->student->parent_details[0]['occupation'] }}</td>
-                                <td>{{ $registration->student->parent_details[1]['occupation'] }}</td>
-                                <td>{{ $registration->student->parent_details[2]['occupation'] }}</td>
+                                <td>{{ $registration->student->parentDetails[0]['occupation'] }}</td>
+                                <td>{{ $registration->student->parentDetails[1]['occupation'] }}</td>
+                                <td>{{ $registration->student->parentDetails[2]['occupation'] }}</td>
                             </tr>
                             <tr>
                                 <td>Annual Income</td>
-                                <td>{{ $registration->student->parent_details[0]['annual_income'] }}</td>
-                                <td>{{ $registration->student->parent_details[1]['annual_income'] }}</td>
-                                <td>{{ $registration->student->parent_details[2]['annual_income'] }}</td>
+                                <td>{{ $registration->student->parentDetails[0]['annual_income'] }}</td>
+                                <td>{{ $registration->student->parentDetails[1]['annual_income'] }}</td>
+                                <td>{{ $registration->student->parentDetails[2]['annual_income'] }}</td>
                             </tr>
                             <tr>
                                 <td>Mobile</td>
-                                <td>{{ $registration->student->parent_details[0]['mobile_number'] }}</td>
-                                <td>{{ $registration->student->parent_details[1]['mobile_number'] }}</td>
-                                <td>{{ $registration->student->parent_details[2]['mobile_number'] }}</td>
+                                <td>{{ $registration->student->parentDetails[0]['mobile_number'] }}</td>
+                                <td>{{ $registration->student->parentDetails[1]['mobile_number'] }}</td>
+                                <td>{{ $registration->student->parentDetails[2]['mobile_number'] }}</td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td>{{ $registration->student->parent_details[0]['email'] }}</td>
-                                <td>{{ $registration->student->parent_details[1]['email'] }}</td>
-                                <td>{{ $registration->student->parent_details[2]['email'] }}</td>
+                                <td>{{ $registration->student->parentDetails[0]['email'] }}</td>
+                                <td>{{ $registration->student->parentDetails[1]['email'] }}</td>
+                                <td>{{ $registration->student->parentDetails[2]['email'] }}</td>
                             </tr>
                         </table>
                     </td>
@@ -253,7 +253,7 @@
         </table>
         <table>
             <tr>
-                <td colspan="2">I <strong>{{ $registration->student->parent_details[0]['name'] }}</strong> solemnly declare that the above particulars about my child
+                <td colspan="2">I <strong>{{ $registration->student->parentDetails[0]['name'] }}</strong> solemnly declare that the above particulars about my child
                     <strong>{{ $registration->student->first_name }}
                         {{ $registration->student->last_name }}</strong> are true to the best of my knowledge. I
                     shall abide the rules and regulations of the school and agree that I shall remit the fees on time.

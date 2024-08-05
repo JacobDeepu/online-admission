@@ -42,7 +42,7 @@ class RegistrationController extends Controller
             'title' => 'Admission 2024-25',
             'registration' => $registration,
             'date_of_birth' => $date_of_birth,
-            'photo' => public_path('storage/'.$registration->documents->photo),
+            'photo' => public_path('storage/'.$registration->document->photo),
         ];
 
         $file = $registration->student->first_name.$registration->id.'.pdf';
@@ -55,7 +55,7 @@ class RegistrationController extends Controller
             PDF::loadView('registration.print-hss', $data)->save('storage/print/'.$file);
         }
 
-        Mail::to($registration->student->parent_details[0]['email'])
+        Mail::to($registration->student->parentDetails[0]['email'])
             ->send(new Admission($registration, $file));
 
         return redirect(asset('storage/print/'.$file));
