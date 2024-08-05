@@ -112,7 +112,7 @@
                 <div class="mt-0">
                     <x-select class="block w-full" name="student_form.disability" wire:model.live="student_form.disability"
                         label="{{ __('Learning Disability/Orthopedically Handicapped
-                                                                                                                                                                                                                    ') }}"
+                                                                                                                                                                                                                                                                    ') }}"
                         @mouseenter="addFocus">
                         <option value="No"> No </option>
                         <option value="Yes"> Yes </option>
@@ -334,46 +334,22 @@
                     <h6 class="text-sm font-medium text-white"> DOCUMENTS </h6>
                 </div>
                 <div class="mt-0">
-                    <label class="@error('photo') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="photo">Applicant Photo</label>
-                    <input
-                        class="@error('photo') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="photo" required />
+                    <x-input-file class="block w-full" name="photo" label="{{ __('Applicant Photo') }}" wire:model.blur="photo" required />
                 </div>
                 <div class="mt-0">
-                    <label class="@error('birth_certificate') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="birth_certificate">Applicant
-                        Birth Certificate</label>
-                    <input
-                        class="@error('birth_certificate') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="birth_certificate" required />
+                    <x-input-file class="block w-full" name="birth_certificate" label="{{ __('Birth Certificate') }}" wire:model.blur="birth_certificate" required />
                 </div>
                 <div class="mt-0">
-                    <label class="@error('aadhaar') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="aadhaar">Applicant Aadhaar Card</label>
-                    <input
-                        class="@error('aadhaar') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="aadhaar" required />
+                    <x-input-file class="block w-full" name="aadhaar" label="{{ __('Applicant Aadhaar Card') }}" wire:model.blur="aadhaar" required />
                 </div>
                 <div class="mt-0">
-                    <label class="@error('immunization') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="immunization">
-                        Immunization Certificate
-                    </label>
-                    <input
-                        class="@error('immunization') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="immunization" required />
+                    <x-input-file class="block w-full" name="immunization" label="{{ __('Immunization Certificate') }}" wire:model.blur="immunization" required />
                 </div>
                 <div class="mt-0">
-                    <label class="@error('mark_list') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="mark_list">
-                        Previous Exam Mark list
-                    </label>
-                    <input
-                        class="@error('mark_list') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="mark_list" />
+                    <x-input-file class="block w-full" name="mark_list" label="{{ __('Previous Exam Mark list') }}" wire:model.blur="mark_list" required />
                 </div>
                 <div class="mt-0">
-                    <label class="@error('tc') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="tc">
-                        Original TC
-                    </label>
-                    <input class="@error('tc') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="tc" />
+                    <x-input-file class="block w-full" name="tc" label="{{ __('Original TC') }}" wire:model.blur="tc" required />
                 </div>
                 <div class="mt-0 p-2">
                     <p class="text-sm font-medium text-red-600">Allowed File Formats pdf, jpg, png, jpeg.</p>

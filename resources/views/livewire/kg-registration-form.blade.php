@@ -321,39 +321,20 @@
                     <h6 class="text-sm font-medium text-white"> DOCUMENTS </h6>
                 </div>
                 <div class="mt-0">
-                    <label class="@error('photo') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="photo">Applicant Photo</label>
-                    <input
-                        class="@error('photo') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="photo" required />
+                    <x-input-file class="block w-full" name="photo" label="{{ __('Applicant Photo') }}" wire:model.blur="photo" required />
                 </div>
                 <div class="mt-0">
-                    <label class="@error('birth_certificate') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="birth_certificate">Applicant
-                        Birth Certificate</label>
-                    <input
-                        class="@error('birth_certificate') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="birth_certificate" required />
+                    <x-input-file class="block w-full" name="birth_certificate" label="{{ __('Birth Certificate') }}" wire:model.blur="birth_certificate" required />
                 </div>
                 <div class="mt-0">
-                    <label class="@error('aadhaar') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="aadhaar">Applicant Aadhaar Card</label>
-                    <input
-                        class="@error('aadhaar') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="aadhaar" required />
+                    <x-input-file class="block w-full" name="aadhaar" label="{{ __('Applicant Aadhaar Card') }}" wire:model.blur="aadhaar" required />
                 </div>
                 <div class="mt-0">
-                    <label class="@error('immunization') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="immunization">
-                        Immunization Certificate
-                    </label>
-                    <input
-                        class="@error('immunization') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="immunization" required />
+                    <x-input-file class="block w-full" name="immunization" label="{{ __('Immunization Certificate') }}" wire:model.blur="immunization" required />
                 </div>
                 <div class="mt-0 sm:col-span-2">
-                    <label class="@error('address_proof') text-red-500 @else text-gray-900 @enderror mb-2 block text-sm font-medium" for="address_proof">
-                        Address Proof (Aadhaar Card, Driving License, Voter ID of Parent)
-                    </label>
-                    <input
-                        class="@error('address_proof') border-red-600 @else border-gray-300 @enderror block w-full cursor-pointer rounded-lg border bg-gray-50 p-2.5 text-sm text-gray-900 focus:outline-none"
-                        type="file" wire:model.blur="address_proof" required />
+                    <x-input-file class="block w-full" name="address_proof" label="{{ __('Address Proof (Aadhaar Card, Driving License, Voter ID of Parent)') }}" wire:model.blur="address_proof"
+                        required />
                 </div>
                 <div class="mt-0 p-2">
                     <p class="text-sm font-medium text-red-600">Allowed File Formats pdf, jpg, png, jpeg.</p>
