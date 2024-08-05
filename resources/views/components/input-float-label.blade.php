@@ -3,12 +3,12 @@
     <input name="{{ $name }}" placeholder=" " {{ $disabled ? 'disabled' : '' }} @error($name)
         {!! $attributes->merge([
             'class' => 'border-1 px-2.5 pb-2.5 pt-4 border-red-600 bg-transparent appearance-none focus:border-red-600 focus:outline-none
-                                            focus:ring-0 rounded-md shadow-sm peer',
+                                                                    focus:ring-0 rounded-md shadow-sm peer',
         ]) !!}
         @else
         {!! $attributes->merge([
             'class' => 'border-1 px-2.5 pb-2.5 pt-4 border-gray-300 bg-transparent appearance-none focus:border-blue-600 focus:outline-none
-                                        focus:ring-0 rounded-md shadow-sm peer',
+                                                                focus:ring-0 rounded-md shadow-sm peer',
         ]) !!}
         @enderror />
     <label
@@ -20,3 +20,6 @@
         @endif
     </label>
 </div>
+@error($name)
+    <p class="text-sm text-red-600">{{ $message }}</p>
+@enderror
