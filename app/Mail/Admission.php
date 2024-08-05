@@ -20,9 +20,10 @@ class Admission extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($registration)
+    public function __construct($registration, $file)
     {
         $this->registration = $registration;
+        $this->file = $file;
     }
 
     /**
@@ -31,7 +32,7 @@ class Admission extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Admission Registration',
+            subject: 'Admission Application '.$this->registration->student->first_name,
         );
     }
 
@@ -41,13 +42,10 @@ class Admission extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'registration.print',
-            with: [
-                'title' => 'Admission 2024-25',
-                'date' => date('m/d/Y'),
-                'registration' => $this->registration,
-                'photo' => public_path('storage/'.$this->registration->photo),
-            ],
+            view: 'emails.new-registration',
+            with: ([
+                'student' => $this->registration->student,
+            ])
         );
     }
 
@@ -59,10 +57,7 @@ class Admission extends Mailable
     public function attachments(): array
     {
         return [
-            Attachment::fromPath(public_path('storage/'.$this->registration->birth_certificate)),
-            Attachment::fromPath(public_path('storage/'.$this->registration->aadhaar)),
-            Attachment::fromPath(public_path('storage/'.$this->registration->address_proof)),
-            // Attachment::fromPath(asset('public/storage/print/' . $this->file)),
+            Attachment::fromStorage('/public/print/'.$this->file),
         ];
     }
 }
