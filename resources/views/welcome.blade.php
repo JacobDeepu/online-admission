@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <div class="min-h-screen bg-gray-300 bg-hero-bg bg-cover bg-center bg-no-repeat">
+    <div class="min-h-screen bg-gray-300 bg-hero-bg bg-cover bg-center bg-no-repeat" x-data="{ retryPaymentModelOpen: false }">
         <header class="bg-white shadow">
             <div class="bg-blue-600">
                 <div class="mx-auto max-w-screen-xl px-4 py-3">
@@ -20,6 +20,11 @@
                     <a class="flex items-center" href="/">
                         <x-application-logo class="mr-3 block h-12 w-auto" />
                     </a>
+                    <button
+                        class="transform rounded-md bg-blue-800 px-3 py-2 text-sm capitalize tracking-wide text-white transition-colors duration-200 hover:bg-blue-600 focus:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+                        @click="retryPaymentModelOpen = true">
+                        Retry Payment
+                    </button>
                 </div>
             </nav>
         </header>
@@ -41,7 +46,8 @@
                 </div>
             </div>
         </main>
-
+        <!-- Retry Payment Model -->
+        @livewire('retry-payment')
         <!-- Instructions Model -->
         <div x-data="{ modelOpen: true }">
             <div class="fixed inset-0 z-50 overflow-y-auto" role="dialog" aria-labelledby="modal-title" aria-modal="true" x-show="modelOpen">

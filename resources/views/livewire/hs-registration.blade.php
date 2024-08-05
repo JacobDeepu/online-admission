@@ -430,7 +430,7 @@
                     {{ __('Next') }}
                 </x-secondary-button>
                 <x-secondary-button class="ml-4" x-show="currentTab === 4 && isSubmitted" wire:click="payment()">
-                    {{ __('Complete Payment') }}
+                    {{ __('Retry Payment') }}
                 </x-secondary-button>
                 <x-button class="ml-4" x-show="currentTab === 4 && !isSubmitted">
                     {{ __('Submit') }}
