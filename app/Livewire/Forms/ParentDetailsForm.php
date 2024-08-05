@@ -22,10 +22,10 @@ class ParentDetailsForm extends Form
     #[Validate('nullable|string|max:255')]
     public $father_annual_income = '';
 
-    #[Validate('required|numeric')]
+    #[Validate('required|numeric|digits_between:10,12|unique:parent_details,mobile_number')]
     public $father_mobile_number = '';
 
-    #[Validate('required|email')]
+    #[Validate('required|email|unique:parent_details,email')]
     public $father_email = '';
 
     #[Validate('required|string|max:255')]
