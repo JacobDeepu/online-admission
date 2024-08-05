@@ -8,7 +8,6 @@ use App\Livewire\Forms\PreviousSchoolForm;
 use App\Livewire\Forms\RegistrationForm;
 use App\Livewire\Forms\StudentForm;
 use App\Models\Documents;
-use App\Models\GroupChoice;
 use App\Services\PaymentService;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Validate;
@@ -36,7 +35,7 @@ class HssRegistration extends Component
     public $is_disabled = false;
 
     // Registration
-    public $registration_id;
+    public $registration;
 
     //Documents
     #[Validate('required|mimes:pdf,jpg,png,jpeg|max:1024')]
@@ -105,7 +104,7 @@ class HssRegistration extends Component
     public function payment()
     {
         $payData = [
-            'registration_id' => $this->registration_id,
+            'registration' => $this->registration,
             'amount' => 10,
             'prod_id' => config('payment.product_id'),
             'email' => $this->parentDetailsForm->father_email,
@@ -136,10 +135,9 @@ class HssRegistration extends Component
             $parentDetails = $this->parentDetailsForm->store($student);
             $registration = $this->registrationForm->store($student->id, $contact->id, 3);
 
-            $this->registration_id = $registration->id;
+            $this->registration = $registration;
 
-            Documents::create([
-                'registration_id' => $this->registration_id,
+            $registration->documents()->create([
                 'photo' => $this->photo->store('uploads/photos', 'public'),
                 'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),
                 'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards', 'public'),
@@ -148,8 +146,7 @@ class HssRegistration extends Component
                 'mark_list' => $this->mark_list ? $this->mark_list->store('uploads/marklist', 'public') : '',
             ]);
 
-            GroupChoice::create([
-                'registration_id' => $this->registration_id,
+            $registration->groupChoice()->create([
                 'choice_one' => $this->choice_one,
                 'choice_two' => $this->choice_two,
                 'choice_three' => $this->choice_three,

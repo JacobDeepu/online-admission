@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Models\Registration;
 use Exception;
 use Illuminate\Http\JsonResponse;
 
@@ -35,7 +34,7 @@ class PaymentService
 
     public function processPayment(array $data): JsonResponse
     {
-        $registration = Registration::find($data['registration_id']);
+        $registration = $data['registration'];
 
         $atomTokenId = $registration->transaction?->atom_token_id;
         if (is_null($atomTokenId)) {
@@ -57,7 +56,7 @@ class PaymentService
             'merchId' => $this->login,
             'custEmail' => $data['email'],
             'custMobile' => $data['mobile'],
-            'returnUrl' => route('transaction.response', $data['registration_id']),
+            'returnUrl' => route('transaction.response', $registration->id),
         ];
 
         return response()->json($responseData);

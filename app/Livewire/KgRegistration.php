@@ -30,7 +30,7 @@ class KgRegistration extends Component
     public $is_submitted = false;
 
     // Registration
-    public $registration_id;
+    public $registration;
 
     //Documents
     #[Validate('required|mimes:pdf,jpg,png,jpeg|max:1024')]
@@ -82,7 +82,7 @@ class KgRegistration extends Component
     public function payment()
     {
         $payData = [
-            'registration_id' => $this->registration_id,
+            'registration' => $this->registration,
             'amount' => 10,
             'prod_id' => config('payment.product_id'),
             'email' => $this->parentDetailsForm->father_email,
@@ -113,16 +113,15 @@ class KgRegistration extends Component
             $parentDetails = $this->parentDetailsForm->store($student);
             $registration = $this->registrationForm->store($student->id, $contact->id, 1);
 
-            $this->registration_id = $registration->id;
-
-            Documents::create([
-                'registration_id' => $this->registration_id,
+            $registration->documents()->create([
                 'photo' => $this->photo->store('uploads/photos', 'public'),
                 'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),
                 'aadhaar' => $this->aadhaar->store('uploads/aadhaar-cards', 'public'),
                 'address_proof' => $this->address_proof->store('uploads/address-proofs', 'public'),
                 'immunization' => $this->immunization->store('uploads/immunization-certs', 'public'),
             ]);
+
+            $this->registration = $registration;
 
             $registration->transaction()->create(['status' => 0]);
         });

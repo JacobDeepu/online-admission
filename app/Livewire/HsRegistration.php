@@ -35,7 +35,7 @@ class HsRegistration extends Component
     public $is_disabled = false;
 
     // Registration
-    public $registration_id;
+    public $registration;
 
     //Documents
     #[Validate('required|mimes:pdf,jpg,png,jpeg|max:1024')]
@@ -95,7 +95,7 @@ class HsRegistration extends Component
     public function payment()
     {
         $payData = [
-            'registration_id' => $this->registration_id,
+            'registration' => $this->registration,
             'amount' => 10,
             'prod_id' => config('payment.product_id'),
             'email' => $this->parentDetailsForm->father_email,
@@ -126,11 +126,11 @@ class HsRegistration extends Component
             $parentDetails = $this->parentDetailsForm->store($student);
             $registration = $this->registrationForm->store($student->id, $contact->id, 2);
 
-            $this->registration_id = $registration->id;
+            $this->registration = $registration;
 
-            $this->previous_school->store($this->registration_id);
+            $this->previous_school->store($this->registration);
 
-            Documents::create([
+            $registration->documents()->create([
                 'registration_id' => $this->registration_id,
                 'photo' => $this->photo->store('uploads/photos', 'public'),
                 'birth_certificate' => $this->birth_certificate->store('uploads/birth-certificates', 'public'),
