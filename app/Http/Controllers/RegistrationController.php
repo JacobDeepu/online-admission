@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Mail\Admission;
 use App\Models\Registration;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
 
 class RegistrationController extends Controller
@@ -15,9 +14,13 @@ class RegistrationController extends Controller
      */
     public function index()
     {
-        $registrations = Registration::whereHas('transaction', function (Builder $query) {
-            $query->where('status', 1);
-        })->latest();
+        $registrations = Registration::with('student')->latest();
+        if (request()->has('search')) {
+            $searchTerm = request()->input('search');
+            $registrations = $registrations->whereHas('student', function ($query) use ($searchTerm) {
+                $query->where('first_name', 'like', '%'.$searchTerm.'%');
+            });
+        }
         $registrations = $registrations->paginate(10);
 
         return view('registration.index', compact('registrations'));
