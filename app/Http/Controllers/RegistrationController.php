@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\Admission;
 use App\Models\Registration;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Mail;
 
 class RegistrationController extends Controller
@@ -62,5 +63,54 @@ class RegistrationController extends Controller
             ->send(new Admission($registration, $file));
 
         return redirect(asset('storage/print/'.$file));
+    }
+
+    public function getData(): JsonResponse
+    {
+        $cacheKey = 'chart_data_'.now()->format('Y-m');
+        $cacheDuration = now()->addMinutes(30);
+
+        return cache()->remember($cacheKey, $cacheDuration, function () {
+            $pending = Registration::whereHas('transaction', function ($query) {
+                $query->where('status', 0);
+            })->count();
+            $paid = Registration::whereHas('transaction', function ($query) {
+                $query->where('status', 1);
+            })->count();
+
+            $currentMonth = now()->format('Y-m');
+            $registrations = Registration::selectRaw('DATE(created_at) as date, COUNT(*) as count')
+                ->where('created_at', 'like', "$currentMonth%")
+                ->groupBy('date')
+                ->get();
+
+            $today = now()->format('Y-m-d');
+            $paidToday = Registration::whereDate('created_at', $today)
+                ->whereHas('transaction', function ($query) {
+                    $query->where('status', 1);
+                })
+                ->count();
+
+            $pendingToday = Registration::whereDate('created_at', $today)
+                ->whereHas('transaction', function ($query) {
+                    $query->where('status', 0);
+                })
+                ->count();
+
+            $registrationData = [
+                'total' => $pending + $paid,
+                'pending' => $pending,
+                'paid' => $paid,
+                'dates' => $registrations->pluck('date'),
+                'counts' => $registrations->pluck('count'),
+                'countToday' => $pendingToday + $paidToday,
+                'paidToday' => $paidToday,
+                'pendingToday' => $pendingToday,
+            ];
+
+            return response()->json([
+                'registrations' => $registrationData,
+            ]);
+        });
     }
 }

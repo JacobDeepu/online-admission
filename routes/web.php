@@ -43,5 +43,7 @@ Route::middleware([
         ->only([
             'index', 'show',
         ]);
+
+    Route::get('/registrations/data/', [RegistrationController::class, 'getData']);
 });
 Route::get('/export-pdf/{registration}', [RegistrationController::class, 'exportPDF'])->name('export');
